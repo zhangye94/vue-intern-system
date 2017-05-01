@@ -56,6 +56,22 @@
               </el-form-item>
             </el-col>
           </el-form-item>
+          <div class="score-percent-form">
+            <h2>校内外教师评分比例分配</h2>
+            <el-form-item label="校内教师" required>
+              <el-col :span="9">
+                <el-form-item prop="internTeacherPercent">
+                  <el-input v-model="form.internTeacherPercent"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col class="line" :span="4"><div>校外教师</div></el-col>
+              <el-col :span="10">
+                <el-form-item prop="externalTeacherPercent">
+                  <el-input v-model="form.externalTeacherPercent" :disabled="true"></el-input>
+                </el-form-item>
+              </el-col>
+            </el-form-item>
+          </div>
           <el-form-item label="实习目标" prop="target">
             <el-input type="textarea" v-model="form.target" class="add-form-textarea"></el-input>
           </el-form-item>
@@ -77,8 +93,10 @@
 </template>
 
 <script>
+  import ElFormItem from "../../../node_modules/element-ui/packages/form/src/form-item";
   export default {
     components: {
+      ElFormItem
     },
     created: function () {
     },
@@ -131,6 +149,8 @@
           term: '',
           schoolYearValue: '',
           gradeValue: '',
+          internTeacherPercent: 100,
+          externalTeacherPercent: 0,
         },
         rules: {
           name: [
@@ -197,6 +217,8 @@
                 term: '',
                 schoolYearValue: '',
                 gradeValue: '',
+                internTeacherPercent: 100,
+                externalTeacherPercent: 0
               };
             }, (err) => {
               this.$message({
@@ -221,6 +243,11 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       }
+    },
+    watch: {
+      'form.internTeacherPercent': function (val, oldVal) {
+        this.form.externalTeacherPercent = 100 - this.form.internTeacherPercent;
+      },
     }
   }
 </script>
@@ -257,6 +284,15 @@
     .add-form-textarea{
       textarea{
         height: 100px;
+      }
+    }
+    .score-percent-form{
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      h2{
+        padding: 20px;
+        font-weight: bold;
       }
     }
   }

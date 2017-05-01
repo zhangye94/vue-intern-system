@@ -74,7 +74,7 @@
           </el-table-column>
           <el-table-column
             prop="studentName"
-            label="学生名称"
+            label="姓名"
             sortable
             min-width="120">
           </el-table-column>
