@@ -1,10 +1,14 @@
-# internmanagement
+# vue-intern-system
 
-> A Vue.js project
+> A FE project(vue.js + vue-router + vue-resource + vuex + element + mockData)
 
 ## Build Setup
 
 ``` bash
+# need node.js
+"node": ">= 4.0.0"
+"npm": ">= 3.0.0"
+
 # install dependencies
 npm install
 
@@ -17,5 +21,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
