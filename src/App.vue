@@ -39,7 +39,7 @@
       </keep-alive>
     </div>
     <div class="app-foot">
-      <p>Copyright © 2013-2014 广州市德慷电子有限公司技术支持</p>
+      <p>Copyright © 2017-2020 北京理工大学计算机软件实验室提供技术支持</p>
     </div>
   </div>
 </template>

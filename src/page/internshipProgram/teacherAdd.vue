@@ -54,6 +54,7 @@
     components: {
     },
     created: function () {
+      //读取编辑信息
       this.$http.post('api/internshipProgram/read',{
         code: this.$route.query.code,
         type: "teacher"
@@ -83,6 +84,42 @@
           content: ''
         };
       });
+      //读取实习列表信息
+      this.$http.post('api/internshipProgram/internList',{
+      })
+      .then((res) => {
+        this.$message({
+          message: '读取成功',
+          type: 'info',
+          duration: 1500,
+          showClose: true
+        });
+      }, (err) => {
+        this.$message({
+          message: '读取实习列表失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+
+        //测试数据
+        this.setting.internshipListOptions = [{
+          value: '选项1',
+          label: '片儿川'
+        }, {
+          value: '选项2',
+          label: '虾爆鳝面'
+        }, {
+          value: '选项3',
+          label: '葱油拌面'
+        }, {
+          value: '选项4',
+          label: '蟹粉小笼包'
+        }, {
+          value: '选项5',
+          label: '鹅肝'
+        }];
+      });
     },
     data () {
       return {
@@ -91,22 +128,7 @@
             code: this.$route.query.code || ''
         },
         setting: {
-          internshipListOptions: [{
-            value: '选项1',
-            label: '片儿川'
-          }, {
-            value: '选项2',
-            label: '虾爆鳝面'
-          }, {
-            value: '选项3',
-            label: '葱油拌面'
-          }, {
-            value: '选项4',
-            label: '蟹粉小笼包'
-          }, {
-            value: '选项5',
-            label: '鹅肝'
-          }],
+          internshipListOptions: []
         },
         form: {
           name: '',
