@@ -64,43 +64,65 @@
     components: {
     },
     created: function () {
+      //读取编辑信息
+      this.$http.post('api/internshipProgram/read',{
+        code: this.$route.query.code,
+        type: "student"
+      })
+      .then((res) => {
+        if(res.data.form.code) {
+          this.$message({
+            message: '读取成功',
+            type: 'info',
+            duration: 1500,
+            showClose: true
+          });
+        }
+        this.form = res.data.form;
+      }, (err) => {
+        if(res.data.form.code) {
+          this.$message({
+            message: '读取失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        }
+      });
+      //读取实习列表信息
+      this.$http.post('api/internshipProgram/internList',{})
+      .then((res) => {
+        this.setting.internshipListOptions = res.data.internList;
+      }, (err) => {
+        this.$message({
+          message: '读取实习列表失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
+      //读取实习年级列表信息
+      this.$http.post('api/internshipProgram/gradeList',{})
+      .then((res) => {
+        this.setting.grade = res.data.gradeList;
+      }, (err) => {
+        this.$message({
+          message: '读取实习年级列表失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
     },
     data () {
       return {
         activeIndex: 'index',
+        query: {
+          code: this.$route.query.code || ''
+        },
         setting: {
-          internshipListOptions: [{
-            value: '选项1',
-            label: '片儿川'
-          }, {
-            value: '选项2',
-            label: '虾爆鳝面'
-          }, {
-            value: '选项3',
-            label: '葱油拌面'
-          }, {
-            value: '选项4',
-            label: '蟹粉小笼包'
-          }, {
-            value: '选项5',
-            label: '鹅肝'
-          }],
-          grade: [{
-            value: '2018',
-            label: '2018'
-          }, {
-            value: '2017',
-            label: '2017'
-          }, {
-            value: '2016',
-            label: '2016'
-          }, {
-            value: '2015',
-            label: '2015'
-          }, {
-            value: '2014',
-            label: '2014'
-          }],
+          internshipListOptions: [],
+          grade: [],
         },
         form: {
           name: '',
@@ -144,7 +166,8 @@
             console.log(this.form);
             this.$http.post('api/internshipProgram/add',{
               form: this.form,
-              type: "student"
+              type: "student",
+              code: this.query.code
             })
             .then((res) => {
               this.$message({
@@ -187,6 +210,37 @@
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.query.code = to.query.code;
+        if(to.path === "/internshipProgram/studentAdd"){
+          this.$http.post('api/internshipProgram/read',{
+            code: to.query.code,
+            type: "student"
+          })
+          .then((res) => {
+            if(res.data.form.code){
+              this.$message({
+                message: '读取成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
+              });
+            }
+            this.form = res.data.form;
+          }, (err) => {
+            if(res.data.form.code) {
+              this.$message({
+                message: '读取失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            }
+          });
+        }
       }
     }
   }

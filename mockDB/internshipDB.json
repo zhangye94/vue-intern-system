@@ -1,0 +1,118 @@
+{
+  "gradeList": [{
+     "value": "2018",
+     "label": "2018"
+   }, {
+     "value": "2017",
+     "label": "2017"
+   }, {
+     "value": "2016",
+     "label": "2016"
+   }, {
+     "value": "2015",
+     "label": "2015"
+   }, {
+     "value": "2014",
+     "label": "2014"
+   }],
+  "internList": [{
+    "value": "选项1",
+    "label": "片儿川"
+  }, {
+    "value": "选项2",
+    "label": "虾爆鳝面"
+  }, {
+    "value": "选项3",
+    "label": "葱油拌面"
+  }, {
+    "value": "选项4",
+    "label": "蟹粉小笼包"
+  }, {
+    "value": "选项5",
+    "label": "鹅肝"
+  }],
+  "schoolYear": [{
+    "value": "2017-2018",
+    "label": "2017-2018"
+  }, {
+    "value": "2016-2017",
+    "label": "2016-2017"
+  }, {
+    "value": "2015-2016",
+    "label": "2015-2016"
+  }, {
+    "value": "2014-2015",
+    "label": "2014-2015"
+  }, {
+    "value": "2013-2014",
+    "label": "2013-2014"
+  }],
+  "teacherQuery": {
+    "name": "测试成功",
+    "code": "00X",
+    "teacherType": "",
+    "teacherAttribute": "",
+    "internshipList": [],
+    "content": ""
+  },
+  "internshipQuery": {
+    "name": "测试成功",
+    "code": "00X",
+    "org": "",
+    "date1": "",
+    "date2": "",
+    "target": "",
+    "requirement": "",
+    "content": "",
+    "term": "",
+    "schoolYearValue": "",
+    "gradeValue": "",
+    "internTeacherPercent": 100,
+    "externalTeacherPercent": 0
+  },
+  "studentQuery": {
+    "name": "测试成功",
+    "code": "00X",
+    "major": "",
+    "class": "",
+    "gradeValue": "",
+    "telephone": "",
+    "position": "",
+    "internshipList": [],
+    "content": ""
+  },
+  "teacherEmptyQuery": {
+    "name": "",
+    "code": "",
+    "teacherType": "",
+    "teacherAttribute": "",
+    "internshipList": [],
+    "content": ""
+  },
+  "internshipEmptyQuery": {
+    "name": "",
+    "code": "",
+    "org": "",
+    "date1": "",
+    "date2": "",
+    "target": "",
+    "requirement": "",
+    "content": "",
+    "term": "",
+    "schoolYearValue": "",
+    "gradeValue": "",
+    "internTeacherPercent": 100,
+    "externalTeacherPercent": 0
+  },
+  "studentEmptyQuery": {
+    "name": "",
+    "code": "",
+    "major": "",
+    "class": "",
+    "gradeValue": "",
+    "telephone": "",
+    "position": "",
+    "internshipList": [],
+    "content": ""
+  }
+}

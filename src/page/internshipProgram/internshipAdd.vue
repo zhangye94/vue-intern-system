@@ -99,43 +99,65 @@
       ElFormItem
     },
     created: function () {
+      //读取编辑信息
+      this.$http.post('api/internshipProgram/read',{
+        code: this.$route.query.code,
+        type: "internship"
+      })
+      .then((res) => {
+        if(res.data.form.code) {
+          this.$message({
+            message: '读取成功',
+            type: 'info',
+            duration: 1500,
+            showClose: true
+          });
+        }
+        this.form = res.data.form;
+      }, (err) => {
+        if(res.data.form.code) {
+          this.$message({
+            message: '读取失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        }
+      });
+      //读取实习年级列表信息
+      this.$http.post('api/internshipProgram/gradeList',{})
+      .then((res) => {
+        this.setting.grade = res.data.gradeList;
+      }, (err) => {
+        this.$message({
+          message: '读取实习年级列表失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
+      //读取学年列表信息
+      this.$http.post('api/internshipProgram/schoolYear',{})
+      .then((res) => {
+          this.setting.schoolYear = res.data.schoolYear;
+      }, (err) => {
+        this.$message({
+          message: '读取学年列表失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
     },
     data () {
       return {
         activeIndex: 'index',
+        query: {
+          code: this.$route.query.code || ''
+        },
         setting: {
-          schoolYear: [{
-            value: '2017-2018',
-            label: '2017-2018'
-          }, {
-            value: '2016-2017',
-            label: '2016-2017'
-          }, {
-            value: '2015-2016',
-            label: '2015-2016'
-          }, {
-            value: '2014-2015',
-            label: '2014-2015'
-          }, {
-            value: '2013-2014',
-            label: '2013-2014'
-          }],
-          grade: [{
-            value: '2018',
-            label: '2018'
-          }, {
-            value: '2017',
-            label: '2017'
-          }, {
-            value: '2016',
-            label: '2016'
-          }, {
-            value: '2015',
-            label: '2015'
-          }, {
-            value: '2014',
-            label: '2014'
-          }],
+          schoolYear: [],
+          grade: [],
         },
         form: {
           name: '',
@@ -198,7 +220,8 @@
             console.log(this.form);
             this.$http.post('api/internshipProgram/add',{
               form: this.form,
-              type: "internship"
+              type: "internship",
+              code: this.query.code
             })
             .then((res) => {
             this.$message({
@@ -251,6 +274,35 @@
       'form.internTeacherPercent': function (val, oldVal) {
         this.form.externalTeacherPercent = 100 - this.form.internTeacherPercent;
       },
+      '$route' (to, from) {
+        this.query.code = to.query.code;
+        if(to.path === "/internshipProgram/internshipAdd"){
+          this.$http.post('api/internshipProgram/read',{
+            code: to.query.code,
+            type: "internship"
+          })
+            .then((res) => {
+              if(res.data.form.code) {
+                this.$message({
+                  message: '读取成功',
+                  type: 'info',
+                  duration: 1500,
+                  showClose: true
+                });
+              }
+              this.form = res.data.form;
+            }, (err) => {
+              if(res.data.form.code) {
+                this.$message({
+                  message: '读取失败，请检查网络环境！',
+                  type: 'error',
+                  duration: 1500,
+                  showClose: true
+                });
+              }
+            });
+        }
+      }
     }
   }
 </script>

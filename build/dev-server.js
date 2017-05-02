@@ -62,29 +62,91 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-var apiServer = express()
-var bodyParser = require('body-parser')
-apiServer.use(bodyParser.urlencoded({ extended: true }))
-apiServer.use(bodyParser.json())
-var apiRouter = express.Router()
-var fs = require('fs')
-apiRouter.route('/:apiName')
-.all(function (req, res) {
-  fs.readFile('./db.json', 'utf8', function (err, data) {
-    if (err) throw err
-    var data = JSON.parse(data)
-    if (data[req.params.apiName]) {
-      res.json(data[req.params.apiName])
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
+var internshipProgram = require("../mockDB/internshipDB.json");
+var apiRouter = express.Router();
+
+//实习安排
+//年级列表
+apiRouter.post('/internshipProgram/gradeList',function(req,res){
+  res.json({
+    gradeList: internshipProgram.gradeList
+  });
+});
+//实习列表
+apiRouter.post('/internshipProgram/internList',function(req,res){
+  res.json({
+    internList: internshipProgram.internList
+  });
+});
+//学年列表
+apiRouter.post('/internshipProgram/schoolYear',function(req,res){
+  res.json({
+    schoolYear: internshipProgram.schoolYear
+  });
+});
+//查询
+apiRouter.post('/internshipProgram/read',function(req,res){
+  var type = req.body.type;
+  var code = req.body.code;
+  if(code){
+    if(type === 'teacher'){
+      res.json({
+        form: internshipProgram.teacherQuery
+      });
+    }else if(type === 'internship'){
+      res.json({
+        form: internshipProgram.internshipQuery
+      });
+    }else if(type === 'student'){
+      res.json({
+        form: internshipProgram.studentQuery
+      });
     }
-    else {
-      res.send('no such api name')
+  }else{
+    if(type === 'teacher'){
+      res.json({
+        form: internshipProgram.teacherEmptyQuery
+      });
+    }else if(type === 'internship'){
+      res.json({
+        form: internshipProgram.internshipEmptyQuery
+      });
+    }else if(type === 'student'){
+      res.json({
+        form: internshipProgram.studentEmptyQuery
+      });
     }
+  }
+});
+app.use('/api', apiRouter);
 
-  })
-})
+// var apiRouter = express.Router()
+// var fs = require('fs')
+// apiRouter.route('/:apiName')
+// .all(function (req, res) {
+//   fs.readFile('./db.json', 'utf8', function (err, data) {
+//     if (err) throw err
+//     var data = JSON.parse(data)
+//     if (data[req.params.apiName]) {
+//       res.json(data[req.params.apiName])
+//     }
+//     else {
+//       res.send('no such api name')
+//     }
+//
+//   })
+// })
+//
+//
+// apiServer.use('/api', apiRouter);
 
 
-apiServer.use('/api', apiRouter);
 
 
 var uri = 'http://localhost:' + port

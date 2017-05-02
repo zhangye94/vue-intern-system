@@ -176,7 +176,6 @@
       },
       //表格方法
       handleEdit(index, row) {
-        console.log(row);
       },
       handleDelete(index, row) {
         this.$http.post('api/internshipProgram/delete',{
