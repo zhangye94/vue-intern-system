@@ -59,9 +59,10 @@
         >
           <el-table-column label="操作" width="118">
             <template scope="scope">
+              <router-link :to="{ path: 'teacherAdd', query: { code: scope.row.code }}">
               <el-button
                 size="small"
-                @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"
@@ -69,7 +70,7 @@
             </template>
           </el-table-column>
           <el-table-column
-            prop="teacherCode"
+            prop="code"
             label="教工号"
             sortable
             width="120">
@@ -120,29 +121,30 @@
       return {
         searchContent: '',
         dialogVisible: false,
+        fileList: [],
         tableData: [{
-          teacherCode: '001',
+          code: '001',
           tearcherName: 'B联合创始人',
           internName: '搬砖实习',
           teacherType: '校内',
           studentNum: '10',
           teacherAttribute: '专职',
         }, {
-          teacherCode: '002',
+          code: '002',
           tearcherName: 'T联合创始人',
           internName: '搬砖实习2',
           teacherType: '校外',
           studentNum: '11',
           teacherAttribute: '专职',
         }, {
-          teacherCode: '003',
+          code: '003',
           tearcherName: 'A联合创始人',
           internName: '搬砖实习3',
           teacherType: '校外',
           studentNum: '14',
           teacherAttribute: '兼职',
         }, {
-          teacherCode: '004',
+          code: '004',
           tearcherName: 'M联合创始人',
           internName: '搬砖实习',
           teacherType: '校内',
@@ -188,10 +190,27 @@
       },
       //表格方法
       handleEdit(index, row) {
-        console.log(index, row);
       },
       handleDelete(index, row) {
-        console.log(index, row);
+        this.$http.post('api/internshipProgram/delete',{
+            code:row.code,
+            type: "teacher"
+        })
+        .then((res) => {
+          this.$message({
+            message: '删除实习成功',
+            type: 'info',
+            duration: 1500,
+            showClose: true
+          });
+        }, (err) => {
+          this.$message({
+            message: '删除实习失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
       }
 
     }

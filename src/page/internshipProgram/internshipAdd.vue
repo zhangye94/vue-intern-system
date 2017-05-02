@@ -196,30 +196,33 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             console.log(this.form);
-            this.$http.post('api/internshipProgram/internshipAdd',{internshipFormData:this.form})
+            this.$http.post('api/internshipProgram/add',{
+              form: this.form,
+              type: "internship"
+            })
             .then((res) => {
-              this.$message({
-                message: '创建成功',
-                type: 'info',
-                duration: 1500,
-                showClose: true
-              });
-              //清空表单，方便继续创建
-              form = {
-                name: '',
-                code: '',
-                org: '',
-                date1: '',
-                date2: '',
-                target: '',
-                requirement: '',
-                content: '',
-                term: '',
-                schoolYearValue: '',
-                gradeValue: '',
-                internTeacherPercent: 100,
-                externalTeacherPercent: 0
-              };
+            this.$message({
+              message: '创建成功',
+              type: 'info',
+              duration: 1500,
+              showClose: true
+            });
+            //清空表单，方便继续创建
+            form = {
+              name: '',
+              code: '',
+              org: '',
+              date1: '',
+              date2: '',
+              target: '',
+              requirement: '',
+              content: '',
+              term: '',
+              schoolYearValue: '',
+              gradeValue: '',
+              internTeacherPercent: 100,
+              externalTeacherPercent: 0
+            };
             }, (err) => {
               this.$message({
                 message: '新建实习失败，请检查网络环境！',

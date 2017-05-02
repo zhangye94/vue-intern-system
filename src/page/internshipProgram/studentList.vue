@@ -57,9 +57,10 @@
         >
           <el-table-column label="操作" width="118">
             <template scope="scope">
+              <router-link :to="{ path: 'studentAdd', query: { code: scope.row.code }}">
               <el-button
                 size="small"
-                @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"
@@ -130,6 +131,7 @@
           }],
         },
         ifIntern: [],
+        fileList: [],
         searchContent: '',
         dialogVisible: false,
         tableData: [{
@@ -181,12 +183,28 @@
       },
       //表格方法
       handleEdit(index, row) {
-        console.log(index, row);
       },
       handleDelete(index, row) {
-        console.log(index, row);
+        this.$http.post('api/internshipProgram/delete',{
+            code:row.code,
+            type: "student"
+        })
+        .then((res) => {
+          this.$message({
+            message: '删除学生成功',
+            type: 'info',
+            duration: 1500,
+            showClose: true
+          });
+        }, (err) => {
+          this.$message({
+            message: '删除学生失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
       }
-
     }
   }
 </script>

@@ -54,10 +54,42 @@
     components: {
     },
     created: function () {
+      this.$http.post('api/internshipProgram/read',{
+        code: this.$route.query.code,
+        type: "teacher"
+      })
+      .then((res) => {
+        this.$message({
+          message: '读取成功',
+          type: 'info',
+          duration: 1500,
+          showClose: true
+        });
+      }, (err) => {
+        this.$message({
+          message: '读取失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+
+        //测试数据
+        this.form = {
+          name: '测试成功',
+          code: this.$route.query.code,
+          teacherType: '',
+          teacherAttribute: '',
+          internshipList: [],
+          content: ''
+        };
+      });
     },
     data () {
       return {
         activeIndex: 'index',
+        query: {
+            code: this.$route.query.code || ''
+        },
         setting: {
           internshipListOptions: [{
             value: '选项1',
@@ -105,32 +137,35 @@
       onSubmit(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.form);
-            this.$http.post('api/internshipProgram/teacherAdd',{teacherFormData:this.form})
-              .then((res) => {
-                this.$message({
-                  message: '创建成功',
-                  type: 'info',
-                  duration: 1500,
-                  showClose: true
-                });
-                //清空表单，方便继续创建
-                form = {
-                  name: '',
-                  code: '',
-                  teacherType: '',
-                  teacherAttribute: '',
-                  internshipList: [],
-                  content: ''
-                };
-              }, (err) => {
-                this.$message({
-                  message: '新建教师失败，请检查网络环境！',
-                  type: 'error',
-                  duration: 1500,
-                  showClose: true
-                });
+            this.$http.post('api/internshipProgram/add',{
+              form: this.form,
+              type: "teacher",
+              code: this.query.code
+            })
+            .then((res) => {
+              this.$message({
+                message: '创建成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
               });
+              //清空表单，方便继续创建
+              form = {
+                name: '',
+                code: '',
+                teacherType: '',
+                teacherAttribute: '',
+                internshipList: [],
+                content: ''
+              };
+            }, (err) => {
+              this.$message({
+                message: '新建教师失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            });
           } else {
             this.$message({
               message: '请完整填写表单',
@@ -145,6 +180,52 @@
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.query.code = to.query.code;
+        if(to.path === "/internshipProgram/teacherAdd"){
+          this.$http.post('api/internshipProgram/read',{
+            code: to.query.code,
+            type: "teacher"
+          })
+          .then((res) => {
+            this.$message({
+              message: '读取成功',
+              type: 'info',
+              duration: 1500,
+              showClose: true
+            });
+          }, (err) => {
+            this.$message({
+              message: '读取失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+            if(to.query.code){
+              //测试数据
+              this.form = {
+                name: '测试成功',
+                code: to.query.code,
+                teacherType: '',
+                teacherAttribute: '',
+                internshipList: [],
+                content: ''
+              };
+            }else{
+              this.form = {
+                name: '',
+                code: '',
+                teacherType: '',
+                teacherAttribute: '',
+                internshipList: [],
+                content: ''
+              };
+            }
+          });
+        }
       }
     }
   }

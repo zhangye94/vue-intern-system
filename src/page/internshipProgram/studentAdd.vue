@@ -85,6 +85,22 @@
             value: '选项5',
             label: '鹅肝'
           }],
+          grade: [{
+            value: '2018',
+            label: '2018'
+          }, {
+            value: '2017',
+            label: '2017'
+          }, {
+            value: '2016',
+            label: '2016'
+          }, {
+            value: '2015',
+            label: '2015'
+          }, {
+            value: '2014',
+            label: '2014'
+          }],
         },
         form: {
           name: '',
@@ -110,7 +126,7 @@
           ],
           telephone: [
             { required: true, message: '请输入电话号码', trigger: 'blur' },
-            { type: 'number', min: 11, max: 11, message: '请输入11位手机号', trigger: 'blur' }
+            { min: 11, max: 11, message: '请输入11位手机号', trigger: 'blur' }
           ],
           class: [
             { required: true, message: '请输入班级', trigger: 'blur' }
@@ -126,34 +142,37 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             console.log(this.form);
-            this.$http.post('api/internshipProgram/studentAdd',{studentFormData:this.form})
-              .then((res) => {
-                this.$message({
-                  message: '创建成功',
-                  type: 'info',
-                  duration: 1500,
-                  showClose: true
-                });
-                //清空表单，方便继续创建
-                form = {
-                  name: '',
-                  code: '',
-                  major: '',
-                  class: '',
-                  gradeValue: '',
-                  telephone: '',
-                  position: '',
-                  internshipList: [],
-                  content: ''
-                };
-              }, (err) => {
-                this.$message({
-                  message: '新建学生失败，请检查网络环境！',
-                  type: 'error',
-                  duration: 1500,
-                  showClose: true
-                });
+            this.$http.post('api/internshipProgram/add',{
+              form: this.form,
+              type: "student"
+            })
+            .then((res) => {
+              this.$message({
+                message: '创建成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
               });
+              //清空表单，方便继续创建
+              form = {
+                name: '',
+                code: '',
+                major: '',
+                class: '',
+                gradeValue: '',
+                telephone: '',
+                position: '',
+                internshipList: [],
+                content: ''
+              };
+            }, (err) => {
+              this.$message({
+                message: '新建学生失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            });
           } else {
             this.$message({
               message: '请完整填写表单',
