@@ -124,6 +124,23 @@ apiRouter.post('/internshipProgram/read',function(req,res){
     }
   }
 });
+//表格数据渲染
+apiRouter.post('/internshipProgram/tableData',function(req,res){
+  var type = req.body.type;
+  if(type === 'teacher'){
+    res.json({
+      form: internshipProgram.teacherData
+    });
+  }else if(type === 'internship'){
+    res.json({
+      form: internshipProgram.internshipData
+    });
+  }else if(type === 'student'){
+    res.json({
+      form: internshipProgram.studentData
+    });
+  }
+});
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()

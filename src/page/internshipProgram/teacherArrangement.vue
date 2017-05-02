@@ -23,7 +23,7 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <el-button type="primary" icon="search">查询</el-button>
+      <el-button type="primary" icon="search" @click="query">查询</el-button>
     </div>
     <div class="content">
       <div class="content-title">
@@ -116,41 +116,26 @@
     components: {
     },
     created: function () {
+      this.$http.post('api/internshipProgram/tableData',{
+        type: "teacher",
+      })
+      .then((res) => {
+        this.tableData = res.data.form;
+      }, (err) => {
+        this.$message({
+          message: '读取教师信息失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
     },
     data () {
       return {
         searchContent: '',
         dialogVisible: false,
         fileList: [],
-        tableData: [{
-          code: '001',
-          tearcherName: 'B联合创始人',
-          internName: '搬砖实习',
-          teacherType: '校内',
-          studentNum: '10',
-          teacherAttribute: '专职',
-        }, {
-          code: '002',
-          tearcherName: 'T联合创始人',
-          internName: '搬砖实习2',
-          teacherType: '校外',
-          studentNum: '11',
-          teacherAttribute: '专职',
-        }, {
-          code: '003',
-          tearcherName: 'A联合创始人',
-          internName: '搬砖实习3',
-          teacherType: '校外',
-          studentNum: '14',
-          teacherAttribute: '兼职',
-        }, {
-          code: '004',
-          tearcherName: 'M联合创始人',
-          internName: '搬砖实习',
-          teacherType: '校内',
-          studentNum: '22',
-          teacherAttribute: '专职',
-        }],
+        tableData: [],
         teacherTypeOptions: [{
           value: '选项1',
           label: '校内教师'
@@ -172,7 +157,38 @@
     methods: {
       //模态窗方法
       handleIconClick(ev) {
-        console.log(ev);
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "teacher",
+          searchContent: this.searchContent,
+        })
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取教师信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
+      },
+      query(ev){
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "teacher",
+          teacherAttributeSelect: this.teacherAttributeSelect,
+          searchContent: this.searchContent,
+          teacherTypeSelect: this.teacherTypeSelect
+        })
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取教师信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
       },
       handleClose(done) {
         this.$confirm('确认关闭？')

@@ -5,13 +5,13 @@
         placeholder="请输入学生名称、学号"
         icon="search"
         v-model="searchContent"
-        :on-icon-click="handleIconClick">
+        :on-icon-click="handleSearchContentClick">
       </el-input>
       <el-input
         placeholder="请输入实习名称"
         icon="search"
-        v-model="searchContent"
-        :on-icon-click="handleIconClick">
+        v-model="searchIntern"
+        :on-icon-click="handleSearchInternClick">
       </el-input>
       <el-select v-model="ifIntern" multiple placeholder="请选择">
         <el-option
@@ -21,7 +21,7 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <el-button type="primary" icon="search">查询</el-button>
+      <el-button type="primary" icon="search" @click="query">查询</el-button>
     </div>
     <div class="content">
       <div class="content-title">
@@ -118,6 +118,19 @@
     components: {
     },
     created: function () {
+      this.$http.post('api/internshipProgram/tableData',{
+        type: "student"
+      })
+      .then((res) => {
+        this.tableData = res.data.form;
+      }, (err) => {
+        this.$message({
+          message: '读取学生信息失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
     },
     data () {
       return {
@@ -133,39 +146,62 @@
         ifIntern: [],
         fileList: [],
         searchContent: '',
+        searchIntern: '',
         dialogVisible: false,
-        tableData: [{
-          code: '001',
-          studentName: '张三',
-          gender: '男',
-          grade: '2016级',
-          telephone: '133xxxxxxxx',
-          jobs: '京东（送快递）',
-          internName: '未安排',
-        },{
-          code: '002',
-          studentName: '李四',
-          gender: '女',
-          grade: '2018级',
-          telephone: '133xxxxxxxx',
-          jobs: '美团（送外卖）',
-          internName: '未安排',
-        },{
-          code: '003',
-          studentName: '老王',
-          gender: '男',
-          grade: '2012级',
-          telephone: '133xxxxxxxx',
-          jobs: '世界五百强（沃尔玛搬仓库）',
-          internName: '未安排',
-        },
-        ]
+        tableData: []
       }
     },
     methods: {
-      //模态窗方法
-      handleIconClick(ev) {
-        console.log(ev);
+      //搜索
+      handleSearchContentClick(ev) {
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "student",
+          searchContent: this.searchContent,
+        })
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取学生信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
+      },
+      handleSearchInternClick(ev) {
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "student",
+          searchIntern: this.searchIntern,
+        })
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取学生信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
+      },
+      query(ev){
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "student",
+          searchIntern: this.searchIntern,
+          searchContent: this.searchContent,
+          ifIntern: this.ifIntern
+        })
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取学生信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
       },
       handleClose(done) {
         this.$confirm('确认关闭？')

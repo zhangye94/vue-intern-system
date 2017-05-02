@@ -110,56 +110,47 @@
     components: {
     },
     created: function () {
+      this.$http.post('api/internshipProgram/tableData',{
+        type: "internship"
+      })
+      .then((res) => {
+        this.tableData = res.data.form;
+      }, (err) => {
+        this.$message({
+          message: '读取实习信息失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
     },
     data () {
       return {
         searchContent: '',
         dialogVisible: false,
         fileList: [],
-        tableData: [{
-          code: '001',
-          internName: '搬砖实习',
-          orgName: '数据挖掘实验室',
-          grade: '2016级',
-          schoolYear: '2016-2017',
-          semester: '第一学期',
-          startDate: '2016-9',
-          endDate: '2016-12'
-        }, {
-          code: '002',
-          internName: '搬砖实习2',
-          orgName: '数据挖掘实验室2',
-          grade: '2017级',
-          schoolYear: '2017-2018',
-          semester: '第二学期',
-          startDate: '2017-9',
-          endDate: '2017-12'
-        }, {
-          code: '003',
-          internName: '搬砖实习3',
-          orgName: '数据挖掘实验室3',
-          grade: '2018级',
-          schoolYear: '2018-2019',
-          semester: '第一学期',
-          startDate: '2018-9',
-          endDate: '2018-12'
-        }, {
-          code: '004',
-          internName: '搬砖实习',
-          orgName: '数据挖掘实验室',
-          grade: '2016级',
-          schoolYear: '2016-2017',
-          semester: '第一学期',
-          startDate: '2016-9',
-          endDate: '2016-12'
-        }]
+        tableData: []
       }
     },
     methods: {
-      //模态窗方法
+      //搜索按钮
       handleIconClick(ev) {
-        console.log(ev);
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "internship",
+          searchContent: this.searchContent
+        })
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取实习信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
       },
+      //模态窗方法
       handleClose(done) {
         this.$confirm('确认关闭？')
           .then(_ => {
