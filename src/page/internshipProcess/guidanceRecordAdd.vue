@@ -7,6 +7,10 @@
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
+          <el-form-item label="指导教师" required>
+            <el-input v-model="form.teacherName" disabled ></el-input>
+          </el-form-item>
+
           <el-form-item label="指导日期" required>
             <el-col :span="10">
               <el-form-item prop="date">
@@ -54,11 +58,24 @@
     components: {
     },
     created: function () {
-
+      this.$http.post('api/common/user',{})
+      .then((res) => {
+        this.form.teacherName = res.data.user.name;
+      }, (err) => {
+        this.$message({
+          message: '读取用户信息失败，请检查网络环境！',
+          type: 'error',
+          duration: 1500,
+          showClose: true
+        });
+      });
     },
     data () {
       return {
         activeIndex: 'index',
+        query: {
+          code: this.$route.query.code || ''
+        },
         //多选框设置
         guidingTypeCheckSetting: {
           checkAll: true,
@@ -71,6 +88,7 @@
           guidingStudents:['赵同学', '钱同学', '孙同学', '李同学', '周同学', '吴同学', '郑同学', '王同学'],
         },
         form: {
+          teacherName: '',
           date: '',
           checkedGuidingType: [],
           checkedGuidingStudent: [],
@@ -79,7 +97,7 @@
         },
         rules: {
           date: [
-            { required: true, message: '请输入指导日期', trigger: 'change' }
+            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
           ],
           guideContent: [
             { required: true, message: '请填写指导内容', trigger: 'blur' }

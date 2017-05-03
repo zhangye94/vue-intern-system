@@ -70,6 +70,15 @@ app.use(bodyParser.json());
 
 
 var apiRouter = express.Router();
+//通用
+var common = require("../mockDB/commonDB.json");
+//获取用户信息
+apiRouter.post('/common/user',function(req,res){
+  res.json({
+    user: common.user
+  });
+});
+
 //实习安排
 var internshipProgram = require("../mockDB/internshipDB.json");
 //年级列表
