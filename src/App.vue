@@ -26,7 +26,7 @@
         </el-submenu>
         <el-submenu index="assessment">
           <template slot="title">考核评价</template>
-          <el-menu-item index="/assessment/schoolTeacherAssessment">校内教师考核</el-menu-item>
+          <el-menu-item index="/assessment/internalTeacherAssessment">校内教师考核</el-menu-item>
           <el-menu-item index="/assessment/externalTeacherAssessment">校外教师考核</el-menu-item>
           <el-menu-item index="/assessment/studentAssessment">学生考核</el-menu-item>
           <el-menu-item index="/assessment/indexSetting">指标设置</el-menu-item>

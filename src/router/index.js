@@ -25,7 +25,7 @@ import aidedTrackingPage from '@/page/internshipProcess/aidedTracking'
 import studentMessagePage from '@/page/internshipProcess/studentMessage'
 //考核评价
 import assessmentPage from '@/page/assessment'
-import schoolTeacherAssessmentPage from '@/page/assessment/schoolTeacherAssessment'
+import internalTeacherAssessmentPage from '@/page/assessment/internalTeacherAssessment'
 import externalTeacherAssessmentPage from '@/page/assessment/externalTeacherAssessment'
 import studentAssessmentPage from '@/page/assessment/studentAssessment'
 import indexSettingPage from '@/page/assessment/indexSetting'
@@ -119,11 +119,11 @@ export default new Router({
     {
       path: '/assessment',
       component: assessmentPage,
-      redirect: '/assessment/schoolTeacherAssessment',
+      redirect: '/assessment/internalTeacherAssessment',
       children: [
         {
-          path: 'schoolTeacherAssessment',
-          component: schoolTeacherAssessmentPage
+          path: 'internalTeacherAssessment',
+          component: internalTeacherAssessmentPage
         },
         {
           path: 'externalTeacherAssessment',
