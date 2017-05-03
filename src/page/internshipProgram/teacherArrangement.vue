@@ -155,7 +155,6 @@
       }
     },
     methods: {
-      //模态窗方法
       handleIconClick(ev) {
         this.$http.post('api/internshipProgram/tableData',{
           type: "teacher",

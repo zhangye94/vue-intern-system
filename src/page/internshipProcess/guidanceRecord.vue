@@ -25,7 +25,27 @@
     <div class="content">
       <div class="content-title">
         <h2>教师指导记录列表</h2>
-        <router-link to="/internshipProgram/teacherAdd" class="add"><i class="el-icon-plus"></i></router-link>
+        <router-link to="/internshipProcess/guidanceRecordAdd" class="add"><i class="el-icon-plus"></i></router-link>
+        <el-button type="text" @click="dialogVisible = true"><i class="el-icon-upload2"></i>导入数据</el-button>
+        <el-dialog
+          title="提示"
+          v-model="dialogVisible"
+          size="tiny"
+          :before-close="handleClose">
+          <el-upload
+            class="upload-demo"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :file-list="fileList">
+            <el-button size="small" type="primary">点击上传</el-button>
+            <div slot="tip" class="el-upload__tip">只能上传excel文件</div>
+          </el-upload>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          </span>
+        </el-dialog>
       </div>
       <div class="content-table">
         <el-table
@@ -132,12 +152,14 @@
     data () {
       return {
         activeIndex: 'index',
+        dialogVisible: false,
         form: {
           date1: '',
           date2: '',
           processingState: [],
         },
         tableData: [],
+        fileList: [],
         rules: {
           date1: [
             { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
@@ -150,7 +172,21 @@
     },
     methods: {
       query(ev){
-
+        this.$http.post('api/internshipProgram/tableData',{
+          teacherAttributeSelect: this.teacherAttributeSelect,
+          searchContent: this.searchContent,
+          teacherTypeSelect: this.teacherTypeSelect
+        })
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取教师信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
       },
       //表格方法
       handleEdit(index, row) {
@@ -174,7 +210,21 @@
             showClose: true
           });
         });
-      }
+      },
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      },
+      //上传组件方法
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
+      },
     }
   }
 </script>

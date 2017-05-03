@@ -23,6 +23,8 @@ import guidanceRecordPage from '@/page/internshipProcess/guidanceRecord'
 import processTrackingPage from '@/page/internshipProcess/processTracking'
 import aidedTrackingPage from '@/page/internshipProcess/aidedTracking'
 import studentMessagePage from '@/page/internshipProcess/studentMessage'
+
+import guidanceRecordAddPage from '@/page/internshipProcess/guidanceRecordAdd'
 //考核评价
 import assessmentPage from '@/page/assessment'
 import internalTeacherAssessmentPage from '@/page/assessment/internalTeacherAssessment'
@@ -103,6 +105,10 @@ export default new Router({
           component: guidanceRecordPage
         },
         {
+          path: 'guidanceRecordAdd',
+          component: guidanceRecordAddPage
+        },
+        {
           path: 'processTracking',
           component: processTrackingPage
         },
@@ -113,7 +119,7 @@ export default new Router({
         {
           path: 'studentMessage',
           component: studentMessagePage
-        }
+        },
       ]
     },
     {
