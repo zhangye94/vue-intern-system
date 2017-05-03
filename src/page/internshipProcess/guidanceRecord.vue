@@ -56,7 +56,7 @@
         >
           <el-table-column label="操作" width="118">
             <template scope="scope">
-              <router-link :to="{ path: 'teacherAdd', query: { code: scope.row.code }}">
+              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.id }}">
                 <el-button
                   size="small"
                   @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
@@ -188,9 +188,10 @@
           });
         });
       },
-      //表格方法
+      //编辑
       handleEdit(index, row) {
       },
+      //删除
       handleDelete(index, row) {
         this.$http.post('api/internshipProcess/delete',{
           code: row.id,

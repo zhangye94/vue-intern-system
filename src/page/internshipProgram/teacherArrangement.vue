@@ -203,9 +203,10 @@
       handlePreview(file) {
         console.log(file);
       },
-      //表格方法
+      //编辑
       handleEdit(index, row) {
       },
+      //删除
       handleDelete(index, row) {
         this.$http.post('api/internshipProgram/delete',{
             code:row.code,
