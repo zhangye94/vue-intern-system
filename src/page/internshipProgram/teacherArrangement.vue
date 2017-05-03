@@ -179,16 +179,16 @@
           searchContent: this.searchContent,
           teacherTypeSelect: this.teacherTypeSelect
         })
-          .then((res) => {
-            this.tableData = res.data.form;
-          }, (err) => {
-            this.$message({
-              message: '读取教师信息失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取教师信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
           });
+        });
       },
       handleClose(done) {
         this.$confirm('确认关闭？')

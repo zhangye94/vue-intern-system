@@ -1,6 +1,6 @@
 <template>
-  <div id="internship-program-model">
-    <div class="internship-program-menu">
+  <div class="model">
+    <div class="menu">
       <el-row class="tac">
         <el-col :span="24">
           <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router>
@@ -12,7 +12,7 @@
         </el-col>
       </el-row>
     </div>
-    <div class="internship-program-content">
+    <div class="outer-content">
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
@@ -43,12 +43,12 @@
 </script>
 
 <style lang="less">
-#internship-program-model{
-  width: 84%;
+.model{
+  width: 90%;
   margin: auto;
   margin-top: 20px;
   overflow: hidden;
-  .internship-program-menu{
+  .menu{
     width: 160px;
     float: left;
     .el-menu{
@@ -56,7 +56,7 @@
       box-shadow: 0 3px 3px rgba(0,0,0,0.15);
     }
   }
-  .internship-program-content{
+  .outer-content{
     background-color: #fff;
     width: e("calc(100% - 180px)");
     min-height: 500px;

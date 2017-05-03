@@ -1,0 +1,33 @@
+{
+  "guidanceRecord": [{
+    "tearcherName" : "李四",
+    "tearcherType": "校内",
+    "studentName": "张三",
+    "title": "你给我跪下吧",
+    "guideDate": "2017-5-3",
+    "askDate": "",
+    "guideWay": "电话指导",
+    "processingConditions": "已处理",
+    "id": "001"
+  },{
+    "tearcherName" : "李四",
+    "tearcherType": "校内",
+    "studentName": "张三",
+    "title": "你给我跪下吧",
+    "guideDate": "2017-5-4",
+    "askDate": "2017-3-2",
+    "guideWay": "平台处理板",
+    "processingConditions": "已处理",
+    "id": "002"
+  },{
+    "tearcherName" : "李四",
+    "tearcherType": "校内",
+    "studentName": "张三",
+    "title": "你给我跪下吧",
+    "guideDate": "2017-5-3",
+    "askDate": "",
+    "guideWay": "电话指导",
+    "processingConditions": "未处理",
+    "id": "003"
+  }]
+}

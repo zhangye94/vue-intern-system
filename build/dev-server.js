@@ -68,10 +68,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-var internshipProgram = require("../mockDB/internshipDB.json");
-var apiRouter = express.Router();
 
+var apiRouter = express.Router();
 //实习安排
+var internshipProgram = require("../mockDB/internshipDB.json");
 //年级列表
 apiRouter.post('/internshipProgram/gradeList',function(req,res){
   res.json({
@@ -141,6 +141,16 @@ apiRouter.post('/internshipProgram/tableData',function(req,res){
     });
   }
 });
+
+//实习过程
+var internshipProcess = require("../mockDB/internshipProcessDB.json");
+//指导记录表格渲染
+apiRouter.post('/internshipProcess/guidanceRecord',function(req,res){
+  res.json({
+    guidanceRecord: internshipProcess.guidanceRecord
+  });
+});
+
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()
