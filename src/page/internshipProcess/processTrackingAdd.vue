@@ -85,12 +85,7 @@
                   duration: 1500,
                   showClose: true
                 });
-                //清空表单，方便继续创建
-                form = {
-                  title: "",
-                  content: "",
-                  internshipList: ""
-                };
+                this.resetForm('form');
               }, (err) => {
                 this.$message({
                   message: '创建实习总结失败，请检查网络环境！',
@@ -129,7 +124,7 @@
           code: this.$route.query.code,
         })
           .then((res) => {
-            if(this.query.code) {
+            if(this.$route.query.code) {
               this.$message({
                 message: '读取成功',
                 type: 'info',
@@ -138,15 +133,10 @@
               });
               this.form = res.data.form;
             }else{
-              this.form = {
-                title: "",
-                content: "",
-                internshipList: ""
-              }
+              this.resetForm('form');
             }
-
           }, (err) => {
-            if(this.query.code) {
+            if(this.$route.query.code) {
               this.$message({
                 message: '读取失败，请检查网络环境！',
                 type: 'error',

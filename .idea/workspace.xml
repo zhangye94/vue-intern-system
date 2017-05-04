@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guidanceRecordAdd.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="guidanceRecordAdd.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="951">
-              <caret line="135" column="17" lean-forward="false" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+            <state relative-caret-position="261">
+              <caret line="185" column="37" lean-forward="true" selection-start-line="185" selection-start-column="14" selection-end-line="185" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#el-form-item#2;n#el-form#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#el-form-item#3;n#el-form#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -43,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="processTrackingAdd.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="processTrackingAdd.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="173" column="26" lean-forward="false" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+            <state relative-caret-position="740">
+              <caret line="87" column="39" lean-forward="false" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -108,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProgram/teacherAdd.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
       </list>
     </option>
   </component>
@@ -357,7 +355,7 @@
       <option name="presentableId" value="Default" />
       <updated>1493470845887</updated>
       <workItem from="1493470847989" duration="46652000" />
-      <workItem from="1493617286804" duration="111934000" />
+      <workItem from="1493617286804" duration="112213000" />
     </task>
     <task id="LOCAL-00001" summary="1.001 增加学生添加功能">
       <created>1493639279576</created>
@@ -471,11 +469,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493897533451</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="1.017 实习过程模块函数复用">
+      <created>1493906350227</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1493906350227</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158586000" />
+    <option name="totallyTimeSpent" value="158865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -531,7 +536,8 @@
     <MESSAGE value="1.014 完成过程跟踪模块的大部分开发任务" />
     <MESSAGE value="1.015 复用实习安排模块列表页函数" />
     <MESSAGE value="1.016 复用实习安排模块添加编辑页函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.016 复用实习安排模块添加编辑页函数" />
+    <MESSAGE value="1.017 实习过程模块函数复用" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.017 实习过程模块函数复用" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -826,14 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="173" column="26" lean-forward="false" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1380">
@@ -852,12 +850,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="951">
-          <caret line="135" column="17" lean-forward="false" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+        <state relative-caret-position="261">
+          <caret line="185" column="37" lean-forward="true" selection-start-line="185" selection-start-column="14" selection-end-line="185" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#div#0;n#el-form-item#2;n#el-form#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#el-form-item#3;n#el-form#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="87" column="39" lean-forward="false" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
