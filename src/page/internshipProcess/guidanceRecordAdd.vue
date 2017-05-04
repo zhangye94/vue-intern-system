@@ -58,42 +58,8 @@
     components: {
     },
     created: function () {
-      //读取用户信息
-      this.$http.post('api/common/user',{})
-      .then((res) => {
-        this.form.teacherName = res.data.user.name;
-      }, (err) => {
-        this.$message({
-          message: '读取用户信息失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
-        });
-      });
-      //读取编辑信息
-      this.$http.post('api/internshipProcess/guidanceRecord/read',{
-        code: this.$route.query.code,
-      })
-      .then((res) => {
-        if(this.$route.query.code) {
-          this.$message({
-            message: '读取成功',
-            type: 'info',
-            duration: 1500,
-            showClose: true
-          });
-        }
-        this.form = res.data.form;
-      }, (err) => {
-        if(this.$route.query.code) {
-          this.$message({
-            message: '读取失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        }
-      });
+      this.getUserInfo();
+      this.getEditInfo();
     },
     data () {
       return {
@@ -168,14 +134,7 @@
                 duration: 1500,
                 showClose: true
               });
-              //清空表单，方便继续创建
-              form = {
-                date: '',
-                checkedGuidingType: [],
-                checkedGuidingStudent: [],
-                guideContent: "",
-                guideSituation: ""
-              };
+              this.resetForm('form');
             }, (err) => {
               this.$message({
                 message: '添加指导记录失败，请检查网络环境！',
@@ -195,30 +154,39 @@
           }
         });
       },
-      //重置表单
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      }
-    },
-    watch: {
-      '$route' (to, from) {
-        this.query.code = to.query.code;
-        if(to.path === "/internshipProcess/guidanceRecordAdd"){
-          this.$http.post('api/internshipProcess/guidanceRecord/read',{
-            code: to.query.code
-          })
+      //读取用户信息
+      getUserInfo(){
+        this.$http.post('api/common/user',{})
           .then((res) => {
-            if(this.query.code) {
+            this.form.teacherName = res.data.user.name;
+          }, (err) => {
+            this.$message({
+              message: '读取用户信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取编辑信息
+      getEditInfo(){
+        this.$http.post('api/internshipProcess/guidanceRecord/read',{
+          code: this.$route.query.code,
+        })
+          .then((res) => {
+            if(this.$route.query.code) {
               this.$message({
                 message: '读取成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
               });
+              this.form = res.data.form;
+            }else{
+              this.resetForm('form');
             }
-            this.form = res.data.form;
           }, (err) => {
-            if(this.query.code) {
+            if(this.$route.query.code) {
               this.$message({
                 message: '读取失败，请检查网络环境！',
                 type: 'error',
@@ -227,7 +195,15 @@
               });
             }
           });
-        }
+      },
+      //重置表单
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.getEditInfo();
       }
     }
   }

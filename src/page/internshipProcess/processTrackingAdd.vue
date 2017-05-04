@@ -40,7 +40,7 @@
     },
     created: function () {
       this.getInternList();
-      this.getForm();
+      this.getEditInfo();
     },
     data () {
       return {
@@ -110,8 +110,8 @@
           }
         });
       },
+      //读取实习列表信息
       getInternList(){
-        //读取实习列表信息
         this.$http.post('api/internshipProgram/internList',{})
           .then((res) => {
             this.setting.internshipListOptions = res.data.internList;
@@ -124,7 +124,7 @@
             });
           });
       },
-      getForm(){
+      getEditInfo(){
         this.$http.post('api/internshipProcess/processTracking/read',{
           code: this.$route.query.code,
         })
@@ -171,7 +171,7 @@
       '$route' (to, from) {
         this.query.code = to.query.code;
         if(to.path === "/internshipProcess/processTrackingAdd"){
-          this.getForm();
+          this.getEditInfo();
         }
       }
     }

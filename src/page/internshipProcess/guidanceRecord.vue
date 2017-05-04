@@ -18,7 +18,7 @@
             <el-option label="已处理" value="processed"></el-option>
             <el-option label="未处理" value="untreated"></el-option>
           </el-select>
-          <el-button type="primary" icon="search" @click="query">查询</el-button>
+          <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -58,8 +58,7 @@
             <template scope="scope">
               <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.id }}">
                 <el-button
-                  size="small"
-                  @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
+                  size="small">编辑</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"
@@ -137,17 +136,7 @@
     components: {
     },
     created: function () {
-      this.$http.post('api/internshipProcess/guidanceRecord/tableData',{})
-      .then((res) => {
-        this.tableData = res.data.guidanceRecord;
-      }, (err) => {
-        this.$message({
-          message: '读取指导记录失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
-        });
-      });
+      this.getTableData();
     },
     data () {
       return {
@@ -163,26 +152,6 @@
       }
     },
     methods: {
-      query(ev){
-        this.$http.post('api/internshipProcess/guidanceRecord/tableData',{
-          startDate: this.form.date1,
-          endDate: this.form.date2,
-          processingState: this.form.processingState
-        })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取指导记录失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
-      },
-      //编辑
-      handleEdit(index, row) {
-      },
       //删除
       handleDelete(index, row) {
         this.$http.post('api/internshipProcess/guidanceRecord/delete',{
@@ -204,6 +173,7 @@
           });
         });
       },
+      //弹出窗
       handleClose(done) {
         this.$confirm('确认关闭？')
           .then(_ => {
@@ -218,6 +188,24 @@
       handlePreview(file) {
         console.log(file);
       },
+      //读取表格数据
+      getTableData(ev){
+        this.$http.post('api/internshipProcess/guidanceRecord/tableData',{
+          startDate: this.form.date1,
+          endDate: this.form.date2,
+          processingState: this.form.processingState
+        })
+          .then((res) => {
+            this.tableData = res.data.guidanceRecord;
+          }, (err) => {
+            this.$message({
+              message: '读取指导记录失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      }
     }
   }
 </script>
