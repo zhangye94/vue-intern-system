@@ -122,9 +122,8 @@
       onSubmit(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$http.post('api/internshipProcess/add',{
+            this.$http.post('api/internshipProcess/guidanceRecord/add',{
               form: this.form,
-              type: "guidanceRecord",
               code: this.query.code
             })
             .then((res) => {
