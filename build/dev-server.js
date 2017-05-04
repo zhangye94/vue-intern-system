@@ -178,6 +178,13 @@ apiRouter.post('/internshipProcess/processTracking/tableData',function(req,res){
     processTracking: internshipProcess.processTracking
   });
 });
+//过程跟踪编辑内容读取
+apiRouter.post('/internshipProcess/processTracking/read',function(req,res){
+  var code = req.body.code;
+  res.json({
+    form: internshipProcess.processTrackingEdit
+  });
+});
 
 app.use('/api', apiRouter);
 

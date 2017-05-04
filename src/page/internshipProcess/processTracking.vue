@@ -114,12 +114,9 @@
         activeIndex: 'index',
         //用户身份
         status: true,
-        query: {
-          code: this.$route.query.code || ''
-        },
         form: {
-          data1: '',
-          data2: '',
+          date1: '',
+          date2: '',
           search: ''
         },
         tableData: [],

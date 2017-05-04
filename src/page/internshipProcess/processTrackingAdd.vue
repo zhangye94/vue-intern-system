@@ -39,19 +39,8 @@
     components: {
     },
     created: function () {
-      //读取实习列表信息
-      this.$http.post('api/internshipProgram/internList',{})
-        .then((res) => {
-          this.setting.internshipListOptions = res.data.internList;
-        }, (err) => {
-          this.$message({
-            message: '读取实习列表失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
-
+      this.getInternList();
+      this.getForm();
     },
     data () {
       return {
@@ -121,9 +110,69 @@
           }
         });
       },
+      getInternList(){
+        //读取实习列表信息
+        this.$http.post('api/internshipProgram/internList',{})
+          .then((res) => {
+            this.setting.internshipListOptions = res.data.internList;
+          }, (err) => {
+            this.$message({
+              message: '读取实习列表失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      getForm(){
+        this.$http.post('api/internshipProcess/processTracking/read',{
+          code: this.$route.query.code,
+        })
+          .then((res) => {
+            if(this.query.code) {
+              this.$message({
+                message: '读取成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
+              });
+              this.form = res.data.form;
+            }else{
+              this.form = {
+                title: "",
+                content: "",
+                internshipList: ""
+              }
+            }
+
+          }, (err) => {
+            if(this.query.code) {
+              this.$message({
+                message: '读取失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            }else{
+              this.form = {
+                title: "",
+                content: "",
+                internshipList: ""
+              }
+            }
+          });
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.query.code = to.query.code;
+        if(to.path === "/internshipProcess/processTrackingAdd"){
+          this.getForm();
+        }
       }
     }
   }
