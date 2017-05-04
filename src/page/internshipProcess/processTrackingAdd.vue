@@ -8,7 +8,7 @@
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
           <el-form-item label="选择实习" prop="internshipList">
-            <el-select v-model="form.internshipList" multiple placeholder="请选择">
+            <el-select v-model="form.internshipList" placeholder="请选择">
               <el-option
                 v-for="item in setting.internshipListOptions"
                 :key="item.value"
@@ -21,7 +21,7 @@
             <el-input v-model="form.title"></el-input>
           </el-form-item>
           <el-form-item label="总结内容" prop="content" required>
-            <el-input type="textarea" v-model="form.content" class="add-form-textarea"></el-input>
+            <el-input type="textarea" v-model="form.content" class="add-form-textarea internshipSummary"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
@@ -51,10 +51,14 @@
             showClose: true
           });
         });
+
     },
     data () {
       return {
         activeIndex: 'index',
+        query: {
+          code: this.$route.query.code || ''
+        },
         setting: {
           internshipListOptions: []
         },
@@ -81,7 +85,6 @@
       onSubmit(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.form);
             this.$http.post('api/internshipProcess/processTracking/add',{
               form: this.form,
               code: this.query.code
@@ -101,7 +104,7 @@
                 };
               }, (err) => {
                 this.$message({
-                  message: '新建学生失败，请检查网络环境！',
+                  message: '创建实习总结失败，请检查网络环境！',
                   type: 'error',
                   duration: 1500,
                   showClose: true
@@ -129,5 +132,10 @@
 <style lang="less">
   #process-tracking-add-model{
     padding: 10px 20px 10px 20px;
+    .internshipSummary{
+      textarea{
+        height: 300px;
+      }
+    }
   }
 </style>

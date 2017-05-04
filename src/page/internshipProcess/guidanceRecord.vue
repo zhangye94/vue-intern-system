@@ -223,6 +223,11 @@
 </script>
 
 <style lang="less">
+  #guidance-record-model{
+    .header{
+      padding: 20px 0 0 0;
+    }
+  }
   .header{
     .line{
       width: 10%;

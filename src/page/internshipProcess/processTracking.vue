@@ -15,7 +15,7 @@
             </el-form-item>
           </el-col>
           <el-input v-model="form.search" placeholder="学生姓名、学号" class="search"></el-input>
-          <el-button type="primary" icon="search" @click="query">查询</el-button>
+          <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -27,17 +27,14 @@
       </div>
       <div class="content-table">
         <el-table
+          ref="multipleTable"
           :data="tableData"
           border
           style="width: 100%"
           @selection-change="handleSelectionChange"
-          :default-sort = "{prop: 'date', order: 'descending'}"
         >
-          <el-table-column
-            type="selection"
-            width="55">
+          <el-table-column type="selection" width="55">
           </el-table-column>
-
           <el-table-column
             type="index"
             label="序号"
@@ -87,14 +84,12 @@
           </el-table-column>
           <el-table-column label="操作" width="118">
             <template scope="scope">
-              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.id }}" v-if="true">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="status">
                 <el-button
-                  size="small"
-                  @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
-              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.id }}" v-if="false">
+                  size="small">编辑</el-button></router-link>
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="!status">
                 <el-button
-                  size="small"
-                  @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
+                  size="small">审阅</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"
@@ -112,21 +107,13 @@
     components: {
     },
     created: function () {
-      this.$http.post('api/internshipProcess/processTracking/tableData',{})
-        .then((res) => {
-          this.tableData = res.data.processTracking;
-        }, (err) => {
-          this.$message({
-            message: '读取失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
+      this.getTableData();
     },
     data () {
       return {
         activeIndex: 'index',
+        //用户身份
+        status: true,
         query: {
           code: this.$route.query.code || ''
         },
@@ -135,31 +122,36 @@
           data2: '',
           search: ''
         },
-        tableData: []
+        tableData: [],
+        multipleSelection: []
       }
     },
     methods: {
-      //查询
-      query(ev){
-        this.$http.post('api/internshipProcess/processTracking/tableData',{
-          startDate: this.form.date1,
-          endDate: this.form.date2,
-          search: this.form.search
+      //审阅
+      review(ev){
+        let IdGroup = [];
+        for(let i=0;i<this.multipleSelection.length;i++){
+          IdGroup.push(this.multipleSelection[i].ID);
+        }
+        this.$http.post('api/internshipProcess/processTracking/review',{
+          ID: IdGroup
         })
           .then((res) => {
-            this.tableData = res.data.processTracking;
+            this.$message({
+              message: '审阅提交成功',
+              type: 'info',
+              duration: 1500,
+              showClose: true
+            });
+            this.getTableData();
           }, (err) => {
             this.$message({
-              message: '读取失败，请检查网络环境！',
+              message: '审阅提交失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true
             });
           });
-      },
-      //审阅
-      review(ev){
-
       },
       //多选表格方法
       handleSelectionChange(val) {
@@ -186,12 +178,33 @@
             });
           });
       },
+      //读取表格数据
+      getTableData(ev) {
+        this.$http.post('api/internshipProcess/processTracking/tableData',{
+          startDate: this.form.date1,
+          endDate: this.form.date2,
+          search: this.form.search
+        })
+          .then((res) => {
+            this.tableData = res.data.processTracking;
+          }, (err) => {
+            this.$message({
+              message: '读取失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
     }
   }
 </script>
 
 <style lang="less">
   #process-tracking-model{
+    .header{
+      padding: 20px 0 0 0;
+    }
     .search{
       width: 200px;
       margin-left: 25px;
