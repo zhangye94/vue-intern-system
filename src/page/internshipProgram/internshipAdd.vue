@@ -217,7 +217,6 @@
       onSubmit(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.form);
             this.$http.post('api/internshipProgram/add',{
               form: this.form,
               type: "internship",

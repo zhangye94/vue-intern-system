@@ -137,7 +137,7 @@
     components: {
     },
     created: function () {
-      this.$http.post('api/internshipProcess/guidanceRecord',{})
+      this.$http.post('api/internshipProcess/guidanceRecord/tableData',{})
       .then((res) => {
         this.tableData = res.data.guidanceRecord;
       }, (err) => {
@@ -172,16 +172,16 @@
     },
     methods: {
       query(ev){
-        this.$http.post('api/internshipProgram/tableData',{
-          teacherAttributeSelect: this.teacherAttributeSelect,
-          searchContent: this.searchContent,
-          teacherTypeSelect: this.teacherTypeSelect
+        this.$http.post('api/internshipProgram/guidanceRecord/tableData',{
+          startDate: this.form.date1,
+          endDate: this.form.date2,
+          processingState: this.form.processingState
         })
         .then((res) => {
           this.tableData = res.data.form;
         }, (err) => {
           this.$message({
-            message: '读取教师信息失败，请检查网络环境！',
+            message: '读取指导记录失败，请检查网络环境！',
             type: 'error',
             duration: 1500,
             showClose: true
@@ -193,7 +193,7 @@
       },
       //删除
       handleDelete(index, row) {
-        this.$http.post('api/internshipProcess/delete',{
+        this.$http.post('api/internshipProcess/guidanceRecord/delete',{
           code: row.id,
         })
         .then((res) => {

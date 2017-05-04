@@ -58,6 +58,7 @@
     components: {
     },
     created: function () {
+      //读取用户信息
       this.$http.post('api/common/user',{})
       .then((res) => {
         this.form.teacherName = res.data.user.name;
@@ -68,6 +69,30 @@
           duration: 1500,
           showClose: true
         });
+      });
+      //读取编辑信息
+      this.$http.post('api/internshipProcess/guidanceRecord/read',{
+        code: this.$route.query.code,
+      })
+      .then((res) => {
+        if(this.$route.query.code) {
+          this.$message({
+            message: '读取成功',
+            type: 'info',
+            duration: 1500,
+            showClose: true
+          });
+        }
+        this.form = res.data.form;
+      }, (err) => {
+        if(this.$route.query.code) {
+          this.$message({
+            message: '读取失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        }
       });
     },
     data () {
@@ -177,7 +202,32 @@
     },
     watch: {
       '$route' (to, from) {
-
+        this.query.code = to.query.code;
+        if(to.path === "/internshipProcess/guidanceRecordAdd"){
+          this.$http.post('api/internshipProcess/guidanceRecord/read',{
+            code: to.query.code
+          })
+          .then((res) => {
+            if(this.query.code) {
+              this.$message({
+                message: '读取成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
+              });
+            }
+            this.form = res.data.form;
+          }, (err) => {
+            if(this.query.code) {
+              this.$message({
+                message: '读取失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            }
+          });
+        }
       }
     }
   }

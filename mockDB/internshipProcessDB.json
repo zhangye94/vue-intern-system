@@ -29,5 +29,27 @@
     "guideWay": "电话指导",
     "processingConditions": "未处理",
     "id": "003"
-  }]
+  }],
+  "guidanceRecordEdit": {
+    "teacherName": "终极大BOSS",
+    "date": "",
+    "checkedGuidingType": [
+      "现场指导",
+      "电话指导"
+    ],
+    "checkedGuidingStudent": [
+      "赵同学",
+      "钱同学"
+    ],
+    "guideContent": "22",
+    "guideSituation": "2"
+  },
+  "guidanceRecordEmpty": {
+    "teacherName": "终极大BOSS",
+    "date": "",
+    "checkedGuidingType": [],
+    "checkedGuidingStudent": [],
+    "guideContent": "",
+    "guideSituation": ""
+  }
 }

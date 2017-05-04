@@ -154,10 +154,24 @@ apiRouter.post('/internshipProgram/tableData',function(req,res){
 //实习过程
 var internshipProcess = require("../mockDB/internshipProcessDB.json");
 //指导记录表格渲染
-apiRouter.post('/internshipProcess/guidanceRecord',function(req,res){
+apiRouter.post('/internshipProcess/guidanceRecord/tableData',function(req,res){
   res.json({
     guidanceRecord: internshipProcess.guidanceRecord
   });
+});
+//指导记录编辑内容读取
+apiRouter.post('/internshipProcess/guidanceRecord/read',function(req,res){
+  var code = req.body.code;
+  if(code){
+    res.json({
+      form: internshipProcess.guidanceRecordEdit
+    });
+  }else{
+    res.json({
+      form: internshipProcess.guidanceRecordEmpty
+    });
+  }
+
 });
 
 app.use('/api', apiRouter);
