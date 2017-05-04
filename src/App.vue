@@ -184,7 +184,7 @@ body {
     padding-top: 60px;
   }
 }
-
+//展示页样式
 .header{
   padding: 20px;
   background-color: rgb(248,248,248);
@@ -228,6 +228,48 @@ body {
       padding: 0px 10px 0px 10px;
       >.el-button{
         margin-left: 5px;
+      }
+    }
+  }
+}
+//添加编辑页样式
+.add-header{
+  padding: 10px 5px 10px 5px;
+  border-bottom: 2px solid rgb(32,160,255);
+  overflow: hidden;
+  h2{
+    font-weight: bold;
+    float: left;
+  }
+  .back{
+    float: right;
+    color: rgb(32,160,255);
+    i{
+      margin-right: 5px;
+    }
+  }
+}
+.add-content{
+  padding: 20px;
+  .add-form{
+    .line{
+      div{
+        text-align: right;
+        padding-right: 12px;
+      }
+    }
+    .add-form-textarea{
+      textarea{
+        height: 100px;
+      }
+    }
+    .score-percent-form{
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      h2{
+        padding: 20px;
+        font-weight: bold;
       }
     }
   }

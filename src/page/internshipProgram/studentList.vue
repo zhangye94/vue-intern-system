@@ -59,8 +59,7 @@
             <template scope="scope">
               <router-link :to="{ path: 'studentAdd', query: { code: scope.row.code }}">
               <el-button
-                size="small"
-                @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
+                size="small">编辑</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"

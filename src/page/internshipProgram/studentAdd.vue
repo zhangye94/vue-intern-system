@@ -64,55 +64,9 @@
     components: {
     },
     created: function () {
-      //读取编辑信息
-      this.$http.post('api/internshipProgram/read',{
-        code: this.$route.query.code,
-        type: "student"
-      })
-      .then((res) => {
-        if(res.data.form.code) {
-          this.$message({
-            message: '读取成功',
-            type: 'info',
-            duration: 1500,
-            showClose: true
-          });
-        }
-        this.form = res.data.form;
-      }, (err) => {
-        if(res.data.form.code) {
-          this.$message({
-            message: '读取失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        }
-      });
-      //读取实习列表信息
-      this.$http.post('api/internshipProgram/internList',{})
-      .then((res) => {
-        this.setting.internshipListOptions = res.data.internList;
-      }, (err) => {
-        this.$message({
-          message: '读取实习列表失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
-        });
-      });
-      //读取实习年级列表信息
-      this.$http.post('api/internshipProgram/gradeList',{})
-      .then((res) => {
-        this.setting.grade = res.data.gradeList;
-      }, (err) => {
-        this.$message({
-          message: '读取实习年级列表失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
-        });
-      });
+      this.getEditInfo();
+      this.getInternList();
+      this.getGradeList();
     },
     data () {
       return {
@@ -176,18 +130,7 @@
                 duration: 1500,
                 showClose: true
               });
-              //清空表单，方便继续创建
-              form = {
-                name: '',
-                code: '',
-                major: '',
-                class: '',
-                gradeValue: '',
-                telephone: '',
-                position: '',
-                internshipList: [],
-                content: ''
-              };
+              this.resetForm('form');
             }, (err) => {
               this.$message({
                 message: '新建学生失败，请检查网络环境！',
@@ -207,29 +150,24 @@
           }
         });
       },
-      //重置表单
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      }
-    },
-    watch: {
-      '$route' (to, from) {
-        this.query.code = to.query.code;
-        if(to.path === "/internshipProgram/studentAdd"){
-          this.$http.post('api/internshipProgram/read',{
-            code: to.query.code,
-            type: "student"
-          })
+      //读取编辑信息
+      getEditInfo(){
+        this.$http.post('api/internshipProgram/read',{
+          code: this.$route.query.code,
+          type: "student"
+        })
           .then((res) => {
-            if(res.data.form.code){
+            if(res.data.form.code) {
               this.$message({
                 message: '读取成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
               });
+              this.form = res.data.form;
+            }else{
+              this.resetForm('form');
             }
-            this.form = res.data.form;
           }, (err) => {
             if(res.data.form.code) {
               this.$message({
@@ -240,7 +178,43 @@
               });
             }
           });
-        }
+      },
+      //读取实习年级列表信息
+      getGradeList(){
+        this.$http.post('api/internshipProgram/gradeList',{})
+          .then((res) => {
+            this.setting.grade = res.data.gradeList;
+          }, (err) => {
+            this.$message({
+              message: '读取实习年级列表失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取实习列表信息
+      getInternList(){
+        this.$http.post('api/internshipProgram/internList',{})
+          .then((res) => {
+            this.setting.internshipListOptions = res.data.internList;
+          }, (err) => {
+            this.$message({
+              message: '读取实习列表失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //重置表单
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.getEditInfo();
       }
     }
   }

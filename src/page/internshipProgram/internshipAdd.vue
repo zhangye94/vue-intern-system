@@ -99,55 +99,9 @@
       ElFormItem
     },
     created: function () {
-      //读取编辑信息
-      this.$http.post('api/internshipProgram/read',{
-        code: this.$route.query.code,
-        type: "internship"
-      })
-      .then((res) => {
-        if(res.data.form.code) {
-          this.$message({
-            message: '读取成功',
-            type: 'info',
-            duration: 1500,
-            showClose: true
-          });
-        }
-        this.form = res.data.form;
-      }, (err) => {
-        if(res.data.form.code) {
-          this.$message({
-            message: '读取失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        }
-      });
-      //读取实习年级列表信息
-      this.$http.post('api/internshipProgram/gradeList',{})
-      .then((res) => {
-        this.setting.grade = res.data.gradeList;
-      }, (err) => {
-        this.$message({
-          message: '读取实习年级列表失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
-        });
-      });
-      //读取学年列表信息
-      this.$http.post('api/internshipProgram/schoolYear',{})
-      .then((res) => {
-          this.setting.schoolYear = res.data.schoolYear;
-      }, (err) => {
-        this.$message({
-          message: '读取学年列表失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
-        });
-      });
+      this.getEditInfo();
+      this.getGradeList();
+      this.getSchoolYearList();
     },
     data () {
       return {
@@ -222,37 +176,22 @@
               type: "internship",
               code: this.query.code
             })
-            .then((res) => {
-            this.$message({
-              message: '创建成功',
-              type: 'info',
-              duration: 1500,
-              showClose: true
-            });
-            //清空表单，方便继续创建
-            form = {
-              name: '',
-              code: '',
-              org: '',
-              date1: '',
-              date2: '',
-              target: '',
-              requirement: '',
-              content: '',
-              term: '',
-              schoolYearValue: '',
-              gradeValue: '',
-              internTeacherPercent: 100,
-              externalTeacherPercent: 0
-            };
-            }, (err) => {
-              this.$message({
-                message: '新建实习失败，请检查网络环境！',
-                type: 'error',
-                duration: 1500,
-                showClose: true
+              .then((res) => {
+                this.$message({
+                  message: '创建成功',
+                  type: 'info',
+                  duration: 1500,
+                  showClose: true
+                });
+                this.resetForm('form');
+              }, (err) => {
+                this.$message({
+                  message: '新建实习失败，请检查网络环境！',
+                  type: 'error',
+                  duration: 1500,
+                  showClose: true
+                });
               });
-            });
           } else {
             this.$message({
               message: '请完整填写表单',
@@ -264,6 +203,63 @@
           }
         });
       },
+      //读取编辑信息
+      getEditInfo(){
+        this.$http.post('api/internshipProgram/read',{
+          code: this.$route.query.code,
+          type: "internship"
+        })
+          .then((res) => {
+            if(this.$route.query.code) {
+              this.$message({
+                message: '读取成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
+              });
+              this.form = res.data.form;
+            }else{
+              this.resetForm('form');
+            }
+          }, (err) => {
+            if(this.$route.query.code) {
+              this.$message({
+                message: '读取失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            }
+          });
+      },
+      //读取实习年级列表信息
+      getGradeList(){
+        this.$http.post('api/internshipProgram/gradeList',{})
+          .then((res) => {
+            this.setting.grade = res.data.gradeList;
+          }, (err) => {
+            this.$message({
+              message: '读取实习年级列表失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取学年列表信息
+      getSchoolYearList(){
+        this.$http.post('api/internshipProgram/schoolYear',{})
+          .then((res) => {
+            this.setting.schoolYear = res.data.schoolYear;
+          }, (err) => {
+            this.$message({
+              message: '读取学年列表失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -274,81 +270,14 @@
         this.form.externalTeacherPercent = 100 - this.form.internTeacherPercent;
       },
       '$route' (to, from) {
-        this.query.code = to.query.code;
-        if(to.path === "/internshipProgram/internshipAdd"){
-          this.$http.post('api/internshipProgram/read',{
-            code: to.query.code,
-            type: "internship"
-          })
-            .then((res) => {
-              if(res.data.form.code) {
-                this.$message({
-                  message: '读取成功',
-                  type: 'info',
-                  duration: 1500,
-                  showClose: true
-                });
-              }
-              this.form = res.data.form;
-            }, (err) => {
-              if(res.data.form.code) {
-                this.$message({
-                  message: '读取失败，请检查网络环境！',
-                  type: 'error',
-                  duration: 1500,
-                  showClose: true
-                });
-              }
-            });
-        }
+        this.getEditInfo();
       }
     }
   }
 </script>
 
 <style lang="less">
-#internship-add{
-  padding: 10px 20px 10px 20px;
-}
-.add-header{
-  padding: 10px 5px 10px 5px;
-  border-bottom: 2px solid rgb(32,160,255);
-  overflow: hidden;
-  h2{
-    font-weight: bold;
-    float: left;
+  #internship-add{
+    padding: 10px 20px 10px 20px;
   }
-  .back{
-    float: right;
-    color: rgb(32,160,255);
-    i{
-      margin-right: 5px;
-    }
-  }
-}
-.add-content{
-  padding: 20px;
-  .add-form{
-    .line{
-      div{
-        text-align: right;
-        padding-right: 12px;
-      }
-    }
-    .add-form-textarea{
-      textarea{
-        height: 100px;
-      }
-    }
-    .score-percent-form{
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      h2{
-        padding: 20px;
-        font-weight: bold;
-      }
-    }
-  }
-}
 </style>

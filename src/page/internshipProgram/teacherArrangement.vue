@@ -84,7 +84,7 @@
             prop="internName"
             label="实习名称"
             sortable
-            width="150">
+            width="232">
           </el-table-column>
           <el-table-column
             prop="teacherType"
