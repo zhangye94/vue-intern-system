@@ -5,7 +5,7 @@
         placeholder="请输入实习名称、实习代码"
         icon="search"
         v-model="searchContent"
-        :on-icon-click="handleIconClick">
+        :on-icon-click="getTableData">
       </el-input>
     </div>
     <div class="content">
@@ -44,8 +44,7 @@
             <template scope="scope">
               <router-link :to="{ path: 'internshipAdd', query: { code: scope.row.code }}">
               <el-button
-                size="small"
-                @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
+                size="small">编辑</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"
@@ -110,19 +109,7 @@
     components: {
     },
     created: function () {
-      this.$http.post('api/internshipProgram/tableData',{
-        type: "internship"
-      })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取实习信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
+      this.getTableData();
     },
     data () {
       return {
@@ -133,23 +120,6 @@
       }
     },
     methods: {
-      //搜索按钮
-      handleIconClick(ev) {
-        this.$http.post('api/internshipProgram/tableData',{
-          type: "internship",
-          searchContent: this.searchContent
-        })
-          .then((res) => {
-            this.tableData = res.data.form;
-          }, (err) => {
-            this.$message({
-              message: '读取实习信息失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
       //模态窗方法
       handleClose(done) {
         this.$confirm('确认关闭？')
@@ -164,9 +134,6 @@
       },
       handlePreview(file) {
         console.log(file);
-      },
-      //编辑
-      handleEdit(index, row) {
       },
       //删除
       handleDelete(index, row) {
@@ -189,57 +156,28 @@
               showClose: true
             });
           });
+      },
+      //读取表格数据
+      getTableData(ev){
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "internship",
+          searchContent: this.searchContent
+        })
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取实习信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
       }
     }
   }
 </script>
 
 <style lang="less">
-  .header{
-    padding: 20px;
-    background-color: rgb(248,248,248);
-    border-bottom: 1px solid #eee;
-    .el-input{
-      width: 250px;
-    }
-  }
-  .content{
-    padding: 10px 20px 10px 20px;
-    .content-title{
-      border-bottom: 2px solid rgb(32,160,255);
-      overflow: hidden;
-      .add{
-        margin-left: 10px;
-        line-height: 34px;
-        color: rgb(32,160,255);
-      }
-      h2{
-        padding-left: 10px;
-        display: inline-block;
-        font-weight: bold;
-        float: left;
-        line-height: 34px;
-      }
-      .el-button--text{
-        float: right;
-        i{
-          padding-right: 10px;
-        }
-        span{
-          display: inline-block;
-          font-weight: bold;
-        }
-      }
-    }
-    .content-table{
-      margin-top: 15px;
-      .cell{
-        font-size: 12px;
-        padding: 0px 10px 0px 10px;
-        >.el-button{
-          margin-left: 5px;
-        }
-      }
-    }
-  }
+
 </style>

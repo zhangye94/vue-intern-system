@@ -5,7 +5,7 @@
         placeholder="请输入教师名称、教工号"
         icon="search"
         v-model="searchContent"
-        :on-icon-click="handleIconClick">
+        :on-icon-click="getTableData">
       </el-input>
       <el-select v-model="teacherTypeSelect" placeholder="教师类型">
         <el-option
@@ -23,7 +23,7 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <el-button type="primary" icon="search" @click="query">查询</el-button>
+      <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
     </div>
     <div class="content">
       <div class="content-title">
@@ -61,8 +61,7 @@
             <template scope="scope">
               <router-link :to="{ path: 'teacherAdd', query: { code: scope.row.code }}">
               <el-button
-                size="small"
-                @click="handleEdit(scope.$index, scope.row)">编辑</el-button></router-link>
+                size="small">编辑</el-button></router-link>
               <el-button
                 size="small"
                 type="primary"
@@ -116,19 +115,7 @@
     components: {
     },
     created: function () {
-      this.$http.post('api/internshipProgram/tableData',{
-        type: "teacher",
-      })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取教师信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
+      this.getTableData();
     },
     data () {
       return {
@@ -155,40 +142,6 @@
       }
     },
     methods: {
-      handleIconClick(ev) {
-        this.$http.post('api/internshipProgram/tableData',{
-          type: "teacher",
-          searchContent: this.searchContent,
-        })
-          .then((res) => {
-            this.tableData = res.data.form;
-          }, (err) => {
-            this.$message({
-              message: '读取教师信息失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
-      query(ev){
-        this.$http.post('api/internshipProgram/tableData',{
-          type: "teacher",
-          teacherAttributeSelect: this.teacherAttributeSelect,
-          searchContent: this.searchContent,
-          teacherTypeSelect: this.teacherTypeSelect
-        })
-          .then((res) => {
-            this.tableData = res.data.form;
-          }, (err) => {
-            this.$message({
-              message: '读取教师信息失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
       handleClose(done) {
         this.$confirm('确认关闭？')
           .then(_ => {
@@ -202,9 +155,6 @@
       },
       handlePreview(file) {
         console.log(file);
-      },
-      //编辑
-      handleEdit(index, row) {
       },
       //删除
       handleDelete(index, row) {
@@ -227,8 +177,26 @@
               showClose: true
             });
           });
+      },
+      //读取表格数据
+      getTableData(ev){
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "teacher",
+          teacherAttributeSelect: this.teacherAttributeSelect,
+          searchContent: this.searchContent,
+          teacherTypeSelect: this.teacherTypeSelect
+        })
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取教师信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
       }
-
     }
   }
 </script>

@@ -5,13 +5,13 @@
         placeholder="请输入学生名称、学号"
         icon="search"
         v-model="searchContent"
-        :on-icon-click="handleSearchContentClick">
+        :on-icon-click="getTableData">
       </el-input>
       <el-input
         placeholder="请输入实习名称"
         icon="search"
         v-model="searchIntern"
-        :on-icon-click="handleSearchInternClick">
+        :on-icon-click="getTableData">
       </el-input>
       <el-select v-model="ifIntern" multiple placeholder="请选择">
         <el-option
@@ -21,7 +21,7 @@
           :value="item.value">
         </el-option>
       </el-select>
-      <el-button type="primary" icon="search" @click="query">查询</el-button>
+      <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
     </div>
     <div class="content">
       <div class="content-title">
@@ -118,19 +118,7 @@
     components: {
     },
     created: function () {
-      this.$http.post('api/internshipProgram/tableData',{
-        type: "student"
-      })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取学生信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
+      this.getTableData();
     },
     data () {
       return {
@@ -152,57 +140,6 @@
       }
     },
     methods: {
-      //搜索
-      handleSearchContentClick(ev) {
-        this.$http.post('api/internshipProgram/tableData',{
-          type: "student",
-          searchContent: this.searchContent,
-        })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取学生信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
-      },
-      handleSearchInternClick(ev) {
-        this.$http.post('api/internshipProgram/tableData',{
-          type: "student",
-          searchIntern: this.searchIntern,
-        })
-          .then((res) => {
-            this.tableData = res.data.form;
-          }, (err) => {
-            this.$message({
-              message: '读取学生信息失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
-      query(ev){
-        this.$http.post('api/internshipProgram/tableData',{
-          type: "student",
-          searchIntern: this.searchIntern,
-          searchContent: this.searchContent,
-          ifIntern: this.ifIntern
-        })
-          .then((res) => {
-            this.tableData = res.data.form;
-          }, (err) => {
-            this.$message({
-              message: '读取学生信息失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
       handleClose(done) {
         this.$confirm('确认关闭？')
           .then(_ => {
@@ -217,14 +154,11 @@
       handlePreview(file) {
         console.log(file);
       },
-      //编辑
-      handleEdit(index, row) {
-      },
       //删除
       handleDelete(index, row) {
         this.$http.post('api/internshipProgram/delete',{
-            code:row.code,
-            type: "student"
+          code:row.code,
+          type: "student"
         })
           .then((res) => {
             this.$message({
@@ -236,6 +170,25 @@
           }, (err) => {
             this.$message({
               message: '删除学生失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取表格数据
+      getTableData(ev){
+        this.$http.post('api/internshipProgram/tableData',{
+          type: "student",
+          searchIntern: this.searchIntern,
+          searchContent: this.searchContent,
+          ifIntern: this.ifIntern
+        })
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取学生信息失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true

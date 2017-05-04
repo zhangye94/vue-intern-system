@@ -185,5 +185,51 @@ body {
   }
 }
 
-
+.header{
+  padding: 20px;
+  background-color: rgb(248,248,248);
+  border-bottom: 1px solid #eee;
+  .el-input{
+    width: 250px;
+  }
+}
+.content{
+  padding: 10px 20px 10px 20px;
+  .content-title{
+    border-bottom: 2px solid rgb(32,160,255);
+    overflow: hidden;
+    .add{
+      margin-left: 10px;
+      line-height: 34px;
+      color: rgb(32,160,255);
+    }
+    h2{
+      padding-left: 10px;
+      display: inline-block;
+      font-weight: bold;
+      float: left;
+      line-height: 34px;
+    }
+    .el-button--text{
+      float: right;
+      i{
+        padding-right: 10px;
+      }
+      span{
+        display: inline-block;
+        font-weight: bold;
+      }
+    }
+  }
+  .content-table{
+    margin-top: 15px;
+    .cell{
+      font-size: 12px;
+      padding: 0px 10px 0px 10px;
+      >.el-button{
+        margin-left: 5px;
+      }
+    }
+  }
+}
 </style>
