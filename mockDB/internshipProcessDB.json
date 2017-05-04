@@ -51,5 +51,22 @@
     "checkedGuidingStudent": [],
     "guideContent": "",
     "guideSituation": ""
-  }
+  },
+  "processTracking": [{
+    "studentName": "张三",
+    "code": "001",
+    "internName": "金工实习",
+    "internAssessment": "87",
+    "title": "难忘的金工实习",
+    "condition": "已审阅",
+    "ID": "001"
+  },{
+    "studentName": "张四",
+    "code": "002",
+    "internName": "金工实习",
+    "internAssessment": "87",
+    "title": "难忘的金工实习",
+    "condition": "已审阅",
+    "ID": "002"
+  }]
 }

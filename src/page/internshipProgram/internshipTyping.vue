@@ -113,16 +113,16 @@
       this.$http.post('api/internshipProgram/tableData',{
         type: "internship"
       })
-      .then((res) => {
-        this.tableData = res.data.form;
-      }, (err) => {
-        this.$message({
-          message: '读取实习信息失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取实习信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
         });
-      });
     },
     data () {
       return {
@@ -139,16 +139,16 @@
           type: "internship",
           searchContent: this.searchContent
         })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取实习信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取实习信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
           });
-        });
       },
       //模态窗方法
       handleClose(done) {
@@ -174,21 +174,21 @@
             code: row.code,
             type: "internship"
         })
-        .then((res) => {
-          this.$message({
-            message: '删除实习成功',
-            type: 'info',
-            duration: 1500,
-            showClose: true
+          .then((res) => {
+            this.$message({
+              message: '删除实习成功',
+              type: 'info',
+              duration: 1500,
+              showClose: true
+            });
+          }, (err) => {
+            this.$message({
+              message: '删除实习失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
           });
-        }, (err) => {
-          this.$message({
-            message: '删除实习失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
       }
     }
   }

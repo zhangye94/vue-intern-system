@@ -1,5 +1,5 @@
 <template>
-  <div id="guidance-record-add">
+  <div id="guidance-record-add-model">
     <div class="add-header">
       <h2>添加指导记录</h2>
       <router-link to="/internshipProcess/guidanceRecord" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -234,7 +234,7 @@
 </script>
 
 <style lang="less">
-  #guidance-record-add{
+  #guidance-record-add-model{
     padding: 10px 20px 10px 20px;
   }
 </style>

@@ -171,7 +171,12 @@ apiRouter.post('/internshipProcess/guidanceRecord/read',function(req,res){
       form: internshipProcess.guidanceRecordEmpty
     });
   }
-
+});
+//过程跟踪表格渲染
+apiRouter.post('/internshipProcess/processTracking/tableData',function(req,res){
+  res.json({
+    processTracking: internshipProcess.processTracking
+  });
 });
 
 app.use('/api', apiRouter);

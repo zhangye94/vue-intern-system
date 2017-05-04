@@ -1,7 +1,7 @@
 <template>
   <div id="guidance-record-model">
     <div class="header">
-      <el-form :rules="rules" ref="form" :model="form" label-width="100px">
+      <el-form ref="form" :model="form" label-width="100px">
         <el-form-item label="开始日期">
           <el-col :span="5">
             <el-form-item prop="date1">
@@ -159,20 +159,12 @@
           processingState: [],
         },
         tableData: [],
-        fileList: [],
-        rules: {
-          date1: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-          ],
-          date2: [
-            { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
-          ],
-        }
+        fileList: []
       }
     },
     methods: {
       query(ev){
-        this.$http.post('api/internshipProgram/guidanceRecord/tableData',{
+        this.$http.post('api/internshipProcess/guidanceRecord/tableData',{
           startDate: this.form.date1,
           endDate: this.form.date2,
           processingState: this.form.processingState
@@ -231,20 +223,17 @@
 </script>
 
 <style lang="less">
-  #guidance-record-model{
-    .header{
-      padding: 20px 0 0 0;
-      .line{
-        width: 10%;
-        div{
-          text-align: right;
-          padding-right: 12px;
-        }
+  .header{
+    .line{
+      width: 10%;
+      div{
+        text-align: right;
+        padding-right: 12px;
       }
-      .processSelecct{
-        margin-left: 20px;
-        margin-right: 15px;
-      }
+    }
+    .processSelecct{
+      margin-left: 20px;
+      margin-right: 15px;
     }
   }
 </style>

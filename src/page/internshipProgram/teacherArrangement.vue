@@ -119,16 +119,16 @@
       this.$http.post('api/internshipProgram/tableData',{
         type: "teacher",
       })
-      .then((res) => {
-        this.tableData = res.data.form;
-      }, (err) => {
-        this.$message({
-          message: '读取教师信息失败，请检查网络环境！',
-          type: 'error',
-          duration: 1500,
-          showClose: true
+        .then((res) => {
+          this.tableData = res.data.form;
+        }, (err) => {
+          this.$message({
+            message: '读取教师信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
         });
-      });
     },
     data () {
       return {
@@ -160,16 +160,16 @@
           type: "teacher",
           searchContent: this.searchContent,
         })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取教师信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取教师信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
           });
-        });
       },
       query(ev){
         this.$http.post('api/internshipProgram/tableData',{
@@ -178,16 +178,16 @@
           searchContent: this.searchContent,
           teacherTypeSelect: this.teacherTypeSelect
         })
-        .then((res) => {
-          this.tableData = res.data.form;
-        }, (err) => {
-          this.$message({
-            message: '读取教师信息失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
+          .then((res) => {
+            this.tableData = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取教师信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
           });
-        });
       },
       handleClose(done) {
         this.$confirm('确认关闭？')
@@ -212,21 +212,21 @@
             code:row.code,
             type: "teacher"
         })
-        .then((res) => {
-          this.$message({
-            message: '删除实习成功',
-            type: 'info',
-            duration: 1500,
-            showClose: true
+          .then((res) => {
+            this.$message({
+              message: '删除教师信息成功',
+              type: 'info',
+              duration: 1500,
+              showClose: true
+            });
+          }, (err) => {
+            this.$message({
+              message: '删除教师信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
           });
-        }, (err) => {
-          this.$message({
-            message: '删除实习失败，请检查网络环境！',
-            type: 'error',
-            duration: 1500,
-            showClose: true
-          });
-        });
       }
 
     }
