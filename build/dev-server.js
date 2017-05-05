@@ -185,7 +185,12 @@ apiRouter.post('/internshipProcess/processTracking/read',function(req,res){
     form: internshipProcess.processTrackingEdit
   });
 });
-
+//辅助跟踪表格渲染
+apiRouter.post('/internshipProcess/aidedTracking/tableData',function(req,res){
+  res.json({
+    aidedTracking: internshipProcess.aidedTracking
+  });
+});
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()
