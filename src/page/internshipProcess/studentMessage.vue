@@ -22,7 +22,7 @@
     <div class="content">
       <div class="content-title">
         <h2>留言本列表</h2>
-        <router-link to="/internshipProcess/processTrackingAdd" class="add"><i class="el-icon-plus"></i></router-link>
+        <router-link to="/internshipProcess/studentMessageAdd" class="add"><i class="el-icon-plus"></i></router-link>
         <el-button type="primary" class="check" @click="handleDelete">删除</el-button>
       </div>
       <div class="content-table">
@@ -57,7 +57,7 @@
             prop="title"
             label="标题"
             sortable
-            width="300">
+            width="280">
           </el-table-column>
           <el-table-column
             prop="date"
@@ -69,12 +69,19 @@
             prop="state"
             label="处理状态"
             sortable
-            width="180">
+            width="130">
           </el-table-column>
           <el-table-column
             prop="ID"
             label="ID"
             width="100" v-if="false">
+          </el-table-column>
+          <el-table-column label="操作" width="70">
+            <template scope="scope">
+              <router-link :to="{ path: 'studentMessageAdd', query: { code: scope.row.ID }}">
+                <el-button
+                  size="small">回复</el-button></router-link>
+            </template>
           </el-table-column>
         </el-table>
       </div>

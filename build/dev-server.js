@@ -78,7 +78,12 @@ apiRouter.post('/common/user',function(req,res){
     user: common.user
   });
 });
-
+//获取当前用户的教师列表
+apiRouter.post('/common/teacherList',function(req,res){
+  res.json({
+    teacherList: common.teacherList
+  });
+});
 //实习安排
 var internshipProgram = require("../mockDB/internshipDB.json");
 //年级列表
