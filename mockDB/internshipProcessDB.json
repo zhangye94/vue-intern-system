@@ -96,5 +96,17 @@
     "date": "2017-5-5",
     "state": "未处理",
     "ID" : "002"
-  }]
+  }],
+  "replyList": [
+    {
+      "role": "teacher",
+      "name": "赵老师",
+      "content": "Z同学你要好好学习，找个好工作，赚钱养家找个女朋友"
+    },
+    {
+      "role": "student",
+      "name": "Z同学",
+      "content": "赵老师要多补补身体"
+    }
+  ]
 }

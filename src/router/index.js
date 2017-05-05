@@ -27,6 +27,7 @@ import studentMessagePage from '@/page/internshipProcess/studentMessage'
 import guidanceRecordAddPage from '@/page/internshipProcess/guidanceRecordAdd'
 import processTrackingAddPage from '@/page/internshipProcess/processTrackingAdd'
 import studentMessageAddPage from '@/page/internshipProcess/studentMessageAdd'
+import studentMessageReplyPage from '@/page/internshipProcess/studentMessageReply'
 //考核评价
 import assessmentPage from '@/page/assessment'
 import internalTeacherAssessmentPage from '@/page/assessment/internalTeacherAssessment'
@@ -129,6 +130,10 @@ export default new Router({
         {
           path: 'studentMessageAdd',
           component: studentMessageAddPage
+        },
+        {
+          path: 'studentMessageReply',
+          component: studentMessageReplyPage
         }
       ]
     },

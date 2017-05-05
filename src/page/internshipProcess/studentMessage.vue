@@ -78,7 +78,7 @@
           </el-table-column>
           <el-table-column label="操作" width="70">
             <template scope="scope">
-              <router-link :to="{ path: 'studentMessageAdd', query: { code: scope.row.ID }}">
+              <router-link :to="{ path: 'studentMessageReply', query: { code: scope.row.ID }}">
                 <el-button
                   size="small">回复</el-button></router-link>
             </template>

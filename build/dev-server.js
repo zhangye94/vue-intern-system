@@ -84,6 +84,7 @@ apiRouter.post('/common/teacherList',function(req,res){
     teacherList: common.teacherList
   });
 });
+
 //实习安排
 var internshipProgram = require("../mockDB/internshipDB.json");
 //年级列表
@@ -200,6 +201,12 @@ apiRouter.post('/internshipProcess/aidedTracking/tableData',function(req,res){
 apiRouter.post('/internshipProcess/studentMessage/tableData',function(req,res){
   res.json({
     studentMessage: internshipProcess.studentMessage
+  });
+});
+//获取回复信息
+apiRouter.post('/internshipProcess/studentMessage/getReplyContent',function(req,res){
+  res.json({
+    replyList: internshipProcess.replyList
   });
 });
 app.use('/api', apiRouter);
