@@ -88,5 +88,13 @@
     "checkInDate": "2017-5-4",
     "location": "北京市海淀区北京理工大学计算机中心208",
     "ID": "003"
+  }],
+  "studentMessage": [{
+    "teacherName": "X主任",
+    "code": "001",
+    "title": "测试一下留言",
+    "date": "2017-5-5",
+    "state": "未处理",
+    "ID" : "002"
   }]
 }

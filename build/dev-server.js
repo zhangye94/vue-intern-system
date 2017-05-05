@@ -191,6 +191,12 @@ apiRouter.post('/internshipProcess/aidedTracking/tableData',function(req,res){
     aidedTracking: internshipProcess.aidedTracking
   });
 });
+//留言表格渲染
+apiRouter.post('/internshipProcess/studentMessage/tableData',function(req,res){
+  res.json({
+    studentMessage: internshipProcess.studentMessage
+  });
+});
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()

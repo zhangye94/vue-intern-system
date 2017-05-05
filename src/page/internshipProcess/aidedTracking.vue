@@ -95,7 +95,8 @@
         status: true,
         form: {
           date1: "",
-          date2: ""
+          date2: "",
+          search: ""
         },
         tableData: [],
         multipleSelection: []
