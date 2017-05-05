@@ -24,6 +24,7 @@
         <h2>实习总结</h2>
         <router-link to="/internshipProcess/processTrackingAdd" class="add"><i class="el-icon-plus"></i></router-link>
         <el-button type="primary" class="check" @click="review">审阅</el-button>
+        <el-button type="primary" class="check delete" @click="handleDelete">删除</el-button>
       </div>
       <div class="content-table">
         <el-table
@@ -33,7 +34,7 @@
           style="width: 100%"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="55">
+          <el-table-column type="selection" width="40">
           </el-table-column>
           <el-table-column
             type="index"
@@ -57,7 +58,7 @@
             prop="internName"
             label="实习名称"
             sortable
-            width="150">
+            width="180">
           </el-table-column>
           <el-table-column
             prop="internAssessment"
@@ -69,7 +70,7 @@
             prop="title"
             label="总结标题"
             sortable
-            width="150">
+            width="190">
           </el-table-column>
           <el-table-column
             prop="condition"
@@ -82,7 +83,7 @@
             label="ID"
             width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="118">
+          <el-table-column label="操作" width="70">
             <template scope="scope">
               <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="status">
                 <el-button
@@ -90,10 +91,6 @@
               <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="!status">
                 <el-button
                   size="small">审阅</el-button></router-link>
-              <el-button
-                size="small"
-                type="primary"
-                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -155,9 +152,13 @@
         this.multipleSelection = val;
       },
       //删除
-      handleDelete(index, row) {
+      handleDelete() {
+        let IdGroup = [];
+        for(let i=0;i<this.multipleSelection.length;i++){
+          IdGroup.push(this.multipleSelection[i].ID);
+        }
         this.$http.post('api/internshipProcess/processTracking/delete',{
-          ID: row.ID
+          ID: IdGroup
         })
           .then((res) => {
             this.$message({
@@ -210,6 +211,9 @@
     .check{
       margin-bottom: 5px;
       float: right;
+    }
+    .delete{
+      margin-right: 5px;
     }
   }
 </style>

@@ -54,17 +54,6 @@
           style="width: 100%"
           :default-sort = "{prop: 'date', order: 'descending'}"
         >
-          <el-table-column label="操作" width="118">
-            <template scope="scope">
-              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.id }}">
-                <el-button
-                  size="small">编辑</el-button></router-link>
-              <el-button
-                size="small"
-                type="primary"
-                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-            </template>
-          </el-table-column>
           <el-table-column
             type="index"
             label="序号"
@@ -124,6 +113,17 @@
             label="ID"
             sortable
             width="100">
+          </el-table-column>
+          <el-table-column label="操作" width="118">
+            <template scope="scope">
+              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.id }}">
+                <el-button
+                  size="small">编辑</el-button></router-link>
+              <el-button
+                size="small"
+                type="primary"
+                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            </template>
           </el-table-column>
         </el-table>
       </div>
