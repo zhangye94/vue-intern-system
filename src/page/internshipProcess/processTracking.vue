@@ -83,7 +83,7 @@
             label="ID"
             width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="70">
+          <el-table-column label="操作" width="70" fixed="right">
             <template scope="scope">
               <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="status">
                 <el-button
