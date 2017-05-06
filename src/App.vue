@@ -48,7 +48,7 @@
             </ul>
           </div>
           <div class="popover-button-group">
-            <el-button>修改资料</el-button>
+            <el-button><router-link :to="{ path: '/internshipProgram/studentAdd', query: { code: user.code }}">修改资料</router-link></el-button>
             <el-button>修改密码</el-button>
             <el-button type="primary">注销</el-button>
           </div>
