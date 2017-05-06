@@ -102,10 +102,10 @@
       this.getEditInfo();
       this.getGradeList();
       this.getSchoolYearList();
+      this.$store.state.adminleftnavnum="/internshipProgram/internshipTyping";
     },
     data () {
       return {
-        activeIndex: 'index',
         query: {
           code: this.$route.query.code || ''
         },

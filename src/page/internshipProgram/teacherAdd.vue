@@ -56,10 +56,10 @@
     created: function () {
       this.getEditInfo();
       this.getInternList();
+      this.$store.state.adminleftnavnum="/internshipProgram/teacherArrangement";
     },
     data () {
       return {
-        activeIndex: 'index',
         query: {
             code: this.$route.query.code || ''
         },

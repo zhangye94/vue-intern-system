@@ -87,10 +87,10 @@
     },
     created: function () {
       this.getTableData();
+      this.$store.state.adminleftnavnum="/internshipProcess/aidedTracking";
     },
     data () {
       return {
-        activeIndex: 'index',
         //用户身份
         status: true,
         form: {

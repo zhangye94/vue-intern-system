@@ -60,10 +60,10 @@
     created: function () {
       this.getUserInfo();
       this.getEditInfo();
+      this.$store.state.adminleftnavnum="/internshipProcess/guidanceRecord";
     },
     data () {
       return {
-        activeIndex: 'index',
         query: {
           code: this.$route.query.code || ''
         },

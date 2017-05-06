@@ -96,10 +96,10 @@
     },
     created: function () {
       this.getTableData();
+      this.$store.state.adminleftnavnum="/internshipProcess/studentMessage";
     },
     data () {
       return {
-        activeIndex: 'index',
         form: {
           date1: "",
           date2: "",

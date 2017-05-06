@@ -118,6 +118,7 @@
     },
     created: function () {
       this.getTableData();
+      this.$store.state.adminleftnavnum="/internshipProgram/studentList";
     },
     data () {
       return {

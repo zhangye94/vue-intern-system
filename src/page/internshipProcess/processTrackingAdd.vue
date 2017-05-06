@@ -41,10 +41,10 @@
     created: function () {
       this.getInternList();
       this.getEditInfo();
+      this.$store.state.adminleftnavnum="/internshipProcess/processTracking";
     },
     data () {
       return {
-        activeIndex: 'index',
         query: {
           code: this.$route.query.code || ''
         },

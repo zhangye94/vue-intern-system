@@ -40,10 +40,10 @@
     },
     created: function () {
       this.getTeacherList();
+      this.$store.state.adminleftnavnum="/internshipProcess/studentMessage";
     },
     data () {
       return {
-        activeIndex: 'index',
         setting: {
           teacherListOptions: ["赵老师", "钱老师", "孙老师", "周老师", "郑老师", "吴老师", "王老师"]
         },

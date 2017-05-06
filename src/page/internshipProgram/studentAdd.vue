@@ -67,10 +67,10 @@
       this.getEditInfo();
       this.getInternList();
       this.getGradeList();
+      this.$store.state.adminleftnavnum="/internshipProgram/studentList";
     },
     data () {
       return {
-        activeIndex: 'index',
         query: {
           code: this.$route.query.code || ''
         },

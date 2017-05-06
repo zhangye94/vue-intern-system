@@ -138,10 +138,10 @@
     },
     created: function () {
       this.getTableData();
+      this.$store.state.adminleftnavnum="/internshipProcess/guidanceRecord";
     },
     data () {
       return {
-        activeIndex: 'index',
         dialogVisible: false,
         form: {
           date1: '',

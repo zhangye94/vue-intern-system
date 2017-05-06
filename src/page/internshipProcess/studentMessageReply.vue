@@ -31,10 +31,10 @@
     },
     created: function () {
       this.getReplyContent();
+      this.$store.state.adminleftnavnum="/internshipProcess/studentMessage";
     },
     data () {
       return {
-        activeIndex: 'index',
         form: {
           content: "",
         },

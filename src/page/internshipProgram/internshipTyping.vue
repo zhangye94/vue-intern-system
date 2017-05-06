@@ -110,6 +110,7 @@
     },
     created: function () {
       this.getTableData();
+      this.$store.state.adminleftnavnum="/internshipProgram/internshipTyping";
     },
     data () {
       return {
