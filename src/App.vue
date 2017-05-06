@@ -198,6 +198,11 @@ body {
   .content-title{
     border-bottom: 2px solid rgb(32,160,255);
     overflow: hidden;
+    .batchDelete{
+      margin-bottom: 5px;
+      margin-left: 20px;
+      float: right;
+    }
     .add{
       margin-left: 10px;
       line-height: 34px;

@@ -12,6 +12,7 @@
       <div class="content-title">
         <h2>实习列表</h2>
         <router-link to="/internshipProgram/internshipAdd" class="add"><i class="el-icon-plus"></i></router-link>
+        <el-button type="primary" class="batchDelete" @click="handleDelete">删除</el-button>
         <el-button type="text" @click="dialogVisible = true"><i class="el-icon-upload2"></i>导入数据</el-button>
         <el-dialog
           title="提示"
@@ -38,17 +39,16 @@
           :data="tableData"
           border
           style="width: 100%"
+          @selection-change="handleSelectionChange"
           :default-sort = "{prop: 'date', order: 'descending'}"
         >
-          <el-table-column label="操作" width="118">
+          <el-table-column type="selection" width="40">
+          </el-table-column>
+          <el-table-column label="操作" width="70" fixed="right">
             <template scope="scope">
               <router-link :to="{ path: 'internshipAdd', query: { code: scope.row.code }}">
               <el-button
                 size="small">编辑</el-button></router-link>
-              <el-button
-                size="small"
-                type="primary"
-                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
             </template>
           </el-table-column>
           <el-table-column
@@ -67,7 +67,7 @@
             prop="orgName"
             label="所属组织"
             sortable
-            min-width="140">
+            min-width="180">
           </el-table-column>
           <el-table-column
             prop="grade"
@@ -116,7 +116,8 @@
         searchContent: '',
         dialogVisible: false,
         fileList: [],
-        tableData: []
+        tableData: [],
+        multipleSelection: []
       }
     },
     methods: {
@@ -135,10 +136,18 @@
       handlePreview(file) {
         console.log(file);
       },
+      //多选表格方法
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+      },
       //删除
-      handleDelete(index, row) {
+      handleDelete() {
+        let IdGroup = [];
+        for(let i=0;i<this.multipleSelection.length;i++){
+          IdGroup.push(this.multipleSelection[i].code);
+        }
         this.$http.post('api/internshipProgram/delete',{
-            code: row.code,
+            code: IdGroup,
             type: "internship"
         })
           .then((res) => {
