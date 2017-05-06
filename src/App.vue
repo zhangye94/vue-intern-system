@@ -1,37 +1,62 @@
 <template>
   <div id="app">
     <div class="app-head">
-      <img class="app-head-logo" src="./assets/logo.png" alt="logo">
-      <el-menu theme="dark" :default-active="activeIndex" class="el-menu-header" mode="horizontal" router>
-        <el-menu-item index="/index">主页</el-menu-item>
-        <el-submenu index="onlineTest">
-          <template slot="title">在线考试</template>
-          <el-menu-item index="/onlineTest/testCase">考试情况</el-menu-item>
-          <el-menu-item index="/onlineTest/paperManagement">试卷管理</el-menu-item>
-          <el-menu-item index="/onlineTest/testStandard">考试标准</el-menu-item>
-        </el-submenu>
-        <el-submenu index="internshipProgram">
-          <template slot="title">实习安排</template>
-          <el-menu-item index="/internshipProgram/internshipTyping">实习录入</el-menu-item>
-          <el-menu-item index="/internshipProgram/teacherArrangement">教师安排</el-menu-item>
-          <!--<el-menu-item index="/internshipProgram/informationAcquisition">信息采集</el-menu-item>-->
-          <el-menu-item index="/internshipProgram/studentList">学生名单</el-menu-item>
-        </el-submenu>
-        <el-submenu index="internshipProcess">
-          <template slot="title">实习过程</template>
-          <el-menu-item index="/internshipProcess/guidanceRecord">指导记录</el-menu-item>
-          <el-menu-item index="/internshipProcess/processTracking">过程跟踪</el-menu-item>
-          <el-menu-item index="/internshipProcess/aidedTracking">辅助跟踪</el-menu-item>
-          <el-menu-item index="/internshipProcess/studentMessage">学生留言</el-menu-item>
-        </el-submenu>
-        <el-submenu index="assessment">
-          <template slot="title">考核评价</template>
-          <el-menu-item index="/assessment/internalTeacherAssessment">校内教师考核</el-menu-item>
-          <el-menu-item index="/assessment/externalTeacherAssessment">校外教师考核</el-menu-item>
-          <el-menu-item index="/assessment/studentAssessment">学生考核</el-menu-item>
-          <el-menu-item index="/assessment/indexSetting">指标设置</el-menu-item>
-        </el-submenu>
-      </el-menu>
+      <div class="app-head-left">
+        <img class="app-head-logo" src="./assets/logo.png" alt="logo">
+        <el-menu theme="dark" :default-active="activeIndex" class="el-menu-header" mode="horizontal" router>
+          <el-menu-item index="/index">主页</el-menu-item>
+          <el-submenu index="onlineTest">
+            <template slot="title">在线考试</template>
+            <el-menu-item index="/onlineTest/testCase">考试情况</el-menu-item>
+            <el-menu-item index="/onlineTest/paperManagement">试卷管理</el-menu-item>
+            <el-menu-item index="/onlineTest/testStandard">考试标准</el-menu-item>
+          </el-submenu>
+          <el-submenu index="internshipProgram">
+            <template slot="title">实习安排</template>
+            <el-menu-item index="/internshipProgram/internshipTyping">实习录入</el-menu-item>
+            <el-menu-item index="/internshipProgram/teacherArrangement">教师安排</el-menu-item>
+            <el-menu-item index="/internshipProgram/studentList">学生名单</el-menu-item>
+          </el-submenu>
+          <el-submenu index="internshipProcess">
+            <template slot="title">实习过程</template>
+            <el-menu-item index="/internshipProcess/guidanceRecord">指导记录</el-menu-item>
+            <el-menu-item index="/internshipProcess/processTracking">过程跟踪</el-menu-item>
+            <el-menu-item index="/internshipProcess/aidedTracking">辅助跟踪</el-menu-item>
+            <el-menu-item index="/internshipProcess/studentMessage">学生留言</el-menu-item>
+          </el-submenu>
+          <el-submenu index="assessment">
+            <template slot="title">考核评价</template>
+            <el-menu-item index="/assessment/internalTeacherAssessment">校内教师考核</el-menu-item>
+            <el-menu-item index="/assessment/externalTeacherAssessment">校外教师考核</el-menu-item>
+            <el-menu-item index="/assessment/studentAssessment">学生考核</el-menu-item>
+            <el-menu-item index="/assessment/indexSetting">指标设置</el-menu-item>
+          </el-submenu>
+        </el-menu>
+      </div>
+      <div class="app-head-right">
+        <el-popover ref="popoverUser" placement="bottom" width="350" trigger="click">
+          <div class="popover-contain">
+            <h2>超级管理员：</h2>
+            <ul>
+              <li><div>姓名：</div><div>{{user.name}}</div></li>
+              <li><div>学号：</div><div>{{user.code}}</div></li>
+              <li><div>专业：</div><div>{{user.major}}</div></li>
+              <li><div>班级：</div><div>{{user.class}}</div></li>
+              <li><div>手机号：</div><div>{{user.telephone}}</div></li>
+              <li><div>实习年级：</div><div>{{user.gradeValue}}</div></li>
+              <li><div>实习岗位：</div><div>{{user.position}}</div></li>
+            </ul>
+          </div>
+          <div class="popover-button-group">
+            <el-button>修改资料</el-button>
+            <el-button>修改密码</el-button>
+            <el-button type="primary">注销</el-button>
+          </div>
+        </el-popover>
+        <div class="fr popover-button">
+          <el-button v-popover:popoverUser>{{user.name}}</el-button>
+        </div>
+      </div>
     </div>
     <div class="container">
       <keep-alive>
@@ -49,14 +74,48 @@ export default {
   components: {
   },
   created: function () {
+    this.getUserInfo();
   },
   data () {
     return {
-      activeIndex: 'index',
+      activeIndex: '/index',
+      user:{
+        name: "",
+        code: "",
+        major: "",
+        class: "",
+        gradeValue: "",
+        telephone: "",
+        position: "",
+        content: ""
+      }
     }
   },
   methods: {
-
+    //读取用户信息
+    getUserInfo(){
+      this.$http.post('api/common/user',{})
+        .then((res) => {
+          this.user = res.data.user;
+        }, (err) => {
+          this.$message({
+            message: '读取用户信息失败，请检查网络环境！',
+            type: 'error',
+            duration: 1500,
+            showClose: true
+          });
+        });
+    },
+    getNavType(){
+      this.activeIndex=this.$store.state.adminleftnavnum;
+    },
+    selectItems(index){
+      this.$store.state.adminleftnavnum=index;
+    }
+  },
+  watch: {
+    // 监测store.state
+    '$store.state.adminleftnavnum': 'getNavType'
   }
 }
 </script>
@@ -117,6 +176,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/*公共类*/
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
 /*默认滚动条样式*/
 ::-webkit-scrollbar {
   width: 8px;
@@ -145,6 +211,50 @@ body {
   font-size: 14px;
   color: #444;
 }
+//用户悬浮窗
+.el-popover{
+  top: 40px !important;
+}
+.popover-button{
+  margin-right: 40px;
+}
+.el-popover{
+  .popover-contain{
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    h2{
+      font-size: 18px;
+      color: #20a0ff;
+    }
+    ul{
+      margin-top: 10px;
+      li{
+        div{
+          line-height: 24px;
+          display: inline-block;
+        }
+        div:nth-child(1){
+          width: 70px;
+          text-align: right;
+        }
+        div:nth-child(2){
+          text-align: left;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .popover-button-group{
+    margin-top: 10px;
+    float: right;
+    button{
+      margin-left: 5px;
+      font-size: 12px;
+    }
+  }
+}
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -155,6 +265,21 @@ body {
     width: 100%;
     position: fixed;
     z-index: 9;
+    .app-head-left{
+      width: 70%;
+      float: left;
+    }
+    .app-head-right{
+      width: 30%;
+      float: right;
+      background-color: #373d41;
+      button{
+        background-color: rgba(0,0,0,0);
+        border: none;
+        color: #fff;
+        line-height: 40px;
+      }
+    }
     .el-menu--dark{
       background-color: rgb(55,61,65);
     }

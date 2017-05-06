@@ -1,7 +1,13 @@
 {
   "user":{
     "name": "终极大BOSS",
-    "code": "00X"
+    "code": "00X",
+    "major": "土木工程",
+    "class": "吃土一班",
+    "gradeValue": "延期第三年",
+    "telephone": "133xxxxxxxx",
+    "position": "专业吃土",
+    "content": "我是土木工程专业吃土一班的终极大BOSS，今天是延期第三年，专业吃土，电话是133xxxxxxxx。"
   },
   "teacherList": ["赵老师","钱老师","孙老师","周老师","郑老师","吴老师","王老师"]
 }
