@@ -7,6 +7,8 @@ import onlineTestPage from '@/page/onlineTest'
 import testCasePage from '@/page/onlineTest/testCase'
 import paperManagementPage from '@/page/onlineTest/paperManagement'
 import testStandardPage from '@/page/onlineTest/testStandard'
+
+import testStandardAddPage from '@/page/onlineTest/testStandardAdd'
 //实习安排
 import internshipProgramPage from '@/page/internshipProgram'
 import internshipTypingPage from '@/page/internshipProgram/internshipTyping'
@@ -60,6 +62,10 @@ export default new Router({
         {
           path: 'testStandard',
           component: testStandardPage
+        },
+        {
+          path: 'testStandardAdd',
+          component: testStandardAddPage
         }
       ]
     },
