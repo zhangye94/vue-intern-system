@@ -213,6 +213,12 @@ apiRouter.post('/internshipProcess/studentMessage/getReplyContent',function(req,
 
 //在线考试模块
 var onlineTest = require("../mockDB/onlineTestDB.json");
+//考试情况
+apiRouter.post('/onlineTest/testCase/tableData',function(req,res){
+  res.json({
+    tableData: onlineTest.testCase
+  });
+});
 //考试标准
 apiRouter.post('/onlineTest/testStandard/tableData',function(req,res){
   res.json({

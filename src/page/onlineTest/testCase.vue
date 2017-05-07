@@ -78,7 +78,7 @@
             min-width="120">
           </el-table-column>
           <el-table-column
-            prop="internName"
+            prop="internScore"
             label="实习分数"
             min-width="120">
           </el-table-column>
@@ -121,7 +121,7 @@
           score: this.form.score
         })
           .then((res) => {
-            this.tableData = res.data.form;
+            this.tableData = res.data.tableData;
           }, (err) => {
             this.$message({
               message: '读取学生信息失败，请检查网络环境！',

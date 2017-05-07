@@ -15,5 +15,13 @@
   "testStandardEdit": {
     "passScore": "70",
     "internshipList": "搬砖实习1"
-  }
+  },
+  "testCase": [{
+    "studentName": "张三",
+    "code": "001",
+    "grade": "2016级",
+    "jobs": "搬砖民工",
+    "internName": "土木工程实习",
+    "internScore": "86"
+  }]
 }
