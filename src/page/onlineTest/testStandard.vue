@@ -28,7 +28,7 @@
         >
           <el-table-column label="操作" width="70" fixed="right">
             <template scope="scope">
-              <router-link :to="{ path: 'onlineTestView', query: { code: scope.row.code }}">
+              <router-link :to="{ path: 'testStandardAdd', query: { code: scope.row.ID }}">
                 <el-button
                   size="small">修改</el-button></router-link>
             </template>
@@ -76,7 +76,6 @@
     },
     data () {
       return {
-        activeIndex: 'index',
         setting: {
           internshipListOptions: []
         },

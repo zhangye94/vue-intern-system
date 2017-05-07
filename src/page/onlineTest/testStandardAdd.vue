@@ -37,16 +37,17 @@
     },
     created: function () {
       this.getInternList();
+      this.getEditInfo();
+      this.$store.state.adminleftnavnum="/onlineTest/testStandard";
     },
     data () {
       return {
-        activeIndex: 'index',
         setting: {
           internshipListOptions: []
         },
         form: {
           passScore: "",
-          internshipList: []
+          internshipList: ""
         },
         rules: {
           passScore: [
@@ -103,9 +104,42 @@
             });
           });
       },
+      //读取编辑信息
+      getEditInfo(){
+        this.$http.post('api/onlineTest/testStandard/read',{
+          code: this.$route.query.code,
+        })
+          .then((res) => {
+            if(this.$route.query.code) {
+              this.$message({
+                message: '读取成功',
+                type: 'info',
+                duration: 1500,
+                showClose: true
+              });
+              this.form = res.data.form;
+            }else{
+              this.resetForm('form');
+            }
+          }, (err) => {
+            if(this.$route.query.code) {
+              this.$message({
+                message: '读取失败，请检查网络环境！',
+                type: 'error',
+                duration: 1500,
+                showClose: true
+              });
+            }
+          });
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.getEditInfo();
       }
     }
   }

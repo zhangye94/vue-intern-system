@@ -11,5 +11,9 @@
     "internName" :"搬砖实习2",
     "score" :"80",
     "ID" :"003"
-  }]
+  }],
+  "testStandardEdit": {
+    "passScore": "70",
+    "internshipList": "搬砖实习1"
+  }
 }

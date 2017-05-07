@@ -219,6 +219,13 @@ apiRouter.post('/onlineTest/testStandard/tableData',function(req,res){
     testStandard: onlineTest.testStandard
   });
 });
+//考试标准编辑内容读取
+apiRouter.post('/onlineTest/testStandard/read',function(req,res){
+  var code = req.body.code;
+  res.json({
+    form: onlineTest.testStandardEdit
+  });
+});
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()
