@@ -1,7 +1,7 @@
 <template>
   <div id="student-add">
     <div class="add-header">
-      <h2>新建学生</h2>
+      <h2><span v-if="!$route.query.code">创建学生</span><span v-if="$route.query.code">编辑学生</span></h2>
       <router-link to="/internshipProgram/studentList" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
