@@ -1,7 +1,7 @@
 <template>
   <div id="guidance-record-add-model">
     <div class="add-header">
-      <h2>添加指导记录</h2>
+      <h2><span v-if="!$route.query.code">创建指导记录</span><span v-if="$route.query.code">编辑指导记录</span></h2>
       <router-link to="/internshipProcess/guidanceRecord" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">

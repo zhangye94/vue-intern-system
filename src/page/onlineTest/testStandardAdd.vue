@@ -1,14 +1,14 @@
 <template>
   <div id="test-standard-add-model">
     <div class="add-header">
-      <h2>新建考试标准</h2>
+      <h2><span v-if="!$route.query.code">新建考试标准</span><span v-if="$route.query.code">编辑考试标准</span></h2>
       <router-link to="/onlineTest/testStandard" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
-          <el-form-item label="实习列表" prop="internshipList">
-            <el-select v-model="form.internshipList" placeholder="请选择">
+          <el-form-item label="实习列表" prop="internship">
+            <el-select v-model="form.internship" placeholder="请选择">
               <el-option
                 v-for="item in setting.internshipListOptions"
                 :key="item.value"
@@ -47,11 +47,14 @@
         },
         form: {
           passScore: "",
-          internshipList: ""
+          internship: ""
         },
         rules: {
           passScore: [
             { required: true, message: '请输入及格分数', trigger: 'blur' }
+          ],
+          internship: [
+            { required: true, message: '请选择实习', trigger: 'change' }
           ]
         }
       }

@@ -1,7 +1,7 @@
 <template>
   <div id="process-tracking-add-model">
     <div class="add-header">
-      <h2>添加实习总结</h2>
+      <h2><span v-if="!$route.query.code">创建实习总结</span><span v-if="$route.query.code">编辑实习总结</span></h2>
       <router-link to="/internshipProcess/processTracking" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
