@@ -209,6 +209,16 @@ apiRouter.post('/internshipProcess/studentMessage/getReplyContent',function(req,
     replyList: internshipProcess.replyList
   });
 });
+
+
+//在线考试模块
+var onlineTest = require("../mockDB/onlineTestDB.json");
+//考试标准
+apiRouter.post('/onlineTest/testStandard/tableData',function(req,res){
+  res.json({
+    testStandard: onlineTest.testStandard
+  });
+});
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()

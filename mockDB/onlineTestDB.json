@@ -1,0 +1,15 @@
+{
+  "testStandard": [{
+    "internName" :"搬砖实习",
+    "score" :"100",
+    "ID" :"001"
+  },{
+    "internName" :"搬砖实习1",
+    "score" :"90",
+    "ID" :"002"
+  },{
+    "internName" :"搬砖实习2",
+    "score" :"80",
+    "ID" :"003"
+  }]
+}
