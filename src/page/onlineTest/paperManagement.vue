@@ -86,7 +86,8 @@
           problemType: "",
           searchContent: ""
         },
-        tableData: []
+        tableData: [],
+        multipleSelection: []
       }
     },
     methods: {
@@ -111,6 +112,31 @@
             });
           });
       },
+      //删除
+      handleDelete() {
+        let IdGroup = [];
+        for(let i=0;i<this.multipleSelection.length;i++){
+          IdGroup.push(this.multipleSelection[i].ID);
+        }
+        this.$http.post('api/onlineTest/paperManagement/delete',{
+          code: IdGroup
+        })
+          .then((res) => {
+            this.$message({
+              message: '删除题目成功',
+              type: 'info',
+              duration: 1500,
+              showClose: true
+            });
+          }, (err) => {
+            this.$message({
+              message: '删除题目失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      }
     }
   }
 </script>

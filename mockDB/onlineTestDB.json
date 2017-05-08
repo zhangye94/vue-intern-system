@@ -26,12 +26,15 @@
   }],
   "paperManagement": [{
     "problemName": "测一测你的智商，看看你的智商有没有250",
-    "problemType": "单选题"
+    "problemType": "单选题",
+    "ID": "001"
   },{
     "problemName": "测一测你的情商，看看你的情商有没有250",
-    "problemType": "多选题"
+    "problemType": "多选题",
+    "ID": "002"
   },{
     "problemName": "测一测你的桃花运，看看你的桃花运有没有250",
-    "problemType": "单选题"
+    "problemType": "单选题",
+    "ID": "003"
   }]
 }

@@ -9,6 +9,8 @@ import paperManagementPage from '@/page/onlineTest/paperManagement'
 import testStandardPage from '@/page/onlineTest/testStandard'
 
 import testStandardAddPage from '@/page/onlineTest/testStandardAdd'
+import paperManagementViewPage from '@/page/onlineTest/paperManagementView'
+import paperManagementAddPage from '@/page/onlineTest/paperManagementAdd'
 //实习安排
 import internshipProgramPage from '@/page/internshipProgram'
 import internshipTypingPage from '@/page/internshipProgram/internshipTyping'
@@ -58,6 +60,14 @@ export default new Router({
         {
           path: 'paperManagement',
           component: paperManagementPage
+        },
+        {
+          path: 'paperManagementView',
+          component: paperManagementViewPage
+        },
+        {
+          path: 'paperManagementAdd',
+          component: paperManagementAddPage
         },
         {
           path: 'testStandard',
