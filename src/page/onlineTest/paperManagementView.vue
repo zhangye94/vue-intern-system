@@ -1,5 +1,5 @@
 <template>
-  <div id="paper-management-add-model">
+  <div id="paper-management-view-model">
     <div class="add-header">
       <h2>查看考题</h2>
       <router-link to="/onlineTest/papermanagement" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -77,7 +77,7 @@
 </script>
 
 <style lang="less">
-  #paper-management-add-model{
+  #paper-management-view-model{
     padding: 10px 20px 10px 20px;
     .add-form{
       min-height: 370px;

@@ -12,7 +12,7 @@
     },
     data () {
       return {
-        activeIndex: 'index',
+
       }
     },
     methods: {
