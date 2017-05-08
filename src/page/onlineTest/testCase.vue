@@ -37,7 +37,7 @@
         >
           <el-table-column label="操作" width="70" fixed="right">
             <template scope="scope">
-              <router-link :to="{ path: 'onlineTestView', query: { code: scope.row.code }}">
+              <router-link :to="{ path: 'testCaseView', query: { code: scope.row.code }}">
                 <el-button
                   size="small">查看</el-button></router-link>
             </template>

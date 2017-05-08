@@ -9,6 +9,7 @@ import paperManagementPage from '@/page/onlineTest/paperManagement'
 import testStandardPage from '@/page/onlineTest/testStandard'
 
 import testStandardAddPage from '@/page/onlineTest/testStandardAdd'
+import testCaseViewPage from '@/page/onlineTest/testCaseView'
 import paperManagementViewPage from '@/page/onlineTest/paperManagementView'
 import paperManagementAddPage from '@/page/onlineTest/paperManagementAdd'
 //实习安排
@@ -56,6 +57,10 @@ export default new Router({
         {
           path: 'testCase',
           component: testCasePage
+        },
+        {
+          path: 'testCaseView',
+          component: testCaseViewPage
         },
         {
           path: 'paperManagement',

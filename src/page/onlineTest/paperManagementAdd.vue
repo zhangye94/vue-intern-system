@@ -45,6 +45,7 @@
     components: {
     },
     created: function () {
+      this.resetForm('form');
     },
     data () {
       return {
@@ -113,6 +114,11 @@
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.resetForm('form');
       }
     }
   }
