@@ -238,6 +238,12 @@ apiRouter.post('/onlineTest/paperManagement/tableData',function(req,res){
     tableData: onlineTest.paperManagement
   });
 });
+//考题查看
+apiRouter.post('/onlineTest/paperManagement/view',function(req,res){
+  res.json({
+    form: onlineTest.problem
+  });
+});
 
 app.use('/api', apiRouter);
 

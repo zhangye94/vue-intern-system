@@ -36,5 +36,22 @@
     "problemName": "测一测你的桃花运，看看你的桃花运有没有250",
     "problemType": "单选题",
     "ID": "003"
-  }]
+  }],
+  "problem": {
+    "problemItems": [{
+      "name": "各方基本信息",
+      "value": true
+    }, {
+      "name": "实习的时间、地点、内容、要求与条件保障",
+      "value": true
+    },{
+      "name": "实习期间的食宿和休假安排",
+      "value": false
+    },{
+      "name": "实习期间劳动保护和劳动安全、卫生、职业病危害防护条件",
+      "value": false
+    }],
+    "problemLabel": "实习协议应明确各方的责任、权利和义务，协议约定的内容不得违反相关法律法规。实习协议应包括但不限于以下内容：",
+    "problemType": "多选题"
+  }
 }
