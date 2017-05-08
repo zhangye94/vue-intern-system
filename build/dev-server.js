@@ -232,6 +232,13 @@ apiRouter.post('/onlineTest/testStandard/read',function(req,res){
     form: onlineTest.testStandardEdit
   });
 });
+//试卷管理
+apiRouter.post('/onlineTest/paperManagement/tableData',function(req,res){
+  res.json({
+    tableData: onlineTest.paperManagement
+  });
+});
+
 app.use('/api', apiRouter);
 
 // var apiRouter = express.Router()

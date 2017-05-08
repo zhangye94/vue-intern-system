@@ -23,5 +23,15 @@
     "jobs": "搬砖民工",
     "internName": "土木工程实习",
     "internScore": "86"
+  }],
+  "paperManagement": [{
+    "problemName": "测一测你的智商，看看你的智商有没有250",
+    "problemType": "单选题"
+  },{
+    "problemName": "测一测你的情商，看看你的情商有没有250",
+    "problemType": "多选题"
+  },{
+    "problemName": "测一测你的桃花运，看看你的桃花运有没有250",
+    "problemType": "单选题"
   }]
 }
