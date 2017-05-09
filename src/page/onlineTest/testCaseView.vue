@@ -39,12 +39,6 @@
             problemAnswer: []
           }]
         },
-//        form: [{
-//          problemItems: [],
-//          problemLabel: "",
-//          problemType: "",
-//        }],
-//        problemAnswer: []
       }
     },
     methods: {
@@ -80,7 +74,7 @@
               });
             }
           });
-      },
+      }
     }
   }
 </script>
