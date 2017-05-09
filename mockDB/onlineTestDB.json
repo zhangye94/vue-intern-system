@@ -53,5 +53,42 @@
     }],
     "problemLabel": "实习协议应明确各方的责任、权利和义务，协议约定的内容不得违反相关法律法规。实习协议应包括但不限于以下内容：",
     "problemType": "多选题"
-  }
+  },
+  "problemList": [{
+    "problemItems": [{
+      "name": "各方基本信息",
+      "value": true
+    }, {
+      "name": "实习的时间、地点、内容、要求与条件保障",
+      "value": true
+    },{
+      "name": "实习期间的食宿和休假安排",
+      "value": false
+    },{
+      "name": "实习期间劳动保护和劳动安全、卫生、职业病危害防护条件",
+      "value": false
+    }],
+    "problemLabel": "实习协议应明确各方的责任、权利和义务，协议约定的内容不得违反相关法律法规。实习协议应包括但不限于以下内容：",
+    "problemType": "多选题",
+    "ifCorrect": true,
+    "problemAnswer": []
+  },{
+    "problemItems": [{
+      "name": "定期信息通报",
+      "value": true
+    }, {
+      "name": "长期交流",
+      "value": false
+    },{
+      "name": "工作总结",
+      "value": false
+    },{
+      "name": "汇报",
+      "value": false
+    }],
+    "problemLabel": "建立学校、实习单位和学生家长什么制度？",
+    "problemType": "单选题",
+    "ifCorrect": false,
+    "problemAnswer": []
+  }]
 }

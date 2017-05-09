@@ -219,6 +219,12 @@ apiRouter.post('/onlineTest/testCase/tableData',function(req,res){
     tableData: onlineTest.testCase
   });
 });
+//考试情况查看
+apiRouter.post('/onlineTest/testCase/view',function(req,res){
+  res.json({
+    form: onlineTest.problemList
+  });
+});
 //考试标准
 apiRouter.post('/onlineTest/testStandard/tableData',function(req,res){
   res.json({

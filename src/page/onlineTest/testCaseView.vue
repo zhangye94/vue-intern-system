@@ -7,10 +7,12 @@
     <div class="add-content">
       <div class="add-form">
         <el-form ref="form" :model="form" label-width="80px" label-position="top" :inline="false">
-          <el-form-item :label="'题目名称：'+form.problemLabel">
-            <h3 class="problem-type">【{{form.problemType}}】</h3>
-            <el-checkbox-group v-model="problemAnswer">
-              <el-checkbox disabled v-for="(item ,index) in form.problemItems" :key="item" :value="item.name" :label="setting.options[index]+'、'+item.name"></el-checkbox>
+          <el-form-item :label="'题目名称：'+problemItem.problemLabel" v-for="(problemItem ,index) in form.problemList">
+            <h3 class="problem-type">【{{problemItem.problemType}}】</h3>
+            <h3 class="problem-type" v-if="problemItem.ifCorrect" v-bind:class="{ 'correct': problemItem.ifCorrect, 'error': !problemItem.ifCorrect }">【回答正确】</h3>
+            <h3 class="problem-type" v-if="!problemItem.ifCorrect" v-bind:class="{ 'correct': problemItem.ifCorrect, 'error': !problemItem.ifCorrect }">【回答错误】</h3>
+            <el-checkbox-group v-model="problemItem.problemAnswer">
+              <el-checkbox disabled v-for="(item ,index) in problemItem.problemItems" :key="item" :value="item.name" :label="setting.options[index]+'、'+item.name"></el-checkbox>
             </el-checkbox-group>
           </el-form-item>
         </el-form>
@@ -33,17 +35,22 @@
           options: ["A","B","C","D","E","F","G","H"]
         },
         form: {
-          problemItems: [],
-          problemLabel: "",
-          problemType: "",
+          problemList: [{
+            problemAnswer: []
+          }]
         },
-        problemAnswer: []
+//        form: [{
+//          problemItems: [],
+//          problemLabel: "",
+//          problemType: "",
+//        }],
+//        problemAnswer: []
       }
     },
     methods: {
       //读取编辑信息
       getEditInfo(){
-        this.$http.post('api/onlineTest/paperManagement/view',{
+        this.$http.post('api/onlineTest/testCase/view',{
           code: this.$route.query.code,
         })
           .then((res) => {
@@ -54,10 +61,12 @@
                 duration: 1500,
                 showClose: true
               });
-              this.form = res.data.form;
-              for(let i=0;i<res.data.form.problemItems.length;i++){
-                if(res.data.form.problemItems[i].value){
-                  this.problemAnswer.push(this.setting.options[i] + "、" + res.data.form.problemItems[i].name);
+              this.form.problemList = res.data.form;
+              for(let i=0;i<res.data.form.length;i++){
+                for(let j=0;j<res.data.form[i].problemItems.length;j++){
+                  if(res.data.form[i].problemItems[j].value){
+                    this.form.problemList[i].problemAnswer.push(this.setting.options[j] + "、" + res.data.form[i].problemItems[j].name);
+                  }
                 }
               }
             }
@@ -92,6 +101,13 @@
       }
       .problem-type{
         color: #20a0ff;
+        display: inline-block;
+      }
+      .correct{
+        color: rgb(87,215,141);
+      }
+      .error{
+        color: rgb(232,76,61);
       }
     }
   }
