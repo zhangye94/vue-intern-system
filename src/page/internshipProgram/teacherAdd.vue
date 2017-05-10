@@ -102,7 +102,7 @@
             })
             .then((res) => {
               this.$message({
-                message: '创建成功',
+                message: '创建教师成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -110,7 +110,7 @@
               this.resetForm('form');
             }, (err) => {
               this.$message({
-                message: '新建教师失败，请检查网络环境！',
+                message: '创建教师失败，请检查网络环境！',
                 type: 'error',
                 duration: 1500,
                 showClose: true

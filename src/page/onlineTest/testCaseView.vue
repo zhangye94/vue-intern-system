@@ -1,5 +1,5 @@
 <template>
-  <div id="test-case-view-model">
+  <div id="test-case-view-model" class="add-form-head">
     <div class="add-header">
       <h2>查看考试情况</h2>
       <router-link to="/onlineTest/testCase" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -81,7 +81,6 @@
 
 <style lang="less">
   #test-case-view-model{
-    padding: 10px 20px 10px 20px;
     .add-form{
       min-height: 370px;
       background-color: rgb(250,250,250);

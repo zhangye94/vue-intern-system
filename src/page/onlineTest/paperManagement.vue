@@ -142,7 +142,7 @@
             this.tableData = res.data.tableData;
           }, (err) => {
             this.$message({
-              message: '读取学生信息失败，请检查网络环境！',
+              message: '读取试卷列表失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true

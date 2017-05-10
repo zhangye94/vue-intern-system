@@ -143,7 +143,7 @@
         })
           .then((res) => {
             this.$message({
-              message: '删除成功',
+              message: '删除学生留言成功',
               type: 'info',
               duration: 1500,
               showClose: true
@@ -151,7 +151,7 @@
             this.getTableData();
           }, (err) => {
             this.$message({
-              message: '删除失败，请检查网络环境！',
+              message: '删除学生留言失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true

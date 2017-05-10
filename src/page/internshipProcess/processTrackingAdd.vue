@@ -1,5 +1,5 @@
 <template>
-  <div id="process-tracking-add-model">
+  <div id="process-tracking-add-model" class="add-form-head">
     <div class="add-header">
       <h2><span v-if="!$route.query.code">创建实习总结</span><span v-if="$route.query.code">编辑实习总结</span></h2>
       <router-link to="/internshipProcess/processTracking" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -80,7 +80,7 @@
             })
               .then((res) => {
                 this.$message({
-                  message: '创建成功',
+                  message: '创建实习总结成功',
                   type: 'info',
                   duration: 1500,
                   showClose: true
@@ -170,7 +170,6 @@
 
 <style lang="less">
   #process-tracking-add-model{
-    padding: 10px 20px 10px 20px;
     .internshipSummary{
       textarea{
         height: 300px;

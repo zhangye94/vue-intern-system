@@ -177,7 +177,7 @@
             this.tableData = res.data.form;
           }, (err) => {
             this.$message({
-              message: '读取实习信息失败，请检查网络环境！',
+              message: '读取实习列表失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true

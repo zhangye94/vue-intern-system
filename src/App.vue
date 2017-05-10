@@ -259,6 +259,9 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  .add-form-head{
+    padding: 10px 20px 10px 20px;
+  }
   .app-head {
     background: #363636;
     color: #b2b2b2;

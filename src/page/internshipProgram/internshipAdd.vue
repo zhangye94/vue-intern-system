@@ -1,5 +1,5 @@
 <template>
-  <div id="internship-add">
+  <div id="internship-add" class="add-form-head">
     <div class="add-header">
       <h2><span v-if="!$route.query.code">创建实习</span><span v-if="$route.query.code">编辑实习</span></h2>
       <router-link to="/internshipProgram/internshipTyping" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -178,7 +178,7 @@
             })
               .then((res) => {
                 this.$message({
-                  message: '创建成功',
+                  message: '创建实习成功',
                   type: 'info',
                   duration: 1500,
                   showClose: true
@@ -212,7 +212,7 @@
           .then((res) => {
             if(this.$route.query.code) {
               this.$message({
-                message: '读取成功',
+                message: '读取实习信息成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -224,7 +224,7 @@
           }, (err) => {
             if(this.$route.query.code) {
               this.$message({
-                message: '读取失败，请检查网络环境！',
+                message: '读取实习信息失败，请检查网络环境！',
                 type: 'error',
                 duration: 1500,
                 showClose: true
@@ -277,7 +277,4 @@
 </script>
 
 <style lang="less">
-  #internship-add{
-    padding: 10px 20px 10px 20px;
-  }
 </style>

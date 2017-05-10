@@ -1,5 +1,5 @@
 <template>
-  <div id="student-add">
+  <div id="student-add" class="add-form-head">
     <div class="add-header">
       <h2><span v-if="!$route.query.code">创建学生</span><span v-if="$route.query.code">编辑学生</span></h2>
       <router-link to="/internshipProgram/studentList" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -125,7 +125,7 @@
             })
             .then((res) => {
               this.$message({
-                message: '创建成功',
+                message: '创建学生成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -159,7 +159,7 @@
           .then((res) => {
             if(res.data.form.code) {
               this.$message({
-                message: '读取成功',
+                message: '读取学生信息成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -171,7 +171,7 @@
           }, (err) => {
             if(res.data.form.code) {
               this.$message({
-                message: '读取失败，请检查网络环境！',
+                message: '读取学生信息失败，请检查网络环境！',
                 type: 'error',
                 duration: 1500,
                 showClose: true
@@ -221,7 +221,5 @@
 </script>
 
 <style lang="less">
-  #student-add{
-    padding: 10px 20px 10px 20px;
-  }
+
 </style>

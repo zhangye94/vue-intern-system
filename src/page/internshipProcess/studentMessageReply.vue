@@ -1,5 +1,5 @@
 <template>
-  <div id="student-message-reply-model">
+  <div id="student-message-reply-model" class="add-form-head">
     <div class="add-header">
       <h2>回复留言</h2>
       <router-link to="/internshipProcess/studentMessage" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -116,7 +116,6 @@
 
 <style lang="less">
   #student-message-reply-model{
-    padding: 10px 20px 10px 20px;
     .reply-contain{
       min-height: 200px;
       padding: 20px;

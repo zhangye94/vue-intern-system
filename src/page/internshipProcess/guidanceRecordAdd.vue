@@ -1,5 +1,5 @@
 <template>
-  <div id="guidance-record-add-model">
+  <div id="guidance-record-add-model" class="add-form-head">
     <div class="add-header">
       <h2><span v-if="!$route.query.code">创建指导记录</span><span v-if="$route.query.code">编辑指导记录</span></h2>
       <router-link to="/internshipProcess/guidanceRecord" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
@@ -128,7 +128,7 @@
             })
             .then((res) => {
               this.$message({
-                message: '创建成功',
+                message: '创建指导记录成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -175,7 +175,7 @@
           .then((res) => {
             if(this.$route.query.code) {
               this.$message({
-                message: '读取成功',
+                message: '读取指导记录成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -187,7 +187,7 @@
           }, (err) => {
             if(this.$route.query.code) {
               this.$message({
-                message: '读取失败，请检查网络环境！',
+                message: '读取指导记录失败，请检查网络环境！',
                 type: 'error',
                 duration: 1500,
                 showClose: true
