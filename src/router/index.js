@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 //登录
 import Login from '@/page/Login'
+//布局
+import layoutPage from '@/page/layout'
 //首页
 import indexPage from '@/page/index'
 //在线考试路由
@@ -52,140 +54,146 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'index',
-      component: indexPage
-    },
-    {
-      path: '/onlineTest',
-      component: onlineTestPage,
-      redirect: '/onlineTest/testCase',
+      component: layoutPage,
       children: [
         {
-          path: 'testCase',
-          component: testCasePage
+          path: '/index',
+          component: indexPage,
         },
         {
-          path: 'testCaseView',
-          component: testCaseViewPage
+          path: '/onlineTest',
+          component: onlineTestPage,
+          redirect: '/onlineTest/testCase',
+          children: [
+            {
+              path: 'testCase',
+              component: testCasePage
+            },
+            {
+              path: 'testCaseView',
+              component: testCaseViewPage
+            },
+            {
+              path: 'paperManagement',
+              component: paperManagementPage
+            },
+            {
+              path: 'paperManagementView',
+              component: paperManagementViewPage
+            },
+            {
+              path: 'paperManagementAdd',
+              component: paperManagementAddPage
+            },
+            {
+              path: 'testStandard',
+              component: testStandardPage
+            },
+            {
+              path: 'testStandardAdd',
+              component: testStandardAddPage
+            }
+          ]
         },
         {
-          path: 'paperManagement',
-          component: paperManagementPage
+          path: '/internshipProgram',
+          component: internshipProgramPage,
+          redirect: '/internshipProgram/internshipTyping',
+          children: [
+            {
+              path: 'internshipTyping',
+              component: internshipTypingPage
+            },
+            {
+              path: 'internshipAdd',
+              component: internshipAddPage
+            },
+            {
+              path: 'teacherArrangement',
+              component: teacherArrangementPage
+            },
+            {
+              path: 'teacherAdd',
+              component: teacherAddPage
+            },
+            {
+              path: 'informationAcquisition',
+              component: informationAcquisitionPage
+            },
+            {
+              path: 'studentList',
+              component: studentListPage
+            },
+            {
+              path: 'studentAdd',
+              component: studentAddPage
+            }
+          ]
         },
         {
-          path: 'paperManagementView',
-          component: paperManagementViewPage
+          path: '/internshipProcess',
+          component: internshipProcessPage,
+          redirect: '/internshipProcess/guidanceRecord',
+          children: [
+            {
+              path: 'guidanceRecord',
+              component: guidanceRecordPage
+            },
+            {
+              path: 'guidanceRecordAdd',
+              component: guidanceRecordAddPage
+            },
+            {
+              path: 'processTracking',
+              component: processTrackingPage
+            },
+            {
+              path: 'processTrackingAdd',
+              component: processTrackingAddPage
+            },
+            {
+              path: 'aidedTracking',
+              component: aidedTrackingPage
+            },
+            {
+              path: 'studentMessage',
+              component: studentMessagePage
+            },
+            {
+              path: 'studentMessageAdd',
+              component: studentMessageAddPage
+            },
+            {
+              path: 'studentMessageReply',
+              component: studentMessageReplyPage
+            }
+          ]
         },
         {
-          path: 'paperManagementAdd',
-          component: paperManagementAddPage
+          path: '/assessment',
+          component: assessmentPage,
+          redirect: '/assessment/internalTeacherAssessment',
+          children: [
+            {
+              path: 'internalTeacherAssessment',
+              component: internalTeacherAssessmentPage
+            },
+            {
+              path: 'externalTeacherAssessment',
+              component: externalTeacherAssessmentPage
+            },
+            {
+              path: 'studentAssessment',
+              component: studentAssessmentPage
+            },
+            {
+              path: 'indexSetting',
+              component: indexSettingPage
+            }
+          ]
         },
-        {
-          path: 'testStandard',
-          component: testStandardPage
-        },
-        {
-          path: 'testStandardAdd',
-          component: testStandardAddPage
-        }
       ]
     },
-    {
-      path: '/internshipProgram',
-      component: internshipProgramPage,
-      redirect: '/internshipProgram/internshipTyping',
-      children: [
-        {
-          path: 'internshipTyping',
-          component: internshipTypingPage
-        },
-        {
-          path: 'internshipAdd',
-          component: internshipAddPage
-        },
-        {
-          path: 'teacherArrangement',
-          component: teacherArrangementPage
-        },
-        {
-          path: 'teacherAdd',
-          component: teacherAddPage
-        },
-        {
-          path: 'informationAcquisition',
-          component: informationAcquisitionPage
-        },
-        {
-          path: 'studentList',
-          component: studentListPage
-        },
-        {
-          path: 'studentAdd',
-          component: studentAddPage
-        }
-      ]
-    },
-    {
-      path: '/internshipProcess',
-      component: internshipProcessPage,
-      redirect: '/internshipProcess/guidanceRecord',
-      children: [
-        {
-          path: 'guidanceRecord',
-          component: guidanceRecordPage
-        },
-        {
-          path: 'guidanceRecordAdd',
-          component: guidanceRecordAddPage
-        },
-        {
-          path: 'processTracking',
-          component: processTrackingPage
-        },
-        {
-          path: 'processTrackingAdd',
-          component: processTrackingAddPage
-        },
-        {
-          path: 'aidedTracking',
-          component: aidedTrackingPage
-        },
-        {
-          path: 'studentMessage',
-          component: studentMessagePage
-        },
-        {
-          path: 'studentMessageAdd',
-          component: studentMessageAddPage
-        },
-        {
-          path: 'studentMessageReply',
-          component: studentMessageReplyPage
-        }
-      ]
-    },
-    {
-      path: '/assessment',
-      component: assessmentPage,
-      redirect: '/assessment/internalTeacherAssessment',
-      children: [
-        {
-          path: 'internalTeacherAssessment',
-          component: internalTeacherAssessmentPage
-        },
-        {
-          path: 'externalTeacherAssessment',
-          component: externalTeacherAssessmentPage
-        },
-        {
-          path: 'studentAssessment',
-          component: studentAssessmentPage
-        },
-        {
-          path: 'indexSetting',
-          component: indexSettingPage
-        }
-      ]
-    },
+
   ]
 })
