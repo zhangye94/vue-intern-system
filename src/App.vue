@@ -50,7 +50,7 @@
           <div class="popover-button-group">
             <el-button><router-link :to="{ path: '/internshipProgram/studentAdd', query: { code: user.code }}">修改资料</router-link></el-button>
             <el-button>修改密码</el-button>
-            <el-button type="primary">注销</el-button>
+            <el-button type="primary" @click="logout">注销</el-button>
           </div>
         </el-popover>
         <div class="fr popover-button">
@@ -59,9 +59,11 @@
       </div>
     </div>
     <div class="container">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+      <transition name="fade">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </transition>
     </div>
     <div class="app-foot">
       <p>Copyright © 2017-2020 北京理工大学计算机软件实验室提供技术支持</p>
@@ -71,6 +73,7 @@
 
 <script>
 export default {
+  name: 'app',
   components: {
   },
   created: function () {
@@ -88,8 +91,21 @@ export default {
         telephone: "",
         position: "",
         content: ""
-      }
+      },
+      isLogin: false,
+      userInfo: { //保存用户信息
+        nick: null,
+        ulevel: null,
+        uid: null,
+        portrait: null
+      },
+      isLogouting: false,
+      showHeadAndFooter: false,
     }
+  },
+  mounted(){
+    //组件开始挂载时获取用户信息
+    this.getUserInfo();
   },
   methods: {
     //读取用户信息
@@ -106,11 +122,44 @@ export default {
           });
         });
     },
+    //请求用户的一些信息
+//    getUserInfo(){
+//
+//      //发送http请求获取，这里写死作演示
+//      this.userInfo = {
+//        nick: 'Doterlin',
+//        ulevel: 20,
+//        uid: '10000',
+//        portrait: 'images/profile.png'
+//      }
+//
+//      //实例开发中这里会向服务端请求数据
+//      //如下(用了vue-resource):
+//      /*ts.$http.get(url, {
+//       //参数
+//       "params":{}
+//       }).then((response) => {
+//       //Success
+//       }, (response) => {
+//       //Error
+//       });*/
+//
+//      //提交mutation到Store
+//      this.$store.commit('updateUserInfo', this.userInfo);
+//    },
     getNavType(){
       this.activeIndex=this.$store.state.adminleftnavnum;
     },
     selectItems(index){
       this.$store.state.adminleftnavnum=index;
+    },
+    //注销
+    logout(){
+      //删除cookie并跳到登录页
+      this.isLogouting = true;
+      this.delCookie('session');
+      this.$router.push('/login/');
+      this.isLogouting = false;
     }
   },
   watch: {

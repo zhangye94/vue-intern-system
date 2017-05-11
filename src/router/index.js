@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//登录
+import Login from '@/page/Login'
 //首页
 import indexPage from '@/page/index'
 //在线考试路由
@@ -44,6 +46,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/login',
+      component: Login
+    },
     {
       path: '/',
       name: 'index',
