@@ -155,6 +155,7 @@
         this.delCookie('session');
         this.$router.push('/login/');
         this.isLogouting = false;
+        localStorage.removeItem("root");
       }
     },
     watch: {

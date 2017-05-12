@@ -46,17 +46,24 @@
 
       //登录请求
       toLogin(){
-
-        //一般要跟后端了解密码的加密规则
-        //这里例子用的哈希算法来自./js/sha1.min.js
+        //sha 1算法加密
         let password_sha = hex_sha1(hex_sha1( this.password ));
-
-        //需要想后端发送的登录参数
+        //登录参数
         let loginParam = {
           account: this.account,
           password_sha
         };
 
+        //权限控制模拟
+        if(this.account === '1'){
+          localStorage.root = 1;
+        }else if(this.account === '2'){
+          localStorage.root = 2;
+        }else if(this.account === '3'){
+          localStorage.root = 3;
+        }else if(this.account === '4'){
+          localStorage.root = 4;
+        }
         //设置在登录状态
         this.isLoging = true;
 
