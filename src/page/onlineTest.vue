@@ -5,7 +5,7 @@
         <el-col :span="24">
           <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="selectItems" router>
             <el-menu-item index="/onlineTest/testCase"><i class="el-icon-document"></i>考试情况</el-menu-item>
-            <el-menu-item index="/onlineTest/paperManagement"><i class="el-icon-menu"></i>试卷管理</el-menu-item>
+            <el-menu-item index="/onlineTest/paperManagement" v-if="root != 10001"><i class="el-icon-menu"></i>试卷管理</el-menu-item>
             <el-menu-item index="/onlineTest/testStandard"><i class="el-icon-setting"></i>考试标准</el-menu-item>
           </el-menu>
         </el-col>
@@ -28,6 +28,7 @@
     data () {
       return {
         activeIndex: '/onlineTest/testCase',
+        root: localStorage.root
       }
     },
     methods: {

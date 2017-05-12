@@ -14,7 +14,7 @@
               <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
             </el-form-item>
           </el-col>
-          <el-input v-model="form.search" placeholder="学生姓名、学号" class="search"></el-input>
+          <el-input v-model="form.search" placeholder="学生姓名、学号" class="search" v-if="root != 10001"></el-input>
           <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
         </el-form-item>
       </el-form>
@@ -22,9 +22,9 @@
     <div class="content">
       <div class="content-title">
         <h2>实习总结</h2>
-        <router-link to="/internshipProcess/processTrackingAdd" class="add"><i class="el-icon-plus"></i></router-link>
-        <el-button type="primary" class="check" @click="review">审阅</el-button>
-        <el-button type="primary" class="check delete" @click="handleDelete">删除</el-button>
+        <router-link to="/internshipProcess/processTrackingAdd" class="add" v-if="root == 10001"><i class="el-icon-plus"></i></router-link>
+        <el-button type="primary" class="check" @click="review" v-if="root == 10002||root == 10003">审阅</el-button>
+        <el-button type="primary" class="check delete" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
       </div>
       <div class="content-table">
         <el-table
@@ -34,7 +34,7 @@
           style="width: 100%"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="40">
+          <el-table-column type="selection" width="40" v-if="root == 10002||root == 10003">
           </el-table-column>
           <el-table-column
             type="index"
@@ -85,10 +85,10 @@
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right">
             <template scope="scope">
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="status">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001">
                 <el-button
                   size="small">编辑</el-button></router-link>
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="!status">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10002||root == 10003||root == 10004">
                 <el-button
                   size="small">审阅</el-button></router-link>
             </template>
@@ -109,15 +109,14 @@
     },
     data () {
       return {
-        //用户身份
-        status: true,
         form: {
           date1: '',
           date2: '',
           search: ''
         },
         tableData: [],
-        multipleSelection: []
+        multipleSelection: [],
+        root: localStorage.root
       }
     },
     methods: {

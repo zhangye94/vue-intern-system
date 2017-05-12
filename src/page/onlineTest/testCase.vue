@@ -3,7 +3,7 @@
     <div class="header">
       <el-input
         placeholder="请输入学生名称、学号"
-        v-model="form.searchContent">
+        v-model="form.searchContent" v-if="root != 10001">
       </el-input>
       <el-select v-model="form.internshipList" placeholder="请选择">
         <el-option
@@ -26,7 +26,7 @@
     <div class="content">
       <div class="content-title">
         <h2>考试情况列表</h2>
-        <router-link to="/internshipProgram/studentAdd" class="add">开始考试</router-link>
+        <router-link to="/internshipProgram/studentAdd" class="add" v-if="root == 10001">开始考试</router-link>
       </div>
       <div class="content-table">
         <el-table
@@ -109,7 +109,8 @@
           internshipList: [],
           score: ""
         },
-        tableData: []
+        tableData: [],
+        root: localStorage.root
       }
     },
     methods: {

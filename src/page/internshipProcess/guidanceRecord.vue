@@ -25,9 +25,9 @@
     <div class="content">
       <div class="content-title">
         <h2>教师指导记录列表</h2>
-        <router-link to="/internshipProcess/guidanceRecordAdd" class="add"><i class="el-icon-plus"></i></router-link>
-        <el-button type="primary" class="check" @click="handleDelete">删除</el-button>
-        <el-button type="text" @click="dialogVisible = true"><i class="el-icon-upload2"></i>导入数据</el-button>
+        <router-link to="/internshipProcess/guidanceRecordAdd" class="add" v-if="root != 10001"><i class="el-icon-plus"></i></router-link>
+        <el-button type="primary" class="check" @click="handleDelete" v-if="root != 10001">删除</el-button>
+        <el-button type="text" @click="dialogVisible = true" v-if="root != 10001"><i class="el-icon-upload2"></i>导入数据</el-button>
         <el-dialog
           title="提示"
           v-model="dialogVisible"
@@ -57,7 +57,7 @@
           @selection-change="handleSelectionChange"
           :default-sort = "{prop: 'date', order: 'descending'}"
         >
-          <el-table-column type="selection" width="40">
+          <el-table-column type="selection" width="40" v-if="root != 10001">
           </el-table-column>
           <el-table-column
             type="index"
@@ -119,7 +119,7 @@
             sortable
             width="100">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right">
+          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10004">
             <template scope="scope">
               <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.ID }}">
                 <el-button
@@ -150,7 +150,8 @@
         },
         tableData: [],
         multipleSelection: [],
-        fileList: []
+        fileList: [],
+        root: localStorage.root
       }
     },
     methods: {

@@ -22,8 +22,8 @@
     <div class="content">
       <div class="content-title">
         <h2>留言本列表</h2>
-        <router-link to="/internshipProcess/studentMessageAdd" class="add"><i class="el-icon-plus"></i></router-link>
-        <el-button type="primary" class="check" @click="handleDelete">删除</el-button>
+        <router-link to="/internshipProcess/studentMessageAdd" class="add" v-if="root == 10001"><i class="el-icon-plus"></i></router-link>
+        <el-button type="primary" class="check" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
       </div>
       <div class="content-table">
         <el-table
@@ -33,7 +33,7 @@
           style="width: 100%"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="40">
+          <el-table-column type="selection" width="40" v-if="root == 10004||root == 10005">
           </el-table-column>
           <el-table-column
             type="index"
@@ -106,7 +106,8 @@
           search: ""
         },
         tableData: [],
-        multipleSelection: []
+        multipleSelection: [],
+        root: localStorage.root
       }
     },
     methods: {

@@ -14,7 +14,7 @@
               <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
             </el-form-item>
           </el-col>
-          <el-input v-model="form.search" placeholder="学生姓名、学号" class="search"></el-input>
+          <el-input v-model="form.search" placeholder="学生姓名、学号" class="search" v-if="root != 10001"></el-input>
           <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
         </el-form-item>
       </el-form>
@@ -22,7 +22,7 @@
     <div class="content">
       <div class="content-title">
         <h2>考勤信息列表</h2>
-        <el-button type="primary" class="check" @click="handleDelete">删除</el-button>
+        <el-button type="primary" class="check" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
       </div>
       <div class="content-table">
         <el-table
@@ -32,7 +32,7 @@
           style="width: 100%"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="40">
+          <el-table-column type="selection" width="40" v-if="root == 10004||root == 10005">
           </el-table-column>
           <el-table-column
             type="index"
@@ -99,7 +99,8 @@
           search: ""
         },
         tableData: [],
-        multipleSelection: []
+        multipleSelection: [],
+        root: localStorage.root
       }
     },
     methods: {
