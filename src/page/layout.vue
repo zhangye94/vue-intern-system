@@ -8,7 +8,7 @@
           <el-submenu index="onlineTest">
             <template slot="title">在线考试</template>
             <el-menu-item index="/onlineTest/testCase">考试情况</el-menu-item>
-            <el-menu-item index="/onlineTest/paperManagement">试卷管理</el-menu-item>
+            <el-menu-item index="/onlineTest/paperManagement" v-if="root != 10001">试卷管理</el-menu-item>
             <el-menu-item index="/onlineTest/testStandard">考试标准</el-menu-item>
           </el-submenu>
           <el-submenu index="internshipProgram">
@@ -96,6 +96,7 @@
         },
         isLogouting: false,
         showHeadAndFooter: false,
+        root: localStorage.root
       }
     },
     mounted(){

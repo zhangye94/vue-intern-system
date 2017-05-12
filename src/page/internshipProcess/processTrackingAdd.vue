@@ -8,7 +8,7 @@
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
           <el-form-item label="选择实习" prop="internshipList">
-            <el-select v-model="form.internshipList" placeholder="请选择" disabled="root == 10002||root == 10003||root == 10004">
+            <el-select v-model="form.internshipList" placeholder="请选择" :disabled="root == 10002||root == 10003||root == 10004">
               <el-option
                 v-for="item in setting.internshipListOptions"
                 :key="item.value"
@@ -18,14 +18,14 @@
             </el-select>
           </el-form-item>
           <el-form-item label="总结标题" prop="title" required>
-            <el-input v-model="form.title" disabled="root == 10002||root == 10003||root == 10004"></el-input>
+            <el-input v-model="form.title" :disabled="root == 10002||root == 10003||root == 10004"></el-input>
           </el-form-item>
           <el-form-item label="总结内容" prop="content" required>
-            <el-input type="textarea" v-model="form.content" class="add-form-textarea internshipSummary" disabled="root == 10002||root == 10003||root == 10004"></el-input>
+            <el-input type="textarea" v-model="form.content" class="add-form-textarea internshipSummary" :disabled="root == 10002||root == 10003||root == 10004"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="onSubmit('form')" disabled="root == 10002||root == 10003||root == 10004">立即创建</el-button>
-            <el-button @click="resetForm('form')" disabled="root == 10002||root == 10003||root == 10004">重置</el-button>
+            <el-button type="primary" @click="onSubmit('form')" :disabled="root == 10002||root == 10003||root == 10004">立即创建</el-button>
+            <el-button @click="resetForm('form')" :disabled="root == 10002||root == 10003||root == 10004">重置</el-button>
             <el-button><router-link to="/internshipProcess/processTracking">取消</router-link></el-button>
           </el-form-item>
         </el-form>

@@ -18,9 +18,9 @@
     <div class="content">
       <div class="content-title">
         <h2>试卷题目列表</h2>
-        <router-link to="/onlineTest/paperManagementAdd" class="add"><i class="el-icon-plus"></i></router-link>
-        <el-button type="primary" class="batchDelete" @click="handleDelete">删除</el-button>
-        <el-button type="text" @click="dialogVisible = true"><i class="el-icon-upload2"></i>导入数据</el-button>
+        <router-link to="/onlineTest/paperManagementAdd" class="add" v-if="root == 10002||root == 10004"><i class="el-icon-plus"></i></router-link>
+        <el-button type="primary" class="batchDelete" @click="handleDelete" v-if="root == 10002||root == 10004">删除</el-button>
+        <el-button type="text" @click="dialogVisible = true" v-if="root == 10002||root == 10004"><i class="el-icon-upload2"></i>导入数据</el-button>
         <el-dialog
           title="提示"
           v-model="dialogVisible"
@@ -56,7 +56,7 @@
                   size="small">查看</el-button></router-link>
             </template>
           </el-table-column>
-          <el-table-column type="selection" width="40">
+          <el-table-column type="selection" width="40" v-if="root == 10002||root == 10004">
           </el-table-column>
           <el-table-column
             type="index"
