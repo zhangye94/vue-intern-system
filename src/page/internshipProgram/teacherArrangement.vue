@@ -28,9 +28,9 @@
     <div class="content">
       <div class="content-title">
         <h2>教师列表</h2>
-        <router-link to="/internshipProgram/teacherAdd" class="add"><i class="el-icon-plus"></i></router-link>
-        <el-button type="primary" class="batchDelete" @click="handleDelete">删除</el-button>
-        <el-button type="text" @click="dialogVisible = true"><i class="el-icon-upload2"></i>导入数据</el-button>
+        <router-link to="/internshipProgram/teacherAdd" class="add" v-if="root == 10004||root == 10005"><i class="el-icon-plus"></i></router-link>
+        <el-button type="primary" class="batchDelete" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
+        <el-button type="text" @click="dialogVisible = true" v-if="root == 10004||root == 10005"><i class="el-icon-upload2"></i>导入数据</el-button>
         <el-dialog
           title="提示"
           v-model="dialogVisible"
@@ -59,9 +59,9 @@
           @selection-change="handleSelectionChange"
           :default-sort = "{prop: 'date', order: 'descending'}"
         >
-          <el-table-column type="selection" width="40">
+          <el-table-column type="selection" width="40" v-if="root == 10004||root == 10005">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right">
+          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10004||root == 10005">
             <template scope="scope">
               <router-link :to="{ path: 'teacherAdd', query: { code: scope.row.code }}">
               <el-button
@@ -140,7 +140,8 @@
           label: '兼职'
         }],
         teacherAttributeSelect: '',
-        multipleSelection: []
+        multipleSelection: [],
+        root: localStorage.root
       }
     },
     methods: {

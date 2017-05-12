@@ -55,14 +55,16 @@
         };
 
         //权限控制模拟
-        if(this.account === '1'){
-          localStorage.root = 1;
-        }else if(this.account === '2'){
-          localStorage.root = 2;
-        }else if(this.account === '3'){
-          localStorage.root = 3;
-        }else if(this.account === '4'){
-          localStorage.root = 4;
+        if(this.account == 10001){
+          localStorage.root = 10001;
+        }else if(this.account == 10002){
+          localStorage.root = 10002;
+        }else if(this.account == 10003){
+          localStorage.root = 10003;
+        }else if(this.account == 10004){
+          localStorage.root = 10004;
+        }else if(this.account == 10005){
+          localStorage.root = 10005;
         }
         //设置在登录状态
         this.isLoging = true;
