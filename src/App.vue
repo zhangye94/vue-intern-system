@@ -155,6 +155,7 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
   .add-form-head{
     padding: 10px 20px 10px 20px;
   }
@@ -194,6 +195,9 @@ body {
       padding-left: 100px;
     }
   }
+  .app-contain{
+    padding-top: 60px;
+  }
   .app-foot {
     text-align: center;
     height: 50px;
@@ -206,7 +210,8 @@ body {
   }
   .container {
     width: 100%;
-    padding-top: 60px;
+    height: 100%;
+    /*padding-top: 60px;*/
   }
 }
 //展示页样式

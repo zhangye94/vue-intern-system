@@ -1,24 +1,24 @@
 <template>
-  <div class="login" id="login">
-    <a href="javascript:;" class="log-close"><i class="icons close"></i></a>
-    <div class="log-bg">
-      <div class="log-cloud cloud1"></div>
-      <div class="log-cloud cloud2"></div>
-      <div class="log-cloud cloud3"></div>
-      <div class="log-cloud cloud4"></div>
-      <div class="log-logo">Welcome!</div>
-      <div class="log-text">顶岗实习系统</div>
+  <div class="login-contain">
+    <div class="login" id="login">
+      <a href="javascript:;" class="log-close"><i class="icons close"></i></a>
+      <div class="log-bg">
+        <div class="log-cloud cloud1"></div>
+        <div class="log-cloud cloud2"></div>
+        <div class="log-cloud cloud3"></div>
+        <div class="log-cloud cloud4"></div>
+        <div class="log-logo">Welcome!</div>
+        <div class="log-text">顶岗实习系统</div>
+      </div>
+      <div class="log-email">
+        <input type="text" placeholder="请输入账号" :class="'log-input' + (account==''?' log-input-empty':'')" v-model="account">
+        <input type="password" placeholder="请输入密码" :class="'log-input' + (password==''?' log-input-empty':'')"  v-model="password">
+        <a href="javascript:;" class="log-btn" @click="login">登录</a>
+      </div>
+      <Loading v-if="isLoging" marginTop="-30%"></Loading>
     </div>
-    <el-form-item label="活动名称">
-      <el-input v-model="form.name"></el-input>
-    </el-form-item>
-    <div class="log-email">
-      <input type="text" placeholder="请输入账号" :class="'log-input' + (account==''?' log-input-empty':'')" v-model="account">
-      <input type="password" placeholder="请输入密码" :class="'log-input' + (password==''?' log-input-empty':'')"  v-model="password">
-      <a href="javascript:;" class="log-btn" @click="login">登录</a>
-    </div>
-    <Loading v-if="isLoging" marginTop="-30%"></Loading>
   </div>
+
 </template>
 
 <script>
@@ -29,10 +29,7 @@
       return {
         isLoging: false,
         account: '',
-        password: '',
-        form: {
-          name: ""
-        }
+        password: ''
       }
     },
     components:{
@@ -87,6 +84,12 @@
 </script>
 
 <style scoped>
+  .login-contain{
+    width: 100%;
+    height: 100%;
+    background: url(../assets/2.jpg);
+    background-size: cover;
+  }
   .login{position: fixed; overflow: hidden;left: 50%; margin-left: -250px; top:60%; margin-top: -350px; width: 500px; min-height: 555px; z-index: 10; right: 140px; background: #fff;-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;

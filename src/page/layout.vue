@@ -58,7 +58,9 @@
         </div>
       </div>
     </div>
-    <router-view></router-view>
+    <div class="app-contain">
+      <router-view></router-view>
+    </div>
     <div class="app-foot">
       <p>Copyright © 2017-2020 北京理工大学计算机软件实验室提供技术支持</p>
     </div>
