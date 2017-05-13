@@ -94,11 +94,13 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getTableData();
       this.$store.state.adminleftnavnum="/onlineTest/paperManagement";
     },
     data () {
       return {
+        root: localStorage.root,
         setting: {
           problemTypes: ["单选题","多选题"]
         },
@@ -174,6 +176,19 @@
               showClose: true
             });
           });
+      },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001){
+          this.$router.back();
+        }
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        if(to.path === '/onlineTest/paperManagement'){
+          this.checkRoot();
+        }
       }
     }
   }

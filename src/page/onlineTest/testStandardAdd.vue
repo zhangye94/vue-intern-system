@@ -36,12 +36,14 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getInternList();
       this.getEditInfo();
       this.$store.state.adminleftnavnum="/onlineTest/testStandard";
     },
     data () {
       return {
+        root: localStorage.root,
         setting: {
           internshipListOptions: []
         },
@@ -135,6 +137,12 @@
             }
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001||this.root == 10002||this.root == 10003){
+          this.$router.push('/onlineTest/testStandard');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -142,6 +150,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/onlineTest/testStandardAdd'){
+          this.checkRoot();
+        }
         this.getEditInfo();
       }
     }

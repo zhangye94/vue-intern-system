@@ -45,10 +45,12 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.resetForm('form');
     },
     data () {
       return {
+        root: localStorage.root,
         setting: {
           problemTypes: ["单选题","多选题"],
           options: ["A","B","C","D","E","F","G","H"]
@@ -111,6 +113,14 @@
           correct: ''
         });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001){
+          this.$router.back();
+        }else if(this.root == 10003){
+          this.$router.push('/onlineTest/paperManagement');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -118,6 +128,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/onlineTest/paperManagementAdd'){
+          this.checkRoot();
+        }
         this.resetForm('form');
       }
     }

@@ -24,11 +24,13 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getEditInfo();
       this.$store.state.adminleftnavnum="/onlineTest/paperManagement";
     },
     data () {
       return {
+        root: localStorage.root,
         setting: {
           options: ["A","B","C","D","E","F","G","H"]
         },
@@ -72,6 +74,19 @@
             }
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001){
+          this.$router.back();
+        }
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        if(to.path === '/onlineTest/paperManagementView'){
+          this.checkRoot();
+        }
+      }
     }
   }
 </script>
