@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//404 Not Found
+import NotFoundComponent from '@/page/notFound'
 //登录
 import Login from '@/page/Login'
 //布局
@@ -192,8 +194,11 @@ export default new Router({
             }
           ]
         },
+        {
+          path: '*',
+          component: NotFoundComponent
+        }
       ]
-    },
-
+    }
   ]
 })

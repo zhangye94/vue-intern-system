@@ -156,6 +156,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  .app-layout{
+    height: 100%;
+  }
   .add-form-head{
     padding: 10px 20px 10px 20px;
   }
@@ -197,6 +200,7 @@ body {
   }
   .app-contain{
     padding-top: 60px;
+    min-height: e("calc(100% - 141px)");
   }
   .app-foot {
     text-align: center;
