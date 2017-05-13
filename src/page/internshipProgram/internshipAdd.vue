@@ -99,6 +99,7 @@
       ElFormItem
     },
     created: function () {
+      this.checkRoot();
       this.getEditInfo();
       this.getGradeList();
       this.getSchoolYearList();
@@ -106,6 +107,7 @@
     },
     data () {
       return {
+        root: localStorage.root,
         query: {
           code: this.$route.query.code || ''
         },
@@ -260,6 +262,12 @@
             });
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001||this.root == 10002||this.root == 10003){
+          this.$router.push('/internshipProgram/internshipTyping');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -270,6 +278,9 @@
         this.form.externalTeacherPercent = 100 - this.form.internTeacherPercent;
       },
       '$route' (to, from) {
+        if(to.path === '/internshipProgram/internshipAdd'){
+          this.checkRoot();
+        }
         this.getEditInfo();
       }
     }

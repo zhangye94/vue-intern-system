@@ -54,12 +54,14 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getEditInfo();
       this.getInternList();
       this.$store.state.adminleftnavnum="/internshipProgram/teacherArrangement";
     },
     data () {
       return {
+        root: localStorage.root,
         query: {
             code: this.$route.query.code || ''
         },
@@ -170,6 +172,12 @@
             });
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001||this.root == 10002||this.root == 10003){
+          this.$router.push('/internshipProgram/teacherArrangement');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -177,6 +185,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/internshipProgram/teacherAdd'){
+          this.checkRoot();
+        }
         this.getEditInfo();
       }
     }

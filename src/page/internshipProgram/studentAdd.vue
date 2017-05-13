@@ -64,6 +64,7 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getEditInfo();
       this.getInternList();
       this.getGradeList();
@@ -71,6 +72,7 @@
     },
     data () {
       return {
+        root: localStorage.root,
         query: {
           code: this.$route.query.code || ''
         },
@@ -207,6 +209,12 @@
             });
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001||this.root == 10003){
+          this.$router.push('/internshipProgram/studentList');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -214,6 +222,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/internshipProgram/studentAdd'){
+          this.checkRoot();
+        }
         this.getEditInfo();
       }
     }
