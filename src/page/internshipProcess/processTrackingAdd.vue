@@ -39,6 +39,7 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getInternList();
       this.getEditInfo();
       this.$store.state.adminleftnavnum="/internshipProcess/processTracking";
@@ -153,6 +154,12 @@
             }
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root != 10001){
+          this.$router.push('/internshipProcess/processTracking');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -160,6 +167,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/internshipProcess/processTrackingAdd'){
+          this.checkRoot();
+        }
         this.query.code = to.query.code;
         if(to.path === "/internshipProcess/processTrackingAdd"){
           this.getEditInfo();

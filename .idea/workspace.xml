@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/paperManagementView.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/paperManagementView.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/testStandardAdd.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/testStandardAdd.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/studentMessageAdd.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/studentMessageAdd.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,7 +33,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
+            <state relative-caret-position="391">
               <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -44,21 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paperManagement.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue">
+      <file leaf-file-name="guidanceRecord.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="174" column="29" lean-forward="true" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paperManagementAdd.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="124" column="27" lean-forward="true" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+            <state relative-caret-position="375">
+              <caret line="130" column="10" lean-forward="true" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -74,11 +63,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testStandardAdd.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/page/onlineTest/testStandardAdd.vue">
+      <file leaf-file-name="studentMessageAdd.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessageAdd.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="142" column="10" lean-forward="false" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="56" />
+            <state relative-caret-position="356">
+              <caret line="132" column="60" lean-forward="false" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="studentMessage.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessage.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -138,8 +137,6 @@
         <option value="$PROJECT_DIR$/src/page/assessment/indexSetting.vue" />
         <option value="$PROJECT_DIR$/build/dev-server.js" />
         <option value="$PROJECT_DIR$/mockDB/onlineTestDB.json" />
-        <option value="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProcess/studentMessageAdd.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/studentMessageReply.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testCaseView.vue" />
         <option value="$PROJECT_DIR$/src/components/loading.vue" />
@@ -156,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/page/onlineTest.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testCase.vue" />
         <option value="$PROJECT_DIR$/src/page/layout.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testStandard.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/aidedTracking.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/processTracking.vue" />
@@ -168,6 +164,9 @@
         <option value="$PROJECT_DIR$/src/page/onlineTest/paperManagementView.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testStandardAdd.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProcess/studentMessageAdd.vue" />
       </list>
     </option>
   </component>
@@ -245,50 +244,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="page" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue-intern-system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue-intern-system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onlineTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue-intern-system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue-intern-system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="internshipProgram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,14 +389,7 @@
       <workItem from="1494413001834" duration="1317000" />
       <workItem from="1494471331154" duration="10349000" />
       <workItem from="1494502736938" duration="16455000" />
-      <workItem from="1494572253076" duration="18988000" />
-    </task>
-    <task id="LOCAL-00007" summary="1.007 实习过程路由设置">
-      <created>1493795970231</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1493795970231</updated>
+      <workItem from="1494572253076" duration="20359000" />
     </task>
     <task id="LOCAL-00008" summary="1.008 添加指导记录页面">
       <created>1493813648133</created>
@@ -779,11 +727,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494665330257</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="1.046 在线考试路由权限跳转强制控制">
+      <created>1494667889423</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1494667889423</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327410000" />
+    <option name="totallyTimeSpent" value="328781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -824,7 +779,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.022 实习过程修改" />
     <MESSAGE value="1.023 实习过程模块交互优化" />
     <MESSAGE value="1.024 实习安排模块交互优化" />
     <MESSAGE value="1.025 vuex配置导航" />
@@ -849,20 +803,14 @@
     <MESSAGE value="1.043 权限控制" />
     <MESSAGE value="1.044 权限控制" />
     <MESSAGE value="1.045 实习安排路由权限跳转强制控制" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.045 实习安排路由权限跳转强制控制" />
+    <MESSAGE value="1.046 在线考试路由权限跳转强制控制" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.046 在线考试路由权限跳转强制控制" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessageReply.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="110" column="18" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/onlineTest/testCaseView.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -1074,14 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="35" column="90" lean-forward="false" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/onlineTest/testCase.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1106,14 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/onlineTest.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1134,22 +1066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="28" column="118" lean-forward="false" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="118" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="51" lean-forward="false" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1186,17 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -1213,6 +1118,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="132" column="9" lean-forward="true" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#140#161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="130" column="10" lean-forward="true" selection-start-line="130" selection-start-column="10" selection-end-line="130" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="201" column="49" lean-forward="false" selection-start-line="201" selection-start-column="49" selection-end-line="201" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/onlineTest/testStandardAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="152" column="8" lean-forward="true" selection-start-line="152" selection-start-column="8" selection-end-line="154" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="159" column="47" lean-forward="false" selection-start-line="159" selection-start-column="47" selection-end-line="159" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagementView.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1221,18 +1185,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/onlineTest/testStandardAdd.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessageAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="142" column="10" lean-forward="false" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="124" column="27" lean-forward="true" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+        <state relative-caret-position="356">
+          <caret line="132" column="60" lean-forward="false" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
           <folding />
         </state>
       </provider>

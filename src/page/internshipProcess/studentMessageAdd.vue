@@ -39,11 +39,13 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getTeacherList();
       this.$store.state.adminleftnavnum="/internshipProcess/studentMessage";
     },
     data () {
       return {
+        root: localStorage.root,
         setting: {
           teacherListOptions: ["赵老师", "钱老师", "孙老师", "周老师", "郑老师", "吴老师", "王老师"]
         },
@@ -115,6 +117,12 @@
             });
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root != 10001){
+          this.$router.push('/internshipProcess/studentMessage');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -122,6 +130,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/internshipProcess/studentMessageAdd'){
+          this.checkRoot();
+        }
         this.$refs['form'].resetFields();
       }
     }

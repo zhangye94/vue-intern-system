@@ -58,12 +58,14 @@
     components: {
     },
     created: function () {
+      this.checkRoot();
       this.getUserInfo();
       this.getEditInfo();
       this.$store.state.adminleftnavnum="/internshipProcess/guidanceRecord";
     },
     data () {
       return {
+        root: localStorage.root,
         query: {
           code: this.$route.query.code || ''
         },
@@ -195,6 +197,12 @@
             }
           });
       },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001||this.root == 10005){
+          this.$router.push('/internshipProcess/guidanceRecord');
+        }
+      },
       //重置表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -202,6 +210,9 @@
     },
     watch: {
       '$route' (to, from) {
+        if(to.path === '/internshipProcess/guidanceRecordAdd'){
+          this.checkRoot();
+        }
         this.getEditInfo();
       }
     }
