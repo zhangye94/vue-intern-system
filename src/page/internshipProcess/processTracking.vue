@@ -34,7 +34,7 @@
           style="width: 100%"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="40" v-if="root == 10002||root == 10003">
+          <el-table-column type="selection" width="40" v-if="root == 10002||root == 10003||root == 10004||root == 10005">
           </el-table-column>
           <el-table-column
             type="index"
@@ -85,10 +85,10 @@
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right">
             <template scope="scope">
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001||root == 10005">
                 <el-button
                   size="small">编辑</el-button></router-link>
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10002||root == 10003||root == 10004">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10002||root == 10003">
                 <el-button
                   size="small">审阅</el-button></router-link>
             </template>

@@ -25,7 +25,7 @@
     <div class="content">
       <div class="content-title">
         <h2>教师指导记录列表</h2>
-        <router-link to="/internshipProcess/guidanceRecordAdd" class="add" v-if="root != 10001"><i class="el-icon-plus"></i></router-link>
+        <router-link to="/internshipProcess/guidanceRecordAdd" class="add" v-if="root == 10002||root == 10003"><i class="el-icon-plus"></i></router-link>
         <el-button type="primary" class="check" @click="handleDelete" v-if="root != 10001">删除</el-button>
         <el-button type="text" @click="dialogVisible = true" v-if="root != 10001"><i class="el-icon-upload2"></i>导入数据</el-button>
         <el-dialog
