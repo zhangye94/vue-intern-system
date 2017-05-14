@@ -18,7 +18,6 @@
       <Loading v-if="isLoging" marginTop="-30%"></Loading>
     </div>
   </div>
-
 </template>
 
 <script>

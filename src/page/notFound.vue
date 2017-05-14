@@ -19,7 +19,6 @@
       }
     },
     methods: {
-
     }
   }
 </script>
