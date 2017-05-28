@@ -85,7 +85,7 @@
         this.setCookie('session','blablablablabla...', expireDays);
         this.isLoging = false;
         //登录成功后
-        this.$router.push('/');
+        this.$router.push('/index');
       }
     }
   }
