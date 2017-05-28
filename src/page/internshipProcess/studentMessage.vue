@@ -14,8 +14,8 @@
               <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
             </el-form-item>
           </el-col>
-          <el-input v-model="form.search" placeholder="教师姓名、教工号" class="search"></el-input>
-          <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
+          <el-input v-model="form.search" placeholder="教师姓名、教工号" class="search" v-if="root == 10004||root == 10005"></el-input>
+          <el-button type="primary" icon="search" @click="getTableData" class="marginLeft20">查询</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -76,7 +76,7 @@
             label="ID"
             width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right">
+          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10001">
             <template scope="scope">
               <router-link :to="{ path: 'studentMessageReply', query: { code: scope.row.ID }}">
                 <el-button
@@ -165,6 +165,9 @@
 
 <style lang="less">
   #student-message-model{
+    .marginLeft20{
+      margin-left: 20px;
+    }
     .header{
       padding: 20px 0 0 0;
     }

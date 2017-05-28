@@ -15,7 +15,7 @@
             </el-form-item>
           </el-col>
           <el-input v-model="form.search" placeholder="学生姓名、学号" class="search" v-if="root != 10001"></el-input>
-          <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
+          <el-button type="primary" icon="search" @click="getTableData" class="marginLeft20">查询</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -83,9 +83,9 @@
             label="ID"
             width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right">
+          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10001||root == 10002||root == 10003">
             <template scope="scope">
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001||root == 10005">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001">
                 <el-button
                   size="small">编辑</el-button></router-link>
               <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10002||root == 10003">
@@ -199,6 +199,9 @@
 
 <style lang="less">
   #process-tracking-model{
+    .marginLeft20{
+      margin-left: 20px;
+    }
     .header{
       padding: 20px 0 0 0;
     }

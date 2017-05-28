@@ -15,7 +15,7 @@
             </el-form-item>
           </el-col>
           <el-input v-model="form.search" placeholder="学生姓名、学号" class="search" v-if="root != 10001"></el-input>
-          <el-button type="primary" icon="search" @click="getTableData">查询</el-button>
+          <el-button type="primary" icon="search" @click="getTableData" class="marginLeft20">查询</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -158,6 +158,9 @@
 
 <style lang="less">
   #aided-tracking-model{
+    .marginLeft20{
+      margin-left: 20px;
+    }
     .header{
       padding: 20px 0 0 0;
     }
