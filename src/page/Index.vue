@@ -39,7 +39,7 @@
             </li>
           </ul>
         </div>
-        <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link">修改资料</router-link>
+        <router-link :to="{ path: '/accountManagement/modifiedData', query: { code: user.code }}" class="index-contain-link">修改资料</router-link>
       </div>
       <div class="index-contain">
         <h2 class="index-contain-title">实习信息</h2>

@@ -2,7 +2,7 @@
   <div id="not-found-page">
     <div class="not-found-contain">
       <h1>404 Not Found&nbsp;&nbsp;访问的页面不存在</h1>
-      <router-link to="/index">返回主页</router-link>
+      <router-link to="/">返回主页</router-link>
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@
       <div class="app-head-left">
         <img class="app-head-logo" src="../assets/logo.png" alt="logo">
         <el-menu theme="dark" :default-active="activeIndex" class="el-menu-header" mode="horizontal" router>
-          <el-menu-item index="/index">主页</el-menu-item>
+          <el-menu-item index="/">主页</el-menu-item>
           <el-submenu index="onlineTest">
             <template slot="title">在线考试</template>
             <el-menu-item index="/onlineTest/testCase">考试情况</el-menu-item>
@@ -53,7 +53,7 @@
             </ul>
           </div>
           <div class="popover-button-group">
-            <el-button><router-link :to="{ path: '/internshipProgram/studentAdd', query: { code: user.code }}">修改资料</router-link></el-button>
+            <el-button><router-link :to="{ path: '/accountManagement/modifiedData', query: { code: user.code }}">修改资料</router-link></el-button>
             <el-button>修改密码</el-button>
             <el-button type="primary" @click="logout">注销</el-button>
           </div>

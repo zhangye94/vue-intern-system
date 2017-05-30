@@ -63,7 +63,7 @@ export default new Router({
       component: layoutPage,
       children: [
         {
-          path: '/index',
+          path: '/',
           component: indexPage,
         },
         {
