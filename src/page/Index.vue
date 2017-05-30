@@ -4,7 +4,40 @@
       <div class="index-contain">
         <h2 class="index-contain-title">用户信息</h2>
         <div class="index-contain-content">
-
+          <ul class="index-contain-content-column">
+            <li>
+              <span>姓名：</span>
+              <span>{{user.name}}</span>
+            </li>
+            <li>
+              <span>学号：</span>
+              <span>{{user.code}}</span>
+            </li>
+            <li>
+              <span>专业：</span>
+              <span>{{user.major}}</span>
+            </li>
+          </ul>
+          <ul class="index-contain-content-column">
+            <li>
+              <span>班级：</span>
+              <span>{{user.class}}</span>
+            </li>
+            <li>
+              <span>联系电话：</span>
+              <span>{{user.telephone}}</span>
+            </li>
+            <li>
+              <span>实习岗位：</span>
+              <span>{{user.position}}</span>
+            </li>
+          </ul>
+          <ul class="index-contain-content-column">
+            <li>
+              <span>实习年级：</span>
+              <span>{{user.gradeValue}}</span>
+            </li>
+          </ul>
         </div>
         <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link">修改资料</router-link>
       </div>
@@ -97,12 +130,14 @@
     components: {},
     created: function () {
       this.getMessageData();
+      this.getUserInfo();
     },
     data () {
       return {
         activeIndex: '/index',
         root: localStorage.root,
         messageList: [],
+        user: "",
       }
     },
     methods: {
@@ -124,6 +159,20 @@
           }, (err) => {
             this.$message({
               message: '读取失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取用户信息
+      getUserInfo(){
+        this.$http.post('api/common/user',{})
+          .then((res) => {
+            this.user = res.data.user;
+          }, (err) => {
+            this.$message({
+              message: '读取用户信息失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true
@@ -164,6 +213,15 @@
         .index-contain-content{
           margin-bottom: 25px;
           padding: 20px;
+          overflow: hidden;
+          .index-contain-content-column{
+            width: 30%;
+            min-height: 30px;
+            float: left;
+            li{
+              line-height: 24px;
+            }
+          }
         }
         .index-contain-link {
           color: #20a0ff;
