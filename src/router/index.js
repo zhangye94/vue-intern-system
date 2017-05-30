@@ -45,6 +45,10 @@ import internalTeacherAssessmentPage from '@/page/assessment/internalTeacherAsse
 import externalTeacherAssessmentPage from '@/page/assessment/externalTeacherAssessment'
 import studentAssessmentPage from '@/page/assessment/studentAssessment'
 import indexSettingPage from '@/page/assessment/indexSetting'
+//账户管理
+import accountManagementPage from '@/page/accountManagement'
+import modifiedDataPage from '@/page/accountManagement/modifiedData'
+import modifiedPasswordPage from '@/page/accountManagement/modifiedPassword'
 
 Vue.use(Router)
 
@@ -191,6 +195,21 @@ export default new Router({
             {
               path: 'indexSetting',
               component: indexSettingPage
+            }
+          ]
+        },
+        {
+          path: '/accountManagement',
+          component: accountManagementPage,
+          redirect: '/accountManagement/modifiedData',
+          children: [
+            {
+              path: 'modifiedData',
+              component: modifiedDataPage
+            },
+            {
+              path: 'modifiedPassword',
+              component: modifiedPasswordPage
             }
           ]
         },

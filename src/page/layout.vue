@@ -31,6 +31,11 @@
             <el-menu-item index="/assessment/studentAssessment">学生考核</el-menu-item>
             <el-menu-item index="/assessment/indexSetting">指标设置</el-menu-item>
           </el-submenu>
+          <el-submenu index="accountManagement">
+            <template slot="title">账户管理</template>
+            <el-menu-item index="/accountManagement/modifiedData">修改资料</el-menu-item>
+            <el-menu-item index="/accountManagement/modifiedPassword">修改密码</el-menu-item>
+          </el-submenu>
         </el-menu>
       </div>
       <div class="app-head-right">
