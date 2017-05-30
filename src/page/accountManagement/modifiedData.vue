@@ -1,5 +1,5 @@
 <template>
-  <div id="student-add" class="add-form-head">
+  <div id="modified-data" class="add-form-head">
     <div class="add-header">
       <h2>修改资料</h2>
     </div>
@@ -190,9 +190,6 @@
     },
     watch: {
       '$route' (to, from) {
-        if(to.path === '/internshipProgram/studentAdd'){
-          this.checkRoot();
-        }
         this.getEditInfo();
       }
     }

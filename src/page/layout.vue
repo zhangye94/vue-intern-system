@@ -54,7 +54,7 @@
           </div>
           <div class="popover-button-group">
             <el-button><router-link :to="{ path: '/accountManagement/modifiedData', query: { code: user.code }}">修改资料</router-link></el-button>
-            <el-button>修改密码</el-button>
+            <el-button><router-link :to="{ path: '/accountManagement/modifiedPassword'}">修改密码</router-link></el-button>
             <el-button type="primary" @click="logout">注销</el-button>
           </div>
         </el-popover>
