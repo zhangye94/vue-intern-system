@@ -44,9 +44,50 @@
       <div class="index-contain">
         <h2 class="index-contain-title">实习信息</h2>
         <div class="index-contain-content">
-
+          <ul class="index-contain-content-column">
+            <li>
+              <span>实习名称：</span>
+              <span>{{user.name}}</span>
+            </li>
+            <li>
+              <span>实习代码：</span>
+              <span>{{user.code}}</span>
+            </li>
+            <li>
+              <span>所属组织：</span>
+              <span>{{user.major}}</span>
+            </li>
+          </ul>
+          <ul class="index-contain-content-column">
+            <li>
+              <span>实习年级：</span>
+              <span>{{user.class}}</span>
+            </li>
+            <li>
+              <span>学年：</span>
+              <span>{{user.telephone}}</span>
+            </li>
+            <li>
+              <span>学期：</span>
+              <span>{{user.position}}</span>
+            </li>
+          </ul>
+          <ul class="index-contain-content-column">
+            <li>
+              <span>开始日期：</span>
+              <span>{{user.gradeValue}}</span>
+            </li>
+            <li>
+              <span>结束日期：</span>
+              <span>{{user.gradeValue}}</span>
+            </li>
+            <li>
+              <span>指导老师：</span>
+              <span>{{user.gradeValue}}</span>
+            </li>
+          </ul>
         </div>
-        <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link">查看详情</router-link>
+        <router-link :to="{ path: '/internshipProgram/internshipTyping'}" class="index-contain-link">查看详情</router-link>
       </div>
       <div class="index-contain">
         <h2 class="index-contain-title">实习状态</h2>
@@ -58,7 +99,7 @@
             <el-step title="状态 4：结束实习" description="结束实习"></el-step>
           </el-steps>
         </div>
-        <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link">控制状态</router-link>
+        <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link" v-if="root != 10001">控制状态</router-link>
       </div>
       <div class="index-contain">
         <h2 class="index-contain-title">留言信息<span class="index-contain-subtitle">只显示最近的五条留言</span></h2>
@@ -68,6 +109,7 @@
             :data="messageList"
             border
             style="width: 100%"
+            v-if="root == 10001||root == 10002||root == 10003"
           >
             <el-table-column
               type="index"
@@ -118,8 +160,13 @@
               </template>
             </el-table-column>
           </el-table>
+          <el-table v-if="root == 10004||root == 10005">
+          </el-table>
         </div>
-        <router-link :to="{ path: '/internshipProcess/studentMessage'}" class="index-contain-link">回复留言</router-link>
+        <router-link :to="{ path: '/internshipProcess/studentMessage'}" class="index-contain-link">
+          <span v-if="root == 10004||root == 10005">查看留言</span>
+          <span v-if="root == 10001||root == 10002||root == 10003">回复留言</span>
+        </router-link>
       </div>
     </div>
   </div>
