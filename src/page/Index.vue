@@ -18,14 +18,73 @@
       <div class="index-contain">
         <h2 class="index-contain-title">实习状态</h2>
         <div class="index-contain-content">
-
+          <el-steps :space="285" :active="2" finish-status="success">
+            <el-step title="状态 1：确认信息中" description="确认实习和个人信息"></el-step>
+            <el-step title="状态 2：参与实习中" description="请用户持续参与实习工作，学生请及时签到"></el-step>
+            <el-step title="状态 3：实习评价中" description="填写个人总结和评价"></el-step>
+            <el-step title="状态 4：结束实习" description="结束实习"></el-step>
+          </el-steps>
         </div>
-        <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link">填写总结</router-link>
+        <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link">控制状态</router-link>
       </div>
       <div class="index-contain">
-        <h2 class="index-contain-title">留言信息</h2>
+        <h2 class="index-contain-title">留言信息<span class="index-contain-subtitle">只显示最近的五条留言</span></h2>
         <div class="index-contain-content">
-
+          <el-table
+            ref="multipleTable"
+            :data="messageList"
+            border
+            style="width: 100%"
+          >
+            <el-table-column
+              type="index"
+              label="序号"
+              sortable
+              width="70">
+            </el-table-column>
+            <el-table-column
+              prop="teacherName"
+              label="教师姓名"
+              sortable
+              width="120">
+            </el-table-column>
+            <el-table-column
+              prop="code"
+              label="教师类型"
+              sortable
+              width="150">
+            </el-table-column>
+            <el-table-column
+              prop="title"
+              label="标题"
+              sortable
+              width="300">
+            </el-table-column>
+            <el-table-column
+              prop="date"
+              label="提问日期"
+              sortable
+              width="160">
+            </el-table-column>
+            <el-table-column
+              prop="state"
+              label="处理状态"
+              sortable
+              width="130">
+            </el-table-column>
+            <el-table-column
+              prop="ID"
+              label="ID"
+              width="100" v-if="false">
+            </el-table-column>
+            <el-table-column label="操作" fixed="right" v-if="root == 10002||root == 10003||root == 10001">
+              <template scope="scope">
+                <router-link :to="{ path: '/internshipProcess/studentMessageReply', query: { code: scope.row.ID }}">
+                  <el-button
+                    size="small">回复</el-button></router-link>
+              </template>
+            </el-table-column>
+          </el-table>
         </div>
         <router-link :to="{ path: '/internshipProcess/studentMessage'}" class="index-contain-link">回复留言</router-link>
       </div>
@@ -35,49 +94,83 @@
 
 <script>
   export default {
-    components: {
-    },
+    components: {},
     created: function () {
-      activeIndex: '/index'
+      this.getMessageData();
     },
     data () {
       return {
-
+        activeIndex: '/index',
+        root: localStorage.root,
+        messageList: [],
       }
     },
     methods: {
+      //读取表格数据
+      getMessageData(ev) {
+        this.$http.post('api/internshipProcess/studentMessage/tableData', {
 
+        })
+          .then((res) => {
+            let indexMessage = [];
+            for(let i = 0;i<5;i++){
+              if(res.data.studentMessage[i]){
+                indexMessage.push(res.data.studentMessage[i]);
+              }else{
+                break;
+              }
+            }
+            this.messageList = indexMessage;
+          }, (err) => {
+            this.$message({
+              message: '读取失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
     }
   }
 </script>
 
 <style lang="less">
-  #index-model{
+  #index-model {
     background-color: #fff;
     width: 90%;
     margin: auto;
     margin-top: 20px;
     min-height: 400px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    .index-content{
+    .index-content {
       padding: 30px;
-      .index-contain{
+      .index-contain {
         position: relative;
-        background-color: rgb(248,248,248);
+        background-color: rgb(248, 248, 248);
         min-height: 100px;
         border-radius: 4px;
-        border: 1px solid rgb(235,235,235);
+        border: 1px solid rgb(235, 235, 235);
         margin-bottom: 20px;
-        .index-contain-title{
+        .index-contain-title {
           color: #20a0ff;
           padding: 10px;
         }
-        .index-contain-link{
+        .index-contain-subtitle{
+          color: #aaa;
+          font-size: 12px;
+          padding-left: 30px;
+        }
+        .index-contain-content{
+          margin-bottom: 25px;
+          padding: 20px;
+        }
+        .index-contain-link {
           color: #20a0ff;
           position: absolute;
           right: 15px;
           bottom: 15px;
+          text-decoration: underline;
         }
       }
     }
