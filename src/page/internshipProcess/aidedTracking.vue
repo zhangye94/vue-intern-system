@@ -38,42 +38,42 @@
             type="index"
             label="序号"
             sortable
-            width="50">
+            min-width="50">
           </el-table-column>
           <el-table-column
             prop="studentName"
             label="学生姓名"
             sortable
-            width="90">
+            min-width="90">
           </el-table-column>
           <el-table-column
             prop="code"
             label="学号"
             sortable
-            width="150">
+            min-width="150">
           </el-table-column>
           <el-table-column
             prop="internName"
             label="实习名称"
             sortable
-            width="200">
+            min-width="200">
           </el-table-column>
           <el-table-column
             prop="checkInDate"
             label="签到日期"
             sortable
-            width="150">
+            min-width="150">
           </el-table-column>
           <el-table-column
             prop="location"
             label="地理位置"
             sortable
-            width="320">
+            min-width="320">
           </el-table-column>
           <el-table-column
             prop="ID"
             label="ID"
-            width="100" v-if="false">
+            min-width="100" v-if="false">
           </el-table-column>
         </el-table>
       </div>

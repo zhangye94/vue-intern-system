@@ -39,7 +39,7 @@
             type="index"
             label="序号"
             sortable
-            width="50">
+            min-width="50">
           </el-table-column>
           <el-table-column
             prop="internName"
@@ -57,7 +57,7 @@
              prop="ID"
              label="ID"
              sortable
-             width="100">
+             min-width="100">
           </el-table-column>
         </el-table>
       </div>

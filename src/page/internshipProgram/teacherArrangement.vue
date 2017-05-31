@@ -69,40 +69,46 @@
             </template>
           </el-table-column>
           <el-table-column
+            type="index"
+            label="序号"
+            sortable
+            min-width="50">
+          </el-table-column>
+          <el-table-column
             prop="code"
             label="教工号"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="tearcherName"
             label="教师姓名"
             sortable
-            width="150">
+            min-width="150">
           </el-table-column>
           <el-table-column
             prop="internName"
             label="实习名称"
             sortable
-            width="240">
+            min-width="240">
           </el-table-column>
           <el-table-column
             prop="teacherType"
             label="教师类型"
             sortable
-            width="140">
+            min-width="140">
           </el-table-column>
           <el-table-column
             prop="studentNum"
             label="学生人数"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="teacherAttribute"
             label="专/兼职"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
         </el-table>
       </div>

@@ -67,6 +67,12 @@
             </template>
           </el-table-column>
           <el-table-column
+            type="index"
+            label="序号"
+            sortable
+            min-width="50">
+          </el-table-column>
+          <el-table-column
             prop="code"
             label="学号"
             sortable

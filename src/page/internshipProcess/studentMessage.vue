@@ -39,42 +39,42 @@
             type="index"
             label="序号"
             sortable
-            width="50">
+            min-width="50">
           </el-table-column>
           <el-table-column
             prop="teacherName"
             label="教师姓名"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="code"
             label="教师类型"
             sortable
-            width="150">
+            min-width="150">
           </el-table-column>
           <el-table-column
             prop="title"
             label="标题"
             sortable
-            width="280">
+            min-width="280">
           </el-table-column>
           <el-table-column
             prop="date"
             label="提问日期"
             sortable
-            width="160">
+            min-width="160">
           </el-table-column>
           <el-table-column
             prop="state"
             label="处理状态"
             sortable
-            width="130">
+            min-width="130">
           </el-table-column>
           <el-table-column
             prop="ID"
             label="ID"
-            width="100" v-if="false">
+            min-width="100" v-if="false">
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10001">
             <template scope="scope">

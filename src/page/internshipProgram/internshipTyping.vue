@@ -52,6 +52,12 @@
             </template>
           </el-table-column>
           <el-table-column
+            type="index"
+            label="序号"
+            sortable
+            min-width="50">
+          </el-table-column>
+          <el-table-column
             prop="code"
             label="实习代码"
             sortable
@@ -67,7 +73,7 @@
             prop="orgName"
             label="所属组织"
             sortable
-            min-width="180">
+            min-width="170">
           </el-table-column>
           <el-table-column
             prop="grade"

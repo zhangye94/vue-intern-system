@@ -63,61 +63,61 @@
             type="index"
             label="序号"
             sortable
-            width="50">
+            min-width="50">
           </el-table-column>
           <el-table-column
             prop="tearcherName"
             label="教师姓名"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column
             prop="tearcherType"
             label="教师类型"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column
             prop="studentName"
             label="学生姓名"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column
             prop="title"
             label="标题"
             sortable
-            width="150">
+            min-width="150">
           </el-table-column>
           <el-table-column
             prop="guideDate"
             label="指导日期"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="askDate"
             label="提问日期"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="guideWay"
             label="指导方式"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="processingConditions"
             label="处理情况"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column v-if="false"
             prop="ID"
             label="ID"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10004">
             <template scope="scope">

@@ -46,7 +46,7 @@
             type="index"
             label="序号"
             sortable
-            width="50">
+            min-width="50">
           </el-table-column>
           <el-table-column
             prop="studentName"

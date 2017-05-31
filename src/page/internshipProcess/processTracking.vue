@@ -40,48 +40,48 @@
             type="index"
             label="序号"
             sortable
-            width="50">
+            min-width="50">
           </el-table-column>
           <el-table-column
             prop="studentName"
             label="学生姓名"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column
             prop="code"
             label="学号"
             sortable
-            width="150">
+            min-width="150">
           </el-table-column>
           <el-table-column
             prop="internName"
             label="实习名称"
             sortable
-            width="180">
+            min-width="180">
           </el-table-column>
           <el-table-column
             prop="internAssessment"
             label="实习评分"
             sortable
-            width="120">
+            min-width="120">
           </el-table-column>
           <el-table-column
             prop="title"
             label="总结标题"
             sortable
-            width="190">
+            min-width="190">
           </el-table-column>
           <el-table-column
             prop="condition"
             label="审阅情况"
             sortable
-            width="100">
+            min-width="100">
           </el-table-column>
           <el-table-column
             prop="ID"
             label="ID"
-            width="100" v-if="false">
+            min-width="100" v-if="false">
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right" v-if="root == 10001||root == 10002||root == 10003">
             <template scope="scope">
