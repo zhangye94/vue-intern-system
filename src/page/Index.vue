@@ -47,47 +47,47 @@
           <ul class="index-contain-content-column">
             <li>
               <span>实习名称：</span>
-              <span>{{user.name}}</span>
+              <span>{{internInfo.name}}</span>
             </li>
             <li>
               <span>实习代码：</span>
-              <span>{{user.code}}</span>
+              <span>{{internInfo.code}}</span>
             </li>
             <li>
               <span>所属组织：</span>
-              <span>{{user.major}}</span>
+              <span>{{internInfo.org}}</span>
             </li>
           </ul>
           <ul class="index-contain-content-column">
             <li>
               <span>实习年级：</span>
-              <span>{{user.class}}</span>
+              <span>{{internInfo.gradeValue}}</span>
             </li>
             <li>
               <span>学年：</span>
-              <span>{{user.telephone}}</span>
+              <span>{{internInfo.schoolYearValue}}</span>
             </li>
             <li>
               <span>学期：</span>
-              <span>{{user.position}}</span>
+              <span>{{internInfo.term}}</span>
             </li>
           </ul>
           <ul class="index-contain-content-column">
             <li>
               <span>开始日期：</span>
-              <span>{{user.gradeValue}}</span>
+              <span>{{internInfo.date1}}</span>
             </li>
             <li>
               <span>结束日期：</span>
-              <span>{{user.gradeValue}}</span>
+              <span>{{internInfo.date2}}</span>
             </li>
             <li>
               <span>指导老师：</span>
-              <span>{{user.gradeValue}}</span>
+              <span>{{internInfo.name}}</span>
             </li>
           </ul>
         </div>
-        <router-link :to="{ path: '/internshipProgram/internshipTyping'}" class="index-contain-link">查看详情</router-link>
+        <router-link :to="{ path: '/internshipProgram/internshipView', query: { code: user.code }}" class="index-contain-link">查看详情</router-link>
       </div>
       <div class="index-contain">
         <h2 class="index-contain-title">实习状态</h2>
@@ -178,6 +178,7 @@
     created: function () {
       this.getMessageData();
       this.getUserInfo();
+      this.getInternInfo();
     },
     data () {
       return {
@@ -185,6 +186,7 @@
         root: localStorage.root,
         messageList: [],
         user: "",
+        internInfo: ""
       }
     },
     methods: {
@@ -226,6 +228,22 @@
             });
           });
       },
+      //读取编辑信息
+      getInternInfo(){
+        this.$http.post('api/internshipProgram/read',{
+          type: "internship"
+        })
+          .then((res) => {
+            this.internInfo = res.data.form;
+          }, (err) => {
+            this.$message({
+              message: '读取实习信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      }
     }
   }
 </script>

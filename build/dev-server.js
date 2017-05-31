@@ -129,34 +129,18 @@ apiRouter.post('/internshipProgram/schoolYear',function(req,res){
 apiRouter.post('/internshipProgram/read',function(req,res){
   var type = req.body.type;
   var code = req.body.code;
-  if(code){
-    if(type === 'teacher'){
-      res.json({
-        form: internshipProgram.teacherQuery
-      });
-    }else if(type === 'internship'){
-      res.json({
-        form: internshipProgram.internshipQuery
-      });
-    }else if(type === 'student'){
-      res.json({
-        form: internshipProgram.studentQuery
-      });
-    }
-  }else{
-    if(type === 'teacher'){
-      res.json({
-        form: internshipProgram.teacherEmptyQuery
-      });
-    }else if(type === 'internship'){
-      res.json({
-        form: internshipProgram.internshipEmptyQuery
-      });
-    }else if(type === 'student'){
-      res.json({
-        form: internshipProgram.studentEmptyQuery
-      });
-    }
+  if(type === 'teacher'){
+    res.json({
+      form: internshipProgram.teacherQuery
+    });
+  }else if(type === 'internship'){
+    res.json({
+      form: internshipProgram.internshipQuery
+    });
+  }else if(type === 'student'){
+    res.json({
+      form: internshipProgram.studentQuery
+    });
   }
 });
 //表格数据渲染
