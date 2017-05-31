@@ -85,6 +85,11 @@
             label="教师姓名"
             sortable
             min-width="150">
+            <template scope="scope">
+              <router-link :to="{ path: 'teacherView', query: { code: scope.row.code }}">
+                <span class="content-table-link">{{scope.row.tearcherName}}</span>
+              </router-link>
+            </template>
           </el-table-column>
           <el-table-column
             prop="internName"

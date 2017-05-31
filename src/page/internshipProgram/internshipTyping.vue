@@ -68,6 +68,11 @@
             label="实习名称"
             sortable
             min-width="140">
+            <template scope="scope">
+              <router-link :to="{ path: 'internshipView', query: { code: scope.row.code }}">
+                <span class="content-table-link">{{scope.row.internName}}</span>
+              </router-link>
+            </template>
           </el-table-column>
           <el-table-column
             prop="orgName"

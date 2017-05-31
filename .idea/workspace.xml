@@ -3,19 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/assessment/externalTeacherAssessment.vue" afterPath="$PROJECT_DIR$/src/page/assessment/externalTeacherAssessment.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/assessment/internalTeacherAssessment.vue" afterPath="$PROJECT_DIR$/src/page/assessment/internalTeacherAssessment.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/assessment/studentAssessment.vue" afterPath="$PROJECT_DIR$/src/page/assessment/studentAssessment.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/aidedTracking.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/aidedTracking.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/processTracking.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/processTracking.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProcess/studentMessage.vue" afterPath="$PROJECT_DIR$/src/page/internshipProcess/studentMessage.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/less/style.less" afterPath="$PROJECT_DIR$/src/less/style.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" afterPath="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" afterPath="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" afterPath="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/testCase.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/testCase.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/onlineTest/testStandard.vue" afterPath="$PROJECT_DIR$/src/page/onlineTest/testStandard.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +21,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="internshipTyping.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="internshipTyping.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+            <state relative-caret-position="15">
+              <caret line="1" column="2" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="studentList.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/studentList.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="85" column="12" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="89" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teacherArrangement.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="94" column="29" lean-forward="true" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -73,6 +84,7 @@
       <find>:ck</find>
       <find>:c</find>
       <find>:class</find>
+      <find>content-table</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\E430C\Desktop\internManagement</dir>
@@ -85,7 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mockDB/internshipDB.json" />
         <option value="$PROJECT_DIR$/mockDB/internshipProcessDB.json" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess.vue" />
@@ -133,9 +144,10 @@
         <option value="$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testCase.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testStandard.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
+        <option value="$PROJECT_DIR$/src/less/style.less" />
         <option value="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" />
       </list>
     </option>
   </component>
@@ -235,6 +247,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="internshipProgram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue-intern-system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue-intern-system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="less" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -365,14 +395,7 @@
       <workItem from="1494922342827" duration="1621000" />
       <workItem from="1495440938552" duration="708000" />
       <workItem from="1495956514465" duration="8762000" />
-      <workItem from="1496120184541" duration="26643000" />
-    </task>
-    <task id="LOCAL-00024" summary="1.022 实习过程修改">
-      <created>1493995691352</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1493995691352</updated>
+      <workItem from="1496120184541" duration="28246000" />
     </task>
     <task id="LOCAL-00025" summary="1.023 实习过程模块交互优化">
       <created>1494040390257</created>
@@ -710,11 +733,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496217896453</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="1.061 调整所有表格自适应，并为实习安排模块添加序号列">
+      <created>1496218713476</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1496218713476</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="373696000" />
+    <option name="totallyTimeSpent" value="375299000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,7 +785,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.037 根模块与header,footer分离,重新分配路由控制" />
     <MESSAGE value="1.038 登录页面完成，调通逻辑" />
     <MESSAGE value="1.039 登录页面添加背景图片，修改调整样式" />
     <MESSAGE value="1.040 登录权限存入localStorage模拟" />
@@ -780,7 +809,8 @@
     <MESSAGE value="1.058 校外教师考核列表" />
     <MESSAGE value="1.059 学生考核列表" />
     <MESSAGE value="1.060 考核评价列表页权限控制" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.060 考核评价列表页权限控制" />
+    <MESSAGE value="1.061 调整所有表格自适应，并为实习安排模块添加序号列" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.061 调整所有表格自适应，并为实习安排模块添加序号列" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -858,20 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="54" column="1" lean-forward="false" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/less/style.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3210">
-          <caret line="214" column="1" lean-forward="false" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/less/common.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1160,26 +1176,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/studentList.vue">
+    <entry file="file://$PROJECT_DIR$/src/less/common.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="73" column="28" lean-forward="false" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+        <state relative-caret-position="164">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
+    <entry file="file://$PROJECT_DIR$/src/less/style.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="70" column="10" lean-forward="false" selection-start-line="70" selection-start-column="10" selection-end-line="75" selection-end-column="28" />
+        <state relative-caret-position="362">
+          <caret line="173" column="14" lean-forward="false" selection-start-line="173" selection-start-column="14" selection-end-line="173" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+        <state relative-caret-position="15">
+          <caret line="1" column="2" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/studentList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="85" column="12" lean-forward="false" selection-start-line="85" selection-start-column="12" selection-end-line="89" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="94" column="29" lean-forward="true" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
           <folding />
         </state>
       </provider>

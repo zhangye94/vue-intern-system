@@ -83,6 +83,11 @@
             label="姓名"
             sortable
             min-width="120">
+            <template scope="scope">
+              <router-link :to="{ path: 'studentView', query: { code: scope.row.code }}">
+                <span class="content-table-link">{{scope.row.studentName}}</span>
+              </router-link>
+            </template>
           </el-table-column>
           <el-table-column
             prop="gender"
