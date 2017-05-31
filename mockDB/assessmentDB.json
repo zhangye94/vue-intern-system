@@ -36,5 +36,24 @@
     "schoolYear": "2014-2015",
     "semester": "第二学期",
     "score": "47"
+  }],
+  "studentAssessmentTable":[{
+    "teacherName": "李老师",
+    "studentName": "Z同学",
+    "schoolYear": "2017-2018",
+    "semester": "第一学期",
+    "score": "83"
+  },{
+    "teacherName": "周老师",
+    "studentName": "Z同学",
+    "schoolYear": "2016-2017",
+    "semester": "第一学期",
+    "score": "78"
+  },{
+    "teacherName": "吴老师",
+    "studentName": "Z同学",
+    "schoolYear": "2014-2015",
+    "semester": "第二学期",
+    "score": "47"
   }]
 }

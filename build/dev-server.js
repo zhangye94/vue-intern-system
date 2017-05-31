@@ -99,6 +99,12 @@ apiRouter.post('/assessment/externalTeacherAssessment/tableData',function(req,re
     form: assessment.externalTeacherAssessmentTable
   });
 });
+//学生考核
+apiRouter.post('/assessment/studentAssessment/tableData',function(req,res){
+  res.json({
+    form: assessment.studentAssessmentTable
+  });
+});
 //实习安排
 var internshipProgram = require("../mockDB/internshipDB.json");
 //年级列表
