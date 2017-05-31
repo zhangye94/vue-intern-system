@@ -4,7 +4,7 @@
       <div class="content-title">
         <h2>校内教师考核列表</h2>
         <router-link to="/internalTeacherAssessment/assssmentAdd" class="add" v-if="root == 10001"><i class="el-icon-plus"></i></router-link>
-        <el-button type="text" @click="dialogVisible = true" v-if="root == 10004||root == 10005"><i class="el-icon-upload2"></i>导入数据</el-button>
+        <el-button type="text" @click="dialogVisible = true" v-if="root == 10001"><i class="el-icon-upload2"></i>导入数据</el-button>
         <el-dialog
           title="提示"
           v-model="dialogVisible"
