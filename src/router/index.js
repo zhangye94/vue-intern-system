@@ -28,6 +28,10 @@ import studentListPage from '@/page/internshipProgram/studentList'
 import teacherAddPage from '@/page/internshipProgram/teacherAdd'
 import studentAddPage from '@/page/internshipProgram/studentAdd'
 import internshipAddPage from '@/page/internshipProgram/internshipAdd'
+
+import teacherViewPage from '@/page/internshipProgram/teacherView'
+import studentViewPage from '@/page/internshipProgram/studentView'
+import internshipViewPage from '@/page/internshipProgram/internshipView'
 //实习过程
 import internshipProcessPage from '@/page/internshipProcess'
 import guidanceRecordPage from '@/page/internshipProcess/guidanceRecord'
@@ -115,12 +119,20 @@ export default new Router({
               component: internshipAddPage
             },
             {
+              path: 'internshipView',
+              component: internshipViewPage
+            },
+            {
               path: 'teacherArrangement',
               component: teacherArrangementPage
             },
             {
               path: 'teacherAdd',
               component: teacherAddPage
+            },
+            {
+              path: 'teacherView',
+              component: teacherViewPage
             },
             {
               path: 'informationAcquisition',
@@ -133,6 +145,10 @@ export default new Router({
             {
               path: 'studentAdd',
               component: studentAddPage
+            },
+            {
+              path: 'studentView',
+              component: studentViewPage
             }
           ]
         },

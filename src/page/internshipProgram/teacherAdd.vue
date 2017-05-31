@@ -138,7 +138,7 @@
           .then((res) => {
             if(res.data.form.code){
               this.$message({
-                message: '读取成功',
+                message: '读取教师信息成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -150,7 +150,7 @@
           }, (err) => {
             if(res.data.form.code) {
               this.$message({
-                message: '读取失败，请检查网络环境！',
+                message: '读取教师信息失败，请检查网络环境！',
                 type: 'error',
                 duration: 1500,
                 showClose: true

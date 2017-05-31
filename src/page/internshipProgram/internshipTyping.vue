@@ -181,7 +181,6 @@
       },
       //读取表格数据
       getTableData(ev){
-        console.log(this.root);
         this.$http.post('api/internshipProgram/tableData',{
           type: "internship",
           searchContent: this.searchContent
