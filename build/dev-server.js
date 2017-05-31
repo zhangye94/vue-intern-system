@@ -85,6 +85,14 @@ apiRouter.post('/common/teacherList',function(req,res){
   });
 });
 
+//考核评价
+var assessment = require("../mockDB/assessmentDB.json");
+//校内教师考核
+apiRouter.post('/assessment/internalTeacherAssessment/tableData',function(req,res){
+  res.json({
+    form: assessment.internalTeacherAssessmentTable
+  });
+});
 //实习安排
 var internshipProgram = require("../mockDB/internshipDB.json");
 //年级列表

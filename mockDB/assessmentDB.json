@@ -1,0 +1,21 @@
+{
+  "internalTeacherAssessmentTable":[{
+    "teacherName": "赵老师",
+    "studentName": "Z同学",
+    "schoolYear": "2017-2018",
+    "semester": "第一学期",
+    "score": "85"
+  },{
+    "teacherName": "钱老师",
+    "studentName": "Z同学",
+    "schoolYear": "2016-2017",
+    "semester": "第一学期",
+    "score": "67"
+  },{
+    "teacherName": "孙老师",
+    "studentName": "Z同学",
+    "schoolYear": "2014-2015",
+    "semester": "第二学期",
+    "score": "94"
+  }]
+}
