@@ -1,14 +1,19 @@
 <template>
   <div id="process-tracking-add-model" class="add-form-head">
     <div class="add-header">
-      <h2><span v-if="!$route.query.code">创建实习总结</span><span v-if="$route.query.code">编辑实习总结</span></h2>
+      <h2>
+        <span v-if="!$route.query.code&&!$route.query.view">创建实习总结</span>
+        <span v-if="$route.query.code&&!$route.query.view">编辑实习总结</span>
+        <span v-if="$route.query.code&&$route.query.view">查看实习总结</span>
+      </h2>
       <router-link to="/internshipProcess/processTracking" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
-          <el-form-item label="选择实习" prop="internshipList">
-            <el-select v-model="form.internshipList" placeholder="请选择" :disabled="root == 10002||root == 10003||root == 10004">
+          <el-form-item :label="!$route.query.view?'选择实习':'选择实习：'" prop="internshipList">
+            <span v-if="$route.query.view">{{form.internshipList}}</span>
+            <el-select v-model="form.internshipList" placeholder="请选择" :disabled="root == 10002||root == 10003||root == 10004" v-if="!$route.query.view">
               <el-option
                 v-for="item in setting.internshipListOptions"
                 :key="item.value"
@@ -17,13 +22,15 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="总结标题" prop="title" required>
-            <el-input v-model="form.title" :disabled="root == 10002||root == 10003||root == 10004"></el-input>
+          <el-form-item :label="!$route.query.view?'总结标题':'总结标题：'" prop="title" :required="!$route.query.view">
+            <span v-if="$route.query.view">{{form.title}}</span>
+            <el-input v-model="form.title" :disabled="root == 10002||root == 10003||root == 10004" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="总结内容" prop="content" required>
-            <el-input type="textarea" v-model="form.content" class="add-form-textarea internshipSummary" :disabled="root == 10002||root == 10003||root == 10004"></el-input>
+          <el-form-item :label="!$route.query.view?'总结内容':'总结内容：'" prop="content" :required="!$route.query.view">
+            <span v-if="$route.query.view">{{form.content}}</span>
+            <el-input type="textarea" v-model="form.content" class="add-form-textarea internshipSummary" :disabled="root == 10002||root == 10003||root == 10004" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item v-if="!$route.query.view">
             <el-button type="primary" @click="onSubmit('form')" :disabled="root == 10002||root == 10003||root == 10004">立即创建</el-button>
             <el-button @click="resetForm('form')" :disabled="root == 10002||root == 10003||root == 10004">重置</el-button>
             <el-button><router-link to="/internshipProcess/processTracking">取消</router-link></el-button>
@@ -60,14 +67,14 @@
         root: localStorage.root,
         rules: {
           title: [
-            { required: true, message: '请输入标题', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请输入标题', trigger: 'blur' }
           ],
           content: [
-            { required: true, message: '请输入实习总结', trigger: 'blur' },
+            { required: this.$route.query.view? false : true, message: '请输入实习总结', trigger: 'blur' },
             { min: 200, message: '实习总结需要至少200字', trigger: 'blur' }
           ],
           internshipList: [
-            { required: true, message: '请选择实习', trigger: 'change' }
+            { required: this.$route.query.view? false : true, message: '请选择实习', trigger: 'change' }
           ]
         }
       }
@@ -156,7 +163,7 @@
       },
       //检查权限
       checkRoot(){
-        if(this.root != 10001){
+        if(this.root != 10001&&!this.$route.query.view){
           this.$router.push('/internshipProcess/processTracking');
         }
       },

@@ -72,7 +72,7 @@
             sortable
             min-width="180">
             <template scope="scope">
-              <router-link :to="{ path: 'processTrackingView', query: { code: scope.row.ID }}">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID ,view: true}}">
                 <span class="content-table-link">{{scope.row.title}}</span>
               </router-link>
             </template>
@@ -88,14 +88,11 @@
             label="ID"
             min-width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="90" fixed="right" v-if="root == 10001||root == 10002||root == 10003">
+          <el-table-column label="操作" width="90" fixed="right" v-if="root == 10001">
             <template scope="scope">
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001">
+              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID ,view: false}}" v-if="root == 10001">
                 <el-button
                   size="small">编辑</el-button></router-link>
-              <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10002||root == 10003">
-                <el-button
-                  size="small">审阅</el-button></router-link>
             </template>
           </el-table-column>
         </el-table>

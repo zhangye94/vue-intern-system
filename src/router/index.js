@@ -42,7 +42,6 @@ import studentMessagePage from '@/page/internshipProcess/studentMessage'
 import guidanceRecordAddPage from '@/page/internshipProcess/guidanceRecordAdd'
 import processTrackingAddPage from '@/page/internshipProcess/processTrackingAdd'
 import studentMessageAddPage from '@/page/internshipProcess/studentMessageAdd'
-import processTrackingViewPage from '@/page/internshipProcess/processTrackingView'
 import studentMessageReplyPage from '@/page/internshipProcess/studentMessageReply'
 //考核评价
 import assessmentPage from '@/page/assessment'
@@ -173,10 +172,6 @@ export default new Router({
             {
               path: 'processTrackingAdd',
               component: processTrackingAddPage
-            },
-            {
-              path: 'processTrackingView',
-              component: processTrackingViewPage
             },
             {
               path: 'aidedTracking',

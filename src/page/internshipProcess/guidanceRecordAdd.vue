@@ -207,7 +207,7 @@
       },
       //检查权限
       checkRoot(){
-        if(this.root == 10001||this.root == 10005){
+        if((this.root == 10001||this.root == 10005)&&!this.$route.query.view){
           this.$router.push('/internshipProcess/guidanceRecord');
         }
       },
