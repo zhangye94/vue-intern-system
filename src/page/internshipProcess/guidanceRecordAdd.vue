@@ -220,8 +220,8 @@
       '$route' (to, from) {
         if(to.path === '/internshipProcess/guidanceRecordAdd'){
           this.checkRoot();
+          this.getEditInfo();
         }
-        this.getEditInfo();
       }
     }
   }

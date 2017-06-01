@@ -172,7 +172,7 @@
           type: "student"
         })
           .then((res) => {
-            if(res.data.form.code) {
+            if(this.$route.query.code) {
               this.$message({
                 message: '读取学生信息成功',
                 type: 'info',
@@ -184,7 +184,7 @@
               this.resetForm('form');
             }
           }, (err) => {
-            if(res.data.form.code) {
+            if(this.$route.query.code) {
               this.$message({
                 message: '读取学生信息失败，请检查网络环境！',
                 type: 'error',
@@ -224,7 +224,7 @@
       },
       //检查权限
       checkRoot(){
-        if(this.root == 10001||this.root == 10003){
+        if((this.root == 10001||this.root == 10003)&&!this.$route.query.view){
           this.$router.push('/internshipProgram/studentList');
         }
       },
@@ -237,8 +237,8 @@
       '$route' (to, from) {
         if(to.path === '/internshipProgram/studentAdd'){
           this.checkRoot();
+          this.getEditInfo();
         }
-        this.getEditInfo();
       }
     }
   }

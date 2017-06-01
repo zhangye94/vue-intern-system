@@ -297,8 +297,8 @@
       '$route' (to, from) {
         if(to.path === '/internshipProgram/internshipAdd'){
           this.checkRoot();
+          this.getEditInfo();
         }
-        this.getEditInfo();
       }
     }
   }
