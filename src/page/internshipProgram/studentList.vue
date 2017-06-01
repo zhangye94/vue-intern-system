@@ -61,7 +61,7 @@
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10004||root == 10005">
             <template scope="scope">
-              <router-link :to="{ path: 'studentAdd', query: { code: scope.row.code }}">
+              <router-link :to="{ path: 'studentAdd', query: { code: scope.row.code ,view: false}}">
               <el-button
                 size="small">编辑</el-button></router-link>
             </template>
@@ -84,7 +84,7 @@
             sortable
             min-width="120">
             <template scope="scope">
-              <router-link :to="{ path: 'studentView', query: { code: scope.row.code }}">
+              <router-link :to="{ path: 'studentAdd', query: { code: scope.row.code ,view: true}}">
                 <span class="content-table-link">{{scope.row.studentName}}</span>
               </router-link>
             </template>

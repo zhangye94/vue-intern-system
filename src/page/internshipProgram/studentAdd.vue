@@ -1,26 +1,35 @@
 <template>
   <div id="student-add" class="add-form-head">
     <div class="add-header">
-      <h2><span v-if="!$route.query.code">创建学生</span><span v-if="$route.query.code">编辑学生</span></h2>
+      <h2>
+        <span v-if="!$route.query.code&&!$route.query.view">创建学生信息</span>
+        <span v-if="$route.query.code&&!$route.query.view">编辑学生信息</span>
+        <span v-if="$route.query.code&&$route.query.view">查看学生信息</span>
+      </h2>
       <router-link to="/internshipProgram/studentList" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
-          <el-form-item label="姓名" prop="name">
-            <el-input v-model="form.name"></el-input>
+          <el-form-item :label="!$route.query.view?'姓名':'姓名：'" prop="name">
+            <span v-if="$route.query.view">{{form.name}}</span>
+            <el-input v-model="form.name" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="学号" prop="code">
-            <el-input v-model="form.code"></el-input>
+          <el-form-item :label="!$route.query.view?'学号':'学号：'" prop="code">
+            <span v-if="$route.query.view">{{form.code}}</span>
+            <el-input v-model="form.code" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="专业" prop="major">
-            <el-input v-model="form.major"></el-input>
+          <el-form-item :label="!$route.query.view?'专业':'专业：'" prop="major">
+            <span v-if="$route.query.view">{{form.major}}</span>
+            <el-input v-model="form.major" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="班级" prop="class">
-            <el-input v-model="form.class"></el-input>
+          <el-form-item :label="!$route.query.view?'班级':'班级：'" prop="class">
+            <span v-if="$route.query.view">{{form.class}}</span>
+            <el-input v-model="form.class" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="实习年级" prop="gradeValue">
-            <el-select v-model="form.gradeValue" placeholder="请选择">
+          <el-form-item :label="!$route.query.view?'实习年级':'实习年级：'" prop="gradeValue">
+            <span v-if="$route.query.view">{{form.gradeValue}}</span>
+            <el-select v-model="form.gradeValue" placeholder="请选择" v-if="!$route.query.view">
               <el-option
                 v-for="item in setting.grade "
                 :key="item.value"
@@ -29,14 +38,17 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="联系电话" prop="telephone">
-            <el-input v-model="form.telephone"></el-input>
+          <el-form-item :label="!$route.query.view?'联系电话':'联系电话：'" prop="telephone">
+            <span v-if="$route.query.view">{{form.telephone}}</span>
+            <el-input v-model="form.telephone" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="实习岗位" prop="position">
-            <el-input v-model="form.position"></el-input>
+          <el-form-item :label="!$route.query.view?'实习岗位':'实习岗位：'" prop="position">
+            <span v-if="$route.query.view">{{form.position}}</span>
+            <el-input v-model="form.position" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="参与实习">
-            <el-select v-model="form.internshipList" multiple placeholder="请选择">
+          <el-form-item :label="!$route.query.view?'参与实习':'参与实习：'">
+            <span v-if="$route.query.view">{{form.internshipList}}</span>
+            <el-select v-model="form.internshipList" multiple placeholder="请选择" v-if="!$route.query.view">
               <el-option
                 v-for="item in setting.internshipListOptions"
                 :key="item.value"
@@ -45,10 +57,11 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="自我介绍" prop="content">
-            <el-input type="textarea" v-model="form.content" class="add-form-textarea"></el-input>
+          <el-form-item :label="!$route.query.view?'自我介绍':'自我介绍：'" prop="content">
+            <span v-if="$route.query.view">{{form.content}}</span>
+            <el-input type="textarea" v-model="form.content" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item v-if="!$route.query.view">
             <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
             <el-button @click="resetForm('form')">重置</el-button>
             <el-button><router-link to="/internshipProgram/teacherArrangement">取消</router-link></el-button>
@@ -93,24 +106,24 @@
         },
         rules: {
           name: [
-            { required: true, message: '请输入姓名', trigger: 'blur' },
+            { required: this.$route.query.view? false : true, message: '请输入姓名', trigger: 'blur' },
             { min: 1, max: 15, message: '长度在 1 到 15 个字符', trigger: 'blur' }
           ],
           code: [
-            { required: true, message: '请输入学号', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请输入学号', trigger: 'blur' }
           ],
           major: [
-            { required: true, message: '请输入专业', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请输入专业', trigger: 'blur' }
           ],
           telephone: [
-            { required: true, message: '请输入电话号码', trigger: 'blur' },
+            { required: this.$route.query.view? false : true, message: '请输入电话号码', trigger: 'blur' },
             { min: 11, max: 11, message: '请输入11位手机号', trigger: 'blur' }
           ],
           class: [
-            { required: true, message: '请输入班级', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请输入班级', trigger: 'blur' }
           ],
           gradeValue: [
-            { required: true, message: '请选择年级', trigger: 'change' }
+            { required: this.$route.query.view? false : true, message: '请选择年级', trigger: 'change' }
           ]
         }
       }
