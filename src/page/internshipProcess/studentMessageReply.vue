@@ -1,7 +1,7 @@
 <template>
   <div id="student-message-reply-model" class="add-form-head">
     <div class="add-header">
-      <h2>回复留言</h2>
+      <h2><span v-if="!$route.query.view">回复</span><span v-if="$route.query.view">查看</span>留言</h2>
       <router-link to="/internshipProcess/studentMessage" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="reply-contain">
@@ -10,7 +10,7 @@
         <div class="reply-content">{{reply.content}}</div>
       </div>
     </div>
-    <div class="add-form">
+    <div class="add-form" v-if="!$route.query.view">
       <el-form :rules="rules" ref="form" :model="form" label-width="90px">
         <el-form-item label="回复内容" prop="content" required>
           <el-input type="textarea" v-model="form.content" class="add-form-textarea"></el-input>
@@ -33,10 +33,15 @@
       this.getReplyContent();
       this.$store.state.adminleftnavnum="/internshipProcess/studentMessage";
     },
+
     data () {
       return {
         form: {
           content: "",
+        },
+        query: {
+          code: this.$route.query.code || '',
+          view: this.$route.query.view || false
         },
         replyList: [],
         rules: {
@@ -51,6 +56,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$http.post('api/internshipProcess/studentMessage/reply',{
+              code: this.$route.query.code,
               form: this.form
             })
               .then((res) => {
@@ -82,7 +88,9 @@
       },
       //获取回复信息
       getReplyContent(){
-        this.$http.post('api/internshipProcess/studentMessage/getReplyContent',{})
+        this.$http.post('api/internshipProcess/studentMessage/getReplyContent',{
+          code: this.$route.query.code
+        })
           .then((res) => {
             this.$message({
               message: '读取留言板成功',
@@ -91,7 +99,9 @@
               showClose: true
             });
             this.replyList = res.data.replyList;
-            this.$refs['form'].resetFields();
+            if(!this.$route.query.view){
+              this.$refs['form'].resetFields();
+            }
           }, (err) => {
             this.$message({
               message: '读取留言板失败，请检查网络环境！',
@@ -108,7 +118,9 @@
     },
     watch: {
       '$route' (to, from) {
-        this.$refs['form'].resetFields();
+        if(this.$route.query.view === false) {
+          this.$refs['form'].resetFields();
+        }
       }
     }
   }

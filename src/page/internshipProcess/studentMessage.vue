@@ -59,7 +59,7 @@
             sortable
             min-width="280">
             <template scope="scope">
-              <router-link :to="{ path: 'studentMessageView', query: { code: scope.row.ID }}">
+              <router-link :to="{ path: 'studentMessageReply', query: { code: scope.row.ID , view: true}}">
                 <span class="content-table-link">{{scope.row.title}}</span>
               </router-link>
             </template>
@@ -83,7 +83,7 @@
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10001">
             <template scope="scope">
-              <router-link :to="{ path: 'studentMessageReply', query: { code: scope.row.ID }}">
+              <router-link :to="{ path: 'studentMessageReply', query: { code: scope.row.ID ,view: false}}">
                 <el-button
                   size="small">回复</el-button></router-link>
             </template>
