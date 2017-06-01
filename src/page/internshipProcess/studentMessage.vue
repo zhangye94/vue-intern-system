@@ -58,6 +58,11 @@
             label="标题"
             sortable
             min-width="280">
+            <template scope="scope">
+              <router-link :to="{ path: 'studentMessageView', query: { code: scope.row.ID }}">
+                <span class="content-table-link">{{scope.row.title}}</span>
+              </router-link>
+            </template>
           </el-table-column>
           <el-table-column
             prop="date"

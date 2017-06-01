@@ -88,6 +88,11 @@
             label="标题"
             sortable
             min-width="150">
+            <template scope="scope">
+              <router-link :to="{ path: 'processTrackingView', query: { code: scope.row.ID }}">
+                <span class="content-table-link">{{scope.row.title}}</span>
+              </router-link>
+            </template>
           </el-table-column>
           <el-table-column
             prop="guideDate"
