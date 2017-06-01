@@ -31,7 +31,6 @@ import internshipAddPage from '@/page/internshipProgram/internshipAdd'
 
 import teacherViewPage from '@/page/internshipProgram/teacherView'
 import studentViewPage from '@/page/internshipProgram/studentView'
-import internshipViewPage from '@/page/internshipProgram/internshipView'
 //实习过程
 import internshipProcessPage from '@/page/internshipProcess'
 import guidanceRecordPage from '@/page/internshipProcess/guidanceRecord'
@@ -117,10 +116,6 @@ export default new Router({
             {
               path: 'internshipAdd',
               component: internshipAddPage
-            },
-            {
-              path: 'internshipView',
-              component: internshipViewPage
             },
             {
               path: 'teacherArrangement',

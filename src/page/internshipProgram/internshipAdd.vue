@@ -1,30 +1,39 @@
 <template>
   <div id="internship-add" class="add-form-head">
     <div class="add-header">
-      <h2><span v-if="!$route.query.code">创建实习</span><span v-if="$route.query.code">编辑实习</span></h2>
+      <h2>
+        <span v-if="!$route.query.code&&!$route.query.view">创建实习</span>
+        <span v-if="$route.query.code&&!$route.query.view">编辑实习</span>
+        <span v-if="$route.query.code&&$route.query.view">查看实习</span>
+      </h2>
       <router-link to="/internshipProgram/internshipTyping" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
-          <el-form-item label="实习名称" prop="name">
-            <el-input v-model="form.name"></el-input>
+          <el-form-item :label="!$route.query.view?'实习名称':'实习名称：'" prop="name">
+            <span v-if="$route.query.view">{{form.name}}</span>
+            <el-input v-model="form.name" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="实习代码" prop="code">
-            <el-input v-model="form.code"></el-input>
+          <el-form-item :label="!$route.query.view?'实习代码':'实习代码：'" prop="code">
+            <span v-if="$route.query.view">{{form.code}}</span>
+            <el-input v-model="form.code" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="所属组织" prop="org">
-            <el-input v-model="form.org"></el-input>
+          <el-form-item :label="!$route.query.view?'所属组织':'所属组织：'" prop="org">
+            <span v-if="$route.query.view">{{form.org}}</span>
+            <el-input v-model="form.org" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="学期" prop="term">
-            <el-select v-model="form.term">
+          <el-form-item :label="!$route.query.view?'学期':'学期：'" prop="term">
+            <span v-if="$route.query.view">{{form.term}}</span>
+            <el-select v-model="form.term" v-if="!$route.query.view">
               <el-option label="第一学期" value="firstTerm"></el-option>
               <el-option label="第二学期" value="secondTerm"></el-option>
               <el-option label="小学期" value="shortTerm"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="学年" prop="schoolYearValue">
-            <el-select v-model="form.schoolYearValue" placeholder="请选择">
+          <el-form-item :label="!$route.query.view?'学年':'学年：'" prop="schoolYearValue">
+            <span v-if="$route.query.view">{{form.schoolYearValue}}</span>
+            <el-select v-model="form.schoolYearValue" placeholder="请选择" v-if="!$route.query.view">
               <el-option
                 v-for="item in setting.schoolYear"
                 :key="item.value"
@@ -33,8 +42,9 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="实习年级" prop="gradeValue">
-            <el-select v-model="form.gradeValue" placeholder="请选择">
+          <el-form-item :label="!$route.query.view?'实习年级':'实习年级：'" prop="gradeValue">
+            <span v-if="$route.query.view">{{form.gradeValue}}</span>
+            <el-select v-model="form.gradeValue" placeholder="请选择" v-if="!$route.query.view">
               <el-option
                 v-for="item in setting.grade "
                 :key="item.value"
@@ -43,45 +53,52 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="开始日期" required>
+          <el-form-item :label="!$route.query.view?'开始日期':'开始日期：'" :required="!$route.query.view">
             <el-col :span="10">
               <el-form-item prop="date1">
-                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+                <span v-if="$route.query.view">{{form.date1}}</span>
+                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;" v-if="!$route.query.view"></el-date-picker>
               </el-form-item>
             </el-col>
-            <el-col class="line" :span="4"><div>结束日期</div></el-col>
+            <el-col class="line" :span="4"><div><span v-if="!$route.query.view">结束日期</span><span v-if="$route.query.view">结束日期：</span></div></el-col>
             <el-col :span="10">
               <el-form-item prop="date2">
-                <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;"></el-date-picker>
+                <span v-if="$route.query.view">{{form.date2}}</span>
+                <el-date-picker type="date" placeholder="选择日期" v-model="form.date2" style="width: 100%;" v-if="!$route.query.view"></el-date-picker>
               </el-form-item>
             </el-col>
           </el-form-item>
           <div class="score-percent-form">
             <h2>校内外教师评分比例分配</h2>
-            <el-form-item label="校内教师" required>
+            <el-form-item :label="!$route.query.view?'校内教师':'校内教师：'" :required="!$route.query.view">
               <el-col :span="9">
                 <el-form-item prop="internTeacherPercent">
-                  <el-input v-model="form.internTeacherPercent"></el-input>
+                  <span v-if="$route.query.view">{{form.internTeacherPercent}}</span>
+                  <el-input v-model="form.internTeacherPercent" v-if="!$route.query.view"></el-input>
                 </el-form-item>
               </el-col>
-              <el-col class="line" :span="4"><div>校外教师</div></el-col>
+              <el-col class="line" :span="4"><div><span v-if="!$route.query.view">校外教师</span><span v-if="$route.query.view">校外教师：</span></div></el-col>
               <el-col :span="10">
                 <el-form-item prop="externalTeacherPercent">
-                  <el-input v-model="form.externalTeacherPercent" :disabled="true"></el-input>
+                  <span v-if="$route.query.view">{{form.externalTeacherPercent}}</span>
+                  <el-input v-model="form.externalTeacherPercent" :disabled="true" v-if="!$route.query.view"></el-input>
                 </el-form-item>
               </el-col>
             </el-form-item>
           </div>
-          <el-form-item label="实习目标" prop="target">
-            <el-input type="textarea" v-model="form.target" class="add-form-textarea"></el-input>
+          <el-form-item :label="!$route.query.view?'实习目标':'实习目标：'" prop="target">
+            <span v-if="$route.query.view">{{form.target}}</span>
+            <el-input type="textarea" v-model="form.target" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="实习要求" prop="requirement">
-            <el-input type="textarea" v-model="form.requirement" class="add-form-textarea"></el-input>
+          <el-form-item :label="!$route.query.view?'实习要求':'实习要求：'" prop="requirement">
+            <span v-if="$route.query.view">{{form.requirement}}</span>
+            <el-input type="textarea" v-model="form.requirement" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="实习内容" prop="content">
-            <el-input type="textarea" v-model="form.content" class="add-form-textarea"></el-input>
+          <el-form-item :label="!$route.query.view?'实习内容':'实习内容：'" prop="content">
+            <span v-if="$route.query.view">{{form.content}}</span>
+            <el-input type="textarea" v-model="form.content" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item v-if="!$route.query.view">
             <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
             <el-button @click="resetForm('form')">重置</el-button>
             <el-button><router-link to="/internshipProgram/internshipTyping">取消</router-link></el-button>
@@ -132,39 +149,39 @@
         },
         rules: {
           name: [
-            { required: true, message: '请输入实习名称', trigger: 'blur' },
+            { required: this.$route.query.view? false : true, message: '请输入实习名称', trigger: 'blur' },
             { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
           ],
           code: [
-            { required: true, message: '请输入实习代码', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请输入实习代码', trigger: 'blur' }
           ],
           org: [
-            { required: true, message: '请输入所属组织', trigger: 'blur' },
+            { required: this.$route.query.view? false : true, message: '请输入所属组织', trigger: 'blur' },
             { min: 3, max: 25, message: '长度在 3 到 25 个字符', trigger: 'blur' }
           ],
           date1: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+            { type: 'date', required: this.$route.query.view? false : true, message: '请选择日期', trigger: 'change' }
           ],
           date2: [
-            { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+            { type: 'date', required: this.$route.query.view? false : true, message: '请选择时间', trigger: 'change' }
           ],
           target: [
-            { required: true, message: '请输入实习目标', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请输入实习目标', trigger: 'blur' }
           ],
           requirement: [
-            { required: true, message: '请填写实习要求', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请填写实习要求', trigger: 'blur' }
           ],
           content: [
-            { required: true, message: '请填写实习内容', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请填写实习内容', trigger: 'blur' }
           ],
           term: [
-            { required: true, message: '请选择学期', trigger: 'change' }
+            { required: this.$route.query.view? false : true, message: '请选择学期', trigger: 'change' }
           ],
           schoolYearValue: [
-            { required: true, message: '请选择学年', trigger: 'change' }
+            { required: this.$route.query.view? false : true, message: '请选择学年', trigger: 'change' }
           ],
           gradeValue: [
-            { required: true, message: '请选择实习年级', trigger: 'change' }
+            { required: this.$route.query.view? false : true, message: '请选择实习年级', trigger: 'change' }
           ]
         }
       }
@@ -264,7 +281,7 @@
       },
       //检查权限
       checkRoot(){
-        if(this.root == 10001||this.root == 10002||this.root == 10003){
+        if((this.root == 10001||this.root == 10002||this.root == 10003)&&!this.$route.query.view){
           this.$router.push('/internshipProgram/internshipTyping');
         }
       },
