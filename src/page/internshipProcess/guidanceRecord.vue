@@ -89,7 +89,7 @@
             sortable
             min-width="150">
             <template scope="scope">
-              <router-link :to="{ path: 'processTrackingView', query: { code: scope.row.ID }}">
+              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.ID ,view: true}}">
                 <span class="content-table-link">{{scope.row.title}}</span>
               </router-link>
             </template>
@@ -126,7 +126,7 @@
           </el-table-column>
           <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10004">
             <template scope="scope">
-              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.ID }}">
+              <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.ID ,view: false}}">
                 <el-button
                   size="small">编辑</el-button></router-link>
             </template>

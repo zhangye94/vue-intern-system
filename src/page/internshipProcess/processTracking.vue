@@ -70,7 +70,7 @@
             prop="title"
             label="总结标题"
             sortable
-            min-width="190">
+            min-width="180">
             <template scope="scope">
               <router-link :to="{ path: 'processTrackingView', query: { code: scope.row.ID }}">
                 <span class="content-table-link">{{scope.row.title}}</span>
@@ -88,7 +88,7 @@
             label="ID"
             min-width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10001||root == 10002||root == 10003">
+          <el-table-column label="操作" width="90" fixed="right" v-if="root == 10001||root == 10002||root == 10003">
             <template scope="scope">
               <router-link :to="{ path: 'processTrackingAdd', query: { code: scope.row.ID }}" v-if="root == 10001">
                 <el-button

@@ -1,48 +1,56 @@
 <template>
   <div id="guidance-record-add-model" class="add-form-head">
     <div class="add-header">
-      <h2><span v-if="!$route.query.code">创建指导记录</span><span v-if="$route.query.code">编辑指导记录</span></h2>
+      <h2>
+        <span v-if="!$route.query.code&&!$route.query.view">创建指导记录</span>
+        <span v-if="$route.query.code&&!$route.query.view">编辑指导记录</span>
+        <span v-if="$route.query.code&&$route.query.view">查看指导记录</span>
+      </h2>
       <router-link to="/internshipProcess/guidanceRecord" class="back"><i class="el-icon-d-arrow-left"></i>返回</router-link>
     </div>
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
-          <el-form-item label="指导教师" required>
-            <el-input v-model="form.teacherName" disabled ></el-input>
+          <el-form-item :label="!$route.query.view?'指导教师':'指导教师：'" :required="!$route.query.view">
+            <span v-if="$route.query.view">{{form.teacherName}}</span>
+            <el-input v-model="form.teacherName" disabled v-if="!$route.query.view"></el-input>
           </el-form-item>
 
-          <el-form-item label="指导日期" required>
+          <el-form-item :label="!$route.query.view?'指导日期':'指导日期：'" :required="!$route.query.view">
             <el-col :span="10">
               <el-form-item prop="date">
-                <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
+                <span v-if="$route.query.view">{{form.date}}</span>
+                <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;" v-if="!$route.query.view"></el-date-picker>
               </el-form-item>
             </el-col>
           </el-form-item>
 
-          <el-form-item label="指导学生" required>
-            <el-checkbox :indeterminate="guidingStudentCheckSetting.isIndeterminate" v-model="guidingStudentCheckSetting.checkAll" @change="handleCheckAllStudentChange">全选</el-checkbox>
+          <el-form-item :label="!$route.query.view?'指导学生':'指导学生：'" :required="!$route.query.view">
+            <el-checkbox :indeterminate="guidingStudentCheckSetting.isIndeterminate" v-model="guidingStudentCheckSetting.checkAll" @change="handleCheckAllStudentChange" :disabled="$route.query.view">全选</el-checkbox>
             <div style="margin: 15px 0;"></div>
             <el-checkbox-group v-model="form.checkedGuidingStudent" @change="handleCheckedStudentChange">
-              <el-checkbox v-for="guidingStudent in guidingStudentCheckSetting.guidingStudents" :label="guidingStudent" :key="guidingStudent">{{guidingStudent}}</el-checkbox>
+              <el-checkbox v-for="guidingStudent in guidingStudentCheckSetting.guidingStudents" :label="guidingStudent" :key="guidingStudent" :disabled="$route.query.view">{{guidingStudent}}</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
 
-          <el-form-item label="指导类型" prop="guidingType" required>
-            <el-checkbox :indeterminate="guidingTypeCheckSetting.isIndeterminate" v-model="guidingTypeCheckSetting.checkAll" @change="handleCheckAllTypeChange">全选</el-checkbox>
+          <el-form-item :label="!$route.query.view?'指导类型':'指导类型：'" prop="guidingType" :required="!$route.query.view">
+            <el-checkbox :indeterminate="guidingTypeCheckSetting.isIndeterminate" v-model="guidingTypeCheckSetting.checkAll" @change="handleCheckAllTypeChange" :disabled="$route.query.view">全选</el-checkbox>
             <div style="margin: 15px 0;"></div>
             <el-checkbox-group v-model="form.checkedGuidingType" @change="handleCheckedTypeChange">
-              <el-checkbox v-for="guidingType in guidingTypeCheckSetting.guidingTypes" :label="guidingType" :key="guidingType">{{guidingType}}</el-checkbox>
+              <el-checkbox v-for="guidingType in guidingTypeCheckSetting.guidingTypes" :label="guidingType" :key="guidingType" :disabled="$route.query.view">{{guidingType}}</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
 
-          <el-form-item label="指导内容" prop="guideContent" required>
-            <el-input type="textarea" v-model="form.guideContent" class="add-form-textarea"></el-input>
+          <el-form-item :label="!$route.query.view?'指导内容':'指导内容：'" prop="guideContent" :required="!$route.query.view">
+            <span v-if="$route.query.view">{{form.guideContent}}</span>
+            <el-input type="textarea" v-model="form.guideContent" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
-          <el-form-item label="指导情况" prop="guideSituation" required>
-            <el-input type="textarea" v-model="form.guideSituation" class="add-form-textarea"></el-input>
+          <el-form-item :label="!$route.query.view?'指导情况':'指导情况：'" prop="guideSituation" :required="!$route.query.view">
+            <span v-if="$route.query.view">{{form.guideSituation}}</span>
+            <el-input type="textarea" v-model="form.guideSituation" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
 
-          <el-form-item>
+          <el-form-item v-if="!$route.query.view">
             <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
             <el-button @click="resetForm('form')">重置</el-button>
             <el-button><router-link to="/internshipProcess/guidanceRecord">取消</router-link></el-button>
@@ -90,13 +98,13 @@
         },
         rules: {
           date: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+            { type: 'date', required: this.$route.query.view? false : true, message: '请选择日期', trigger: 'change' }
           ],
           guideContent: [
-            { required: true, message: '请填写指导内容', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请填写指导内容', trigger: 'blur' }
           ],
           guideSituation: [
-            { required: true, message: '请填写指导情况', trigger: 'blur' }
+            { required: this.$route.query.view? false : true, message: '请填写指导情况', trigger: 'blur' }
           ],
         }
       }
