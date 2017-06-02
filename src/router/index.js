@@ -49,6 +49,10 @@ import indexSettingPage from '@/page/assessment/indexSetting'
 import accountManagementPage from '@/page/accountManagement'
 import modifiedDataPage from '@/page/accountManagement/modifiedData'
 import modifiedPasswordPage from '@/page/accountManagement/modifiedPassword'
+//信息公告
+import informationPage from '@/page/information'
+import newsListPage from '@/page/information/newsList'
+import releaseNewsPage from '@/page/information/releaseNews'
 
 Vue.use(Router)
 
@@ -210,6 +214,21 @@ export default new Router({
             {
               path: 'modifiedPassword',
               component: modifiedPasswordPage
+            }
+          ]
+        },
+        {
+          path: '/information',
+          component: informationPage,
+          redirect: '/information/newsList',
+          children: [
+            {
+              path: 'newsList',
+              component: newsListPage
+            },
+            {
+              path: 'releaseNews',
+              component: releaseNewsPage
             }
           ]
         },

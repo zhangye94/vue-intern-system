@@ -36,6 +36,11 @@
             <el-menu-item index="/accountManagement/modifiedData">修改资料</el-menu-item>
             <el-menu-item index="/accountManagement/modifiedPassword">修改密码</el-menu-item>
           </el-submenu>
+          <el-submenu index="information">
+            <template slot="title">信息公告</template>
+            <el-menu-item index="/information/newsList">公告列表</el-menu-item>
+            <el-menu-item index="/information/releaseNews">发布公告</el-menu-item>
+          </el-submenu>
         </el-menu>
       </div>
       <div class="app-head-right">
