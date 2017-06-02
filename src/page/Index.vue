@@ -106,7 +106,7 @@
         <div class="index-contain-content">
           <el-table
             ref="multipleTable"
-            :data="messageList"
+            :data="informationList"
             border
             style="width: 100%"
             v-if="root == 10001||root == 10002||root == 10003"
@@ -123,7 +123,7 @@
               sortable
               min-width="240">
               <template scope="scope">
-                <router-link :to="{ path: 'releaseNews', query: { code: scope.row.ID ,view: true}}">
+                <router-link :to="{ path: '/information/releaseNews', query: { code: scope.row.ID ,view: true}}">
                   <span class="content-table-link">{{scope.row.title}}</span>
                 </router-link>
               </template>
@@ -189,6 +189,11 @@
               label="标题"
               sortable
               min-width="300">
+              <template scope="scope">
+                <router-link :to="{ path: '/internshipProcess/studentMessageReply', query: { code: scope.row.ID , view: true}}">
+                  <span class="content-table-link">{{scope.row.title}}</span>
+                </router-link>
+              </template>
             </el-table-column>
             <el-table-column
               prop="date"
@@ -232,6 +237,7 @@
     components: {},
     created: function () {
       this.getMessageData();
+      this.getInformationData();
       this.getUserInfo();
       this.getInternInfo();
     },
@@ -240,12 +246,13 @@
         activeIndex: '/index',
         root: localStorage.root,
         messageList: [],
+        informationList: [],
         user: "",
         internInfo: ""
       }
     },
     methods: {
-      //读取表格数据
+      //读取留言表格数据
       getMessageData(ev) {
         this.$http.post('api/internshipProcess/studentMessage/tableData', {
 
@@ -263,6 +270,39 @@
           }, (err) => {
             this.$message({
               message: '读取失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取公告表格数据
+      getInformationData(ev){
+        this.$http.post('api/information/newsList/tableData',{})
+          .then((res) => {
+            let indexInformation = [];
+            for(let i = 0;i<5;i++){
+              if(res.data.form[i]){
+                indexInformation.push(res.data.form[i]);
+              }else{
+                break;
+              }
+            }
+            this.informationList = indexInformation;
+
+            for(let i=0;i<res.data.form.length;i++){
+              if(res.data.form[i].show){
+                this.$notify.info({
+                  title: '最新公告',
+                  message: res.data.form[i].title,
+                  duration: 4500+500*i,
+                  offset: 60+100*i
+                });
+              }
+            }
+          }, (err) => {
+            this.$message({
+              message: '读取公告列表失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true
@@ -341,6 +381,10 @@
             li{
               line-height: 24px;
             }
+          }
+          .content-table-link{
+            text-decoration: underline;
+            color: #20a0ff;
           }
         }
         .index-contain-link {

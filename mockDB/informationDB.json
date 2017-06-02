@@ -4,19 +4,22 @@
     "type": "学生",
     "submitter": "终极大BOSS",
     "date": "2017-6-6",
-    "ID": "001"
+    "ID": "001",
+    "show": true
   },{
     "title": "你还不知道吗！二十天内不喝水死亡几率高达100%！",
     "type": "校内教师",
     "submitter": "终极大BOSS",
     "date": "2017-6-6",
-    "ID": "002"
+    "ID": "002",
+    "show": true
   },{
     "title": "深度好文！杨澜教你如何做一个睿智的女人：从不分享心灵鸡汤！",
     "type": "校外教师",
     "submitter": "终极大BOSS",
     "date": "2017-6-6",
-    "ID": "003"
+    "ID": "003",
+    "show": false
   }],
   "newsContent": {
     "checkedReleaseType": ["学生"],
