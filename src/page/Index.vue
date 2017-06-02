@@ -102,6 +102,61 @@
         <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link" v-if="root != 10001">控制状态</router-link>
       </div>
       <div class="index-contain">
+        <h2 class="index-contain-title">最新公告<span class="index-contain-subtitle">只显示最近的五条公告</span></h2>
+        <div class="index-contain-content">
+          <el-table
+            ref="multipleTable"
+            :data="messageList"
+            border
+            style="width: 100%"
+            v-if="root == 10001||root == 10002||root == 10003"
+          >
+            <el-table-column
+              type="index"
+              label="序号"
+              sortable
+              width="70">
+            </el-table-column>
+            <el-table-column
+              prop="title"
+              label="标题"
+              sortable
+              min-width="240">
+              <template scope="scope">
+                <router-link :to="{ path: 'releaseNews', query: { code: scope.row.ID ,view: true}}">
+                  <span class="content-table-link">{{scope.row.title}}</span>
+                </router-link>
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="type"
+              label="发布类型"
+              sortable
+              min-width="100">
+            </el-table-column>
+            <el-table-column
+              prop="submitter"
+              label="提交人"
+              sortable
+              min-width="100">
+            </el-table-column>
+            <el-table-column
+              prop="date"
+              label="提交日期	"
+              min-width="80">
+            </el-table-column>
+            <el-table-column
+              prop="ID"
+              label="ID"
+              min-width="100" v-if="false">
+            </el-table-column>
+          </el-table>
+        </div>
+        <router-link :to="{ path: '/information/newsList'}" class="index-contain-link">
+          <span>查看公告</span>
+        </router-link>
+      </div>
+      <div class="index-contain">
         <h2 class="index-contain-title">留言信息<span class="index-contain-subtitle">只显示最近的五条留言</span></h2>
         <div class="index-contain-content">
           <el-table
@@ -121,36 +176,36 @@
               prop="teacherName"
               label="教师姓名"
               sortable
-              width="120">
+              min-width="120">
             </el-table-column>
             <el-table-column
               prop="code"
               label="教师类型"
               sortable
-              width="150">
+              min-width="150">
             </el-table-column>
             <el-table-column
               prop="title"
               label="标题"
               sortable
-              width="300">
+              min-width="300">
             </el-table-column>
             <el-table-column
               prop="date"
               label="提问日期"
               sortable
-              width="160">
+              min-width="160">
             </el-table-column>
             <el-table-column
               prop="state"
               label="处理状态"
               sortable
-              width="130">
+              min-width="130">
             </el-table-column>
             <el-table-column
               prop="ID"
               label="ID"
-              width="100" v-if="false">
+              min-width="100" v-if="false">
             </el-table-column>
             <el-table-column label="操作" fixed="right" v-if="root == 10002||root == 10003||root == 10001">
               <template scope="scope">
