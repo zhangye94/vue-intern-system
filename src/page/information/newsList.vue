@@ -3,7 +3,7 @@
     <div class="content">
       <div class="content-title">
         <h2>公告列表</h2>
-        <router-link to="/information/releaseNews" class="add"><i class="el-icon-plus"></i></router-link>
+        <router-link to="/information/releaseNews" class="add" v-if="root == 10002||root == 10004||root == 10005"><i class="el-icon-plus"></i></router-link>
       </div>
       <div class="content-table">
         <el-table
@@ -51,7 +51,7 @@
             label="ID"
             min-width="100" v-if="false">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10004||root == 10005">
+          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10004||root == 10005">
             <template scope="scope">
               <router-link :to="{ path: 'releaseNews', query: { code: scope.row.ID ,view: false}}">
                 <el-button

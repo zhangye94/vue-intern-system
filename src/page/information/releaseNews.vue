@@ -162,7 +162,7 @@
       },
       //检查权限
       checkRoot(){
-        if(this.root == 10001&&!this.$route.query.view){
+        if((this.root == 10001||this.root == 10003)&&!this.$route.query.view){
           this.$router.push('/information/newsList');
         }
       },

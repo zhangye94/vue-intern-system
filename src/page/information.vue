@@ -5,7 +5,7 @@
         <el-col :span="24">
           <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="selectItems" router>
             <el-menu-item index="/information/newsList"><i class="el-icon-document"></i>公告列表</el-menu-item>
-            <el-menu-item index="/information/releaseNews"><i class="el-icon-menu"></i>发布公告</el-menu-item>
+            <el-menu-item index="/information/releaseNews" v-if="root == 10002||root == 10004||root == 10005"><i class="el-icon-menu"></i>发布公告</el-menu-item>
           </el-menu>
         </el-col>
       </el-row>

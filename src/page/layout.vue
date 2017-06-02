@@ -39,7 +39,7 @@
           <el-submenu index="information">
             <template slot="title">信息公告</template>
             <el-menu-item index="/information/newsList">公告列表</el-menu-item>
-            <el-menu-item index="/information/releaseNews">发布公告</el-menu-item>
+            <el-menu-item index="/information/releaseNews" v-if="root == 10002||root == 10004||root == 10005">发布公告</el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
