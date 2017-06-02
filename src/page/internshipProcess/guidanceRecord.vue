@@ -124,7 +124,7 @@
             sortable
             min-width="100">
           </el-table-column>
-          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10004">
+          <el-table-column label="操作" width="70" fixed="right" v-if="root == 10002||root == 10003||root == 10004||root == 10005">
             <template scope="scope">
               <router-link :to="{ path: 'guidanceRecordAdd', query: { code: scope.row.ID ,view: false}}">
                 <el-button

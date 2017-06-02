@@ -2,7 +2,7 @@
   <div id="release-news-model" class="add-form-head">
     <div class="add-header">
       <h2>
-        <span v-if="!$route.query.code&&!$route.query.view">创建公告</span>
+        <span v-if="!$route.query.code&&!$route.query.view">发布公告</span>
         <span v-if="$route.query.code&&!$route.query.view">编辑公告</span>
         <span v-if="$route.query.code&&$route.query.view">查看公告</span>
       </h2>
@@ -11,11 +11,16 @@
     <div class="add-content">
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
-          <el-form-item :label="!$route.query.view?'标题':'标题：'" prop="title">
+          <el-form-item :label="!$route.query.view?'标题':'标题：'" prop="title" :required="!$route.query.view">
             <span v-if="$route.query.view">{{form.title}}</span>
             <el-input v-model="form.title" v-if="!$route.query.view"></el-input>
           </el-form-item>
-
+          <el-form-item label="提交人：" prop="submitter" v-if="$route.query.view">
+            <span v-if="$route.query.view">{{form.submitter}}</span>
+          </el-form-item>
+          <el-form-item label="提交日期：" prop="date" v-if="$route.query.view">
+            <span v-if="$route.query.view">{{form.date}}</span>
+          </el-form-item>
           <el-form-item :label="!$route.query.view?'发布类型':'发布类型：'" prop="releaseType" :required="!$route.query.view">
             <el-checkbox :indeterminate="releaseTypeCheckSetting.isIndeterminate" v-model="releaseTypeCheckSetting.checkAll" @change="handleCheckAllTypeChange" :disabled="$route.query.view">全选</el-checkbox>
             <div style="margin: 15px 0;"></div>
@@ -26,12 +31,16 @@
 
           <quill-editor ref="myTextEditor" v-model="form.content" :config="editorOption" class="editor" v-if="!$route.query.view">
           </quill-editor>
-          <div v-html="form.content" class="editor-content">
-
-          </div>
+          <el-form-item label="公告内容：" prop="content" v-if="$route.query.view">
+            <div v-html="form.content" class="editor-content">
+            </div>
+          </el-form-item>
 
           <el-form-item v-if="!$route.query.view" class="fr">
-            <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
+            <el-button type="primary" @click="onSubmit('form')">
+              <span v-if="!$route.query.code">立即创建</span>
+              <span v-if="$route.query.code">修改</span>
+            </el-button>
             <el-button @click="resetForm('form')">重置</el-button>
             <el-button><router-link to="/information/newsList">取消</router-link></el-button>
           </el-form-item>
@@ -98,7 +107,7 @@
             })
               .then((res) => {
                 this.$message({
-                  message: '创建指导记录成功',
+                  message: '创建公告成功',
                   type: 'info',
                   duration: 1500,
                   showClose: true
@@ -106,7 +115,7 @@
                 this.resetForm('form');
               }, (err) => {
                 this.$message({
-                  message: '添加指导记录失败，请检查网络环境！',
+                  message: '创建公告失败，请检查网络环境！',
                   type: 'error',
                   duration: 1500,
                   showClose: true
@@ -143,7 +152,7 @@
           }, (err) => {
             if(this.$route.query.code) {
               this.$message({
-                message: '读取指导记录失败，请检查网络环境！',
+                message: '读取公告详情失败，请检查网络环境！',
                 type: 'error',
                 duration: 1500,
                 showClose: true
@@ -187,7 +196,12 @@
       }
     }
     .editor-content{
-      margin-left: 100px;
+      h1{
+        font-size: 26px;
+      }
+      h2{
+        font-size: 20px;
+      }
     }
   }
 </style>
