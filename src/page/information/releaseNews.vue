@@ -12,6 +12,7 @@
       <div class="add-form">
         <el-form :rules="rules" ref="form" :model="form" label-width="100px">
           <el-form-item :label="!$route.query.view?'标题':'标题：'" prop="title">
+            <span v-if="$route.query.view">{{form.title}}</span>
             <el-input v-model="form.title" v-if="!$route.query.view"></el-input>
           </el-form-item>
 
@@ -23,8 +24,11 @@
             </el-checkbox-group>
           </el-form-item>
 
-          <quill-editor ref="myTextEditor" v-model="form.content" :config="editorOption" class="editor">
+          <quill-editor ref="myTextEditor" v-model="form.content" :config="editorOption" class="editor" v-if="!$route.query.view">
           </quill-editor>
+          <div v-html="form.content" class="editor-content">
+
+          </div>
 
           <el-form-item v-if="!$route.query.view" class="fr">
             <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
@@ -121,13 +125,13 @@
       },
       //读取编辑信息
       getEditInfo(){
-        this.$http.post('api/internshipProcess/guidanceRecord/read',{
+        this.$http.post('api/information/releaseNews/read',{
           code: this.$route.query.code,
         })
           .then((res) => {
             if(this.$route.query.code) {
               this.$message({
-                message: '读取指导记录成功',
+                message: '读取公告详情成功',
                 type: 'info',
                 duration: 1500,
                 showClose: true
@@ -181,6 +185,9 @@
       .ql-container{
         min-height: 300px;
       }
+    }
+    .editor-content{
+      margin-left: 100px;
     }
   }
 </style>

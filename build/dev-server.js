@@ -93,6 +93,13 @@ apiRouter.post('/information/newsList/tableData',function(req,res){
     form: information.newsListTable
   });
 });
+//公告详情编辑内容读取
+apiRouter.post('/information/releaseNews/read',function(req,res){
+  var code = req.body.code;
+  res.json({
+    form: information.newsContent
+  });
+});
 //考核评价
 var assessment = require("../mockDB/assessmentDB.json");
 //校内教师考核
