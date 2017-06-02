@@ -85,6 +85,14 @@ apiRouter.post('/common/teacherList',function(req,res){
   });
 });
 
+//消息公告
+var information = require("../mockDB/informationDB.json");
+//公告列表
+apiRouter.post('/information/newsList/tableData',function(req,res){
+  res.json({
+    form: information.newsListTable
+  });
+});
 //考核评价
 var assessment = require("../mockDB/assessmentDB.json");
 //校内教师考核
