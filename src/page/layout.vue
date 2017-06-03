@@ -55,7 +55,13 @@
       <div class="app-head-right">
         <el-popover ref="popoverUser" placement="bottom" width="350" trigger="click">
           <div class="popover-contain">
-            <h2>超级管理员：</h2>
+            <h2>
+              <span v-if="root == 10001">学生用户：</span>
+              <span v-if="root == 10002">校内教师用户：</span>
+              <span v-if="root == 10003">校外教师用户：</span>
+              <span v-if="root == 10004">院系负责人：</span>
+              <span v-if="root == 10005">超级管理员：</span>
+            </h2>
             <ul>
               <li><div>姓名：</div><div>{{user.name}}</div></li>
               <li><div>学号：</div><div>{{user.code}}</div></li>

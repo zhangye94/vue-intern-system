@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/Index.vue" afterPath="$PROJECT_DIR$/src/page/Index.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/layout.vue" afterPath="$PROJECT_DIR$/src/page/layout.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="layout.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/layout.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="40" column="57" lean-forward="false" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+            <state relative-caret-position="357">
+              <caret line="58" column="45" lean-forward="false" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -399,13 +398,6 @@
       <workItem from="1496385819533" duration="21233000" />
       <workItem from="1496457161834" duration="1055000" />
     </task>
-    <task id="LOCAL-00043" summary="1.035 修改部门文本信息，css类合并">
-      <created>1494382748304</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1494382748304</updated>
-    </task>
     <task id="LOCAL-00044" summary="1.036 登录和路由权限控制">
       <created>1494497233346</created>
       <option name="number" value="00044" />
@@ -742,11 +734,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496415865603</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="1.080 公告通知红点消息通知并计数，减少User一次接口调用">
+      <created>1496474646349</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1496474646351</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="429195000" />
+    <option name="totallyTimeSpent" value="429708000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -797,7 +796,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.055 账户管理模块修改资料" />
     <MESSAGE value="1.056 账户管理模块修改密码" />
     <MESSAGE value="1.057 校内教师考核列表" />
     <MESSAGE value="1.058 校外教师考核列表" />
@@ -822,7 +820,8 @@
     <MESSAGE value="1.077 补充package.json" />
     <MESSAGE value="1.078 公告详情权限配置" />
     <MESSAGE value="1.079 首页公告通知" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.079 首页公告通知" />
+    <MESSAGE value="1.080 公告通知红点消息通知并计数，减少User一次接口调用" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.080 公告通知红点消息通知并计数，减少User一次接口调用" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1154,8 +1153,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/layout.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="40" column="57" lean-forward="false" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+        <state relative-caret-position="357">
+          <caret line="58" column="45" lean-forward="false" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
           <folding />
         </state>
       </provider>
