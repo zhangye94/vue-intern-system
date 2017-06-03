@@ -29,6 +29,7 @@
     data () {
       return {
         activeIndex: '/assessment/internalTeacherAssessment',
+        root: localStorage.root
       }
     },
     methods: {

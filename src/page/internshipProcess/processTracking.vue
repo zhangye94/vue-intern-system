@@ -25,6 +25,7 @@
         <router-link to="/internshipProcess/processTrackingAdd" class="add" v-if="root == 10001"><i class="el-icon-plus"></i></router-link>
         <el-button type="primary" class="check" @click="review" v-if="root == 10002||root == 10003">审阅</el-button>
         <el-button type="primary" class="check delete" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
+        <el-button type="text" class="download"><i class="el-icon-document"></i>导出数据</el-button>
       </div>
       <div class="content-table">
         <el-table
@@ -218,6 +219,9 @@
     }
     .delete{
       margin-right: 5px;
+    }
+    .download{
+      margin-right: 20px;
     }
   }
 </style>

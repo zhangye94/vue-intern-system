@@ -27,6 +27,7 @@
       <div class="content-title">
         <h2>考试情况列表</h2>
         <router-link to="/internshipProgram/studentAdd" class="add" v-if="root == 10001">开始考试</router-link>
+        <el-button type="text" v-if="root != 10001"><i class="el-icon-document"></i>导出数据</el-button>
       </div>
       <div class="content-table">
         <el-table

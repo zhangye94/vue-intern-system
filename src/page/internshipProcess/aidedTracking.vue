@@ -23,6 +23,7 @@
       <div class="content-title">
         <h2>考勤信息列表</h2>
         <el-button type="primary" class="check" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
+        <el-button type="text" class="download"><i class="el-icon-document"></i>导出数据</el-button>
       </div>
       <div class="content-table">
         <el-table
@@ -172,6 +173,9 @@
     .check{
       margin-bottom: 5px;
       float: right;
+    }
+    .download{
+      margin-right: 20px;
     }
   }
 </style>

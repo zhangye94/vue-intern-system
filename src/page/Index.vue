@@ -109,7 +109,6 @@
             :data="informationList"
             border
             style="width: 100%"
-            v-if="root == 10001||root == 10002||root == 10003"
           >
             <el-table-column
               type="index"
@@ -164,7 +163,6 @@
             :data="messageList"
             border
             style="width: 100%"
-            v-if="root == 10001||root == 10002||root == 10003"
           >
             <el-table-column
               type="index"
@@ -219,8 +217,6 @@
                     size="small">回复</el-button></router-link>
               </template>
             </el-table-column>
-          </el-table>
-          <el-table v-if="root == 10004||root == 10005">
           </el-table>
         </div>
         <router-link :to="{ path: '/internshipProcess/studentMessage'}" class="index-contain-link">

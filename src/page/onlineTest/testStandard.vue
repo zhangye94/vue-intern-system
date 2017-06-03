@@ -16,6 +16,7 @@
         <h2>各实习考试及格标准列表</h2>
         <router-link to="/onlineTest/testStandardAdd" class="add" v-if="root == 10004||root == 10005"><i class="el-icon-plus"></i></router-link>
         <el-button type="primary" class="batchDelete" @click="handleDelete" v-if="root == 10004||root == 10005">删除</el-button>
+        <el-button type="text"><i class="el-icon-document"></i>导出数据</el-button>
         <h3>没有特定设置合格分数的专业方向的默认合格分数为60分</h3>
       </div>
       <div class="content-table">

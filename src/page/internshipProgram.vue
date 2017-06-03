@@ -29,6 +29,7 @@
     data () {
       return {
         activeIndex: '/internshipProgram/internshipTyping',
+        root: localStorage.root
       }
     },
     methods: {

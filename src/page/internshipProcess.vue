@@ -29,6 +29,7 @@
     data () {
       return {
         activeIndex: '/internshipProcess/guidanceRecord',
+        root: localStorage.root
       }
     },
     methods: {

@@ -27,6 +27,7 @@
     data () {
       return {
         activeIndex: '/information/newsList',
+        root: localStorage.root
       }
     },
     methods: {

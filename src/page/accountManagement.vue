@@ -27,6 +27,7 @@
     data () {
       return {
         activeIndex: '/accountManagement/modifiedData',
+        root: localStorage.root
       }
     },
     methods: {
