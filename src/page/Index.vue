@@ -295,7 +295,7 @@
                 this.$notify.info({
                   title: '最新公告',
                   message: res.data.form[i].title,
-                  duration: 4500+500*i,
+                  duration: 5500+500*i,
                   offset: 60+100*i
                 });
               }
