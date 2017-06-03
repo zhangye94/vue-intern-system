@@ -37,9 +37,18 @@
             <el-menu-item index="/accountManagement/modifiedPassword">修改密码</el-menu-item>
           </el-submenu>
           <el-submenu index="information">
-            <template slot="title">信息公告</template>
-            <el-menu-item index="/information/newsList">公告列表</el-menu-item>
-            <el-menu-item index="/information/releaseNews" v-if="root == 10002||root == 10004||root == 10005">发布公告</el-menu-item>
+            <template slot="title">
+              <el-badge :is-dot="informationMark.markFlag" class="item">
+                信息公告
+              </el-badge>
+            </template>
+            <el-menu-item index="/information/newsList">
+              公告列表
+              <el-badge class="mark" :value="informationMark.markCount" />
+            </el-menu-item>
+            <el-menu-item index="/information/releaseNews" v-if="root == 10002||root == 10004||root == 10005">
+              发布公告
+            </el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
@@ -58,8 +67,12 @@
             </ul>
           </div>
           <div class="popover-button-group">
-            <el-button><router-link :to="{ path: '/accountManagement/modifiedData', query: { code: user.code }}">修改资料</router-link></el-button>
-            <el-button><router-link :to="{ path: '/accountManagement/modifiedPassword'}">修改密码</router-link></el-button>
+            <el-button>
+              <router-link :to="{ path: '/accountManagement/modifiedData', query: { code: user.code }}">修改资料</router-link>
+            </el-button>
+            <el-button>
+              <router-link :to="{ path: '/accountManagement/modifiedPassword'}">修改密码</router-link>
+            </el-button>
             <el-button type="primary" @click="logout">注销</el-button>
           </div>
         </el-popover>
@@ -69,7 +82,7 @@
       </div>
     </div>
     <div class="app-contain">
-      <router-view></router-view>
+      <router-view :informationList="informationList" :user="user"></router-view>
     </div>
     <div class="app-foot">
       <p>Copyright © 2017-2020 北京理工大学计算机软件实验室提供技术支持</p>
@@ -83,6 +96,7 @@
     },
     created: function () {
       this.getUserInfo();
+      this.getInformationData();
     },
     data () {
       return {
@@ -104,13 +118,17 @@
           uid: null,
           portrait: null
         },
+        informationList: [],
         isLogouting: false,
         showHeadAndFooter: false,
-        root: localStorage.root
+        root: localStorage.root,
+        informationMark: {
+          markFlag: false,
+          markCount: 0
+        }
       }
     },
     mounted(){
-      this.getUserInfo();
     },
     methods: {
       //读取用户信息
@@ -166,7 +184,42 @@
         this.$router.push('/login/');
         this.isLogouting = false;
         localStorage.removeItem("root");
-      }
+      },
+      //读取公告表格数据
+      getInformationData(ev){
+        this.$http.post('api/information/newsList/tableData',{})
+          .then((res) => {
+            let indexInformation = [];
+            for(let i = 0;i<5;i++){
+              if(res.data.form[i]){
+                indexInformation.push(res.data.form[i]);
+              }else{
+                break;
+              }
+            }
+            this.informationList = indexInformation;
+
+            for(let i=0;i<res.data.form.length;i++){
+              if(res.data.form[i].show){
+                this.informationMark.markFlag = true;
+                this.informationMark.markCount ++;
+                this.$notify.info({
+                  title: '最新公告',
+                  message: res.data.form[i].title,
+                  duration: 5500+500*i,
+                  offset: 60+100*i
+                });
+              }
+            }
+          }, (err) => {
+            this.$message({
+              message: '读取公告列表失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
     },
     watch: {
       // 监测store.state
@@ -174,6 +227,24 @@
     }
   }
 </script>
-<style lang="less" scoped>
-
+<style lang="less">
+  .item {
+    .el-badge__content.is-fixed{
+      top: 22px;
+    }
+    .el-badge__content.is-fixed.is-dot{
+      right: 4px;
+    }
+    .el-badge__content{
+     border: none;
+    }
+  }
+  .mark{
+    .el-badge__content{
+      border: none;
+      position: relative;
+      top: -3px;
+      left: 8px;
+    }
+  }
 </style>

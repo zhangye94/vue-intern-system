@@ -234,11 +234,10 @@
 
 <script>
   export default {
+    props: ['informationList','user'],
     components: {},
     created: function () {
       this.getMessageData();
-      this.getInformationData();
-      this.getUserInfo();
       this.getInternInfo();
     },
     data () {
@@ -246,8 +245,6 @@
         activeIndex: '/index',
         root: localStorage.root,
         messageList: [],
-        informationList: [],
-        user: "",
         internInfo: ""
       }
     },
@@ -270,53 +267,6 @@
           }, (err) => {
             this.$message({
               message: '读取失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
-      //读取公告表格数据
-      getInformationData(ev){
-        this.$http.post('api/information/newsList/tableData',{})
-          .then((res) => {
-            let indexInformation = [];
-            for(let i = 0;i<5;i++){
-              if(res.data.form[i]){
-                indexInformation.push(res.data.form[i]);
-              }else{
-                break;
-              }
-            }
-            this.informationList = indexInformation;
-
-            for(let i=0;i<res.data.form.length;i++){
-              if(res.data.form[i].show){
-                this.$notify.info({
-                  title: '最新公告',
-                  message: res.data.form[i].title,
-                  duration: 5500+500*i,
-                  offset: 60+100*i
-                });
-              }
-            }
-          }, (err) => {
-            this.$message({
-              message: '读取公告列表失败，请检查网络环境！',
-              type: 'error',
-              duration: 1500,
-              showClose: true
-            });
-          });
-      },
-      //读取用户信息
-      getUserInfo(){
-        this.$http.post('api/common/user',{})
-          .then((res) => {
-            this.user = res.data.user;
-          }, (err) => {
-            this.$message({
-              message: '读取用户信息失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true
