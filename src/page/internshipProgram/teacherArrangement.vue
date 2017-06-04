@@ -118,6 +118,17 @@
             min-width="120">
           </el-table-column>
         </el-table>
+        <div class="content-table-paging">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="page.currentPage"
+            :page-sizes="[10, 20, 50, 100]"
+            :page-size="page.pageSize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="page.total">
+          </el-pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -154,7 +165,12 @@
         }],
         teacherAttributeSelect: '',
         multipleSelection: [],
-        root: localStorage.root
+        root: localStorage.root,
+        page: {
+          currentPage: 1,
+          pageSize: 10,
+          total: 0
+        }
       }
     },
     methods: {
@@ -175,6 +191,15 @@
       //多选表格方法
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+      //分页
+      handleSizeChange(val) {
+        this.page.pageSize = val;
+        this.page.currentPage = 1;
+      },
+      handleCurrentChange(val) {
+        this.page.currentPage = val;
+        this.getTableData();
       },
       //删除
       handleDelete() {
@@ -208,10 +233,13 @@
           type: "teacher",
           teacherAttributeSelect: this.teacherAttributeSelect,
           searchContent: this.searchContent,
-          teacherTypeSelect: this.teacherTypeSelect
+          teacherTypeSelect: this.teacherTypeSelect,
+          currentPage: this.page.currentPage,
+          pageSize: this.page.pageSize
         })
           .then((res) => {
-            this.tableData = res.data.form;
+            this.tableData = res.data.form.teacherList;
+            this.page.total = res.data.form.total;
           }, (err) => {
             this.$message({
               message: '读取教师信息失败，请检查网络环境！',

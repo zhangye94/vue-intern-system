@@ -117,7 +117,7 @@
   },
   "internshipData": {
     "total": 40,
-    "internListData": [{
+    "internList": [{
       "code": "001",
       "internName": "搬砖实习",
       "orgName": "数据挖掘实验室",
@@ -146,51 +146,57 @@
       "endDate": "2018-12"
     }]
   },
-  "studentData": [{
-    "code": "001",
-    "studentName": "张三",
-    "gender": "男",
-    "grade": "2016级",
-    "telephone": "133xxxxxxxx",
-    "jobs": "京东（送快递）",
-    "internName": "未安排"
-  },{
-    "code": "002",
-    "studentName": "李四",
-    "gender": "女",
-    "grade": "2018级",
-    "telephone": "133xxxxxxxx",
-    "jobs": "美团（送外卖）",
-    "internName": "未安排"
-  },{
-    "code": "003",
-    "studentName": "老王",
-    "gender": "男",
-    "grade": "2012级",
-    "telephone": "133xxxxxxxx",
-    "jobs": "世界五百强（沃尔玛搬仓库）",
-    "internName": "未安排"
-  }],
-  "teacherData": [{
-    "code": "001",
-    "tearcherName": "B联合创始人",
-    "internName": "搬砖实习",
-    "teacherType": "校内",
-    "studentNum": "10",
-    "teacherAttribute": "专职"
-  }, {
-    "code": "002",
-    "tearcherName": "T联合创始人",
-    "internName": "搬砖实习2",
-    "teacherType": "校外",
-    "studentNum": "11",
-    "teacherAttribute": "专职"
-  }, {
-    "code": "003",
-    "tearcherName": "A联合创始人",
-    "internName": "搬砖实习3",
-    "teacherType": "校外",
-    "studentNum": "14",
-    "teacherAttribute": "兼职"
-  }]
+  "studentData": {
+    "total": 40,
+    "studentList": [{
+     "code": "001",
+     "studentName": "张三",
+     "gender": "男",
+     "grade": "2016级",
+     "telephone": "133xxxxxxxx",
+     "jobs": "京东（送快递）",
+     "internName": "未安排"
+   },{
+     "code": "002",
+     "studentName": "李四",
+     "gender": "女",
+     "grade": "2018级",
+     "telephone": "133xxxxxxxx",
+     "jobs": "美团（送外卖）",
+     "internName": "未安排"
+   },{
+     "code": "003",
+     "studentName": "老王",
+     "gender": "男",
+     "grade": "2012级",
+     "telephone": "133xxxxxxxx",
+     "jobs": "世界五百强（沃尔玛搬仓库）",
+     "internName": "未安排"
+   }]
+  },
+  "teacherData": {
+    "total": 40,
+    "teacherList": [{
+       "code": "001",
+       "tearcherName": "B联合创始人",
+       "internName": "搬砖实习",
+       "teacherType": "校内",
+       "studentNum": "10",
+       "teacherAttribute": "专职"
+     }, {
+       "code": "002",
+       "tearcherName": "T联合创始人",
+       "internName": "搬砖实习2",
+       "teacherType": "校外",
+       "studentNum": "11",
+       "teacherAttribute": "专职"
+     }, {
+       "code": "003",
+       "tearcherName": "A联合创始人",
+       "internName": "搬砖实习3",
+       "teacherType": "校外",
+       "studentNum": "14",
+       "teacherAttribute": "兼职"
+     }]
+  }
 }

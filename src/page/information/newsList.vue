@@ -59,6 +59,17 @@
             </template>
           </el-table-column>
         </el-table>
+        <div class="content-table-paging">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="page.currentPage"
+            :page-sizes="[10, 20, 50, 100]"
+            :page-size="page.pageSize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="page.total">
+          </el-pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -75,15 +86,33 @@
     data () {
       return {
         tableData: [],
-        root: localStorage.root
+        root: localStorage.root,
+        page: {
+          currentPage: 1,
+          pageSize: 10,
+          total: 0
+        }
       }
     },
     methods: {
+      //分页
+      handleSizeChange(val) {
+        this.page.pageSize = val;
+        this.page.currentPage = 1;
+      },
+      handleCurrentChange(val) {
+        this.page.currentPage = val;
+        this.getTableData();
+      },
       //读取表格数据
       getTableData(ev){
-        this.$http.post('api/information/newsList/tableData',{})
+        this.$http.post('api/information/newsList/tableData',{
+          currentPage: this.page.currentPage,
+          pageSize: this.page.pageSize
+        })
           .then((res) => {
-            this.tableData = res.data.form;
+            this.tableData = res.data.form.newsList;
+            this.page.total = res.data.form.total;
           }, (err) => {
             this.$message({
               message: '读取公告列表失败，请检查网络环境！',

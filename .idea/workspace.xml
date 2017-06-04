@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mockDB/informationDB.json" afterPath="$PROJECT_DIR$/mockDB/informationDB.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mockDB/internshipDB.json" afterPath="$PROJECT_DIR$/mockDB/internshipDB.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/less/style.less" afterPath="$PROJECT_DIR$/src/less/style.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/information/newsList.vue" afterPath="$PROJECT_DIR$/src/page/information/newsList.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" afterPath="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" afterPath="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" afterPath="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +23,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="internshipTyping.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="internshipTyping.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="218" column="50" lean-forward="false" selection-start-line="218" selection-start-column="50" selection-end-line="218" selection-end-column="50" />
+            <state relative-caret-position="366">
+              <caret line="217" column="53" lean-forward="false" selection-start-line="217" selection-start-column="53" selection-end-line="217" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -33,8 +36,28 @@
       <file leaf-file-name="internshipDB.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mockDB/internshipDB.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="119" column="19" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="19" />
+            <state relative-caret-position="359">
+              <caret line="178" column="16" lean-forward="false" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="studentList.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/studentList.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="238" column="12" lean-forward="true" selection-start-line="238" selection-start-column="12" selection-end-line="238" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teacherArrangement.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="130" column="14" lean-forward="false" selection-start-line="130" selection-start-column="14" selection-end-line="130" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -108,7 +131,6 @@
         <option value="$PROJECT_DIR$/build/dev-server.js" />
         <option value="$PROJECT_DIR$/src/less/reset.less" />
         <option value="$PROJECT_DIR$/src/page/information/releaseNews.vue" />
-        <option value="$PROJECT_DIR$/mockDB/informationDB.json" />
         <option value="$PROJECT_DIR$/src/page/layout.vue" />
         <option value="$PROJECT_DIR$/src/page/Index.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/testStandard.vue" />
@@ -118,12 +140,9 @@
         <option value="$PROJECT_DIR$/src/page/assessment.vue" />
         <option value="$PROJECT_DIR$/src/page/information.vue" />
         <option value="$PROJECT_DIR$/src/page/accountManagement.vue" />
-        <option value="$PROJECT_DIR$/src/page/information/newsList.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/processTracking.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/aidedTracking.vue" />
         <option value="$PROJECT_DIR$/src/page/onlineTest/paperManagement.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
-        <option value="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" />
         <option value="$PROJECT_DIR$/src/page/assessment/internalTeacherAssessment.vue" />
         <option value="$PROJECT_DIR$/src/page/assessment/studentAssessment.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue" />
@@ -135,8 +154,12 @@
         <option value="$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProcess/processTrackingAdd.vue" />
         <option value="$PROJECT_DIR$/src/less/style.less" />
-        <option value="$PROJECT_DIR$/mockDB/internshipDB.json" />
+        <option value="$PROJECT_DIR$/mockDB/informationDB.json" />
+        <option value="$PROJECT_DIR$/src/page/information/newsList.vue" />
         <option value="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" />
+        <option value="$PROJECT_DIR$/mockDB/internshipDB.json" />
+        <option value="$PROJECT_DIR$/src/page/internshipProgram/studentList.vue" />
+        <option value="$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue" />
       </list>
     </option>
   </component>
@@ -172,6 +195,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -256,10 +281,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue-intern-system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue-intern-system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="information" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,14 +435,8 @@
       <workItem from="1496385819533" duration="21233000" />
       <workItem from="1496457161834" duration="1055000" />
       <workItem from="1496485853066" duration="42000" />
-      <workItem from="1496552426349" duration="5598000" />
-    </task>
-    <task id="LOCAL-00048" summary="1.040 登录权限存入localStorage模拟">
-      <created>1494558057223</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1494558057223</updated>
+      <workItem from="1496552426349" duration="5668000" />
+      <workItem from="1496561005454" duration="1273000" />
     </task>
     <task id="LOCAL-00049" summary="1.040 登录权限存入localStorage模拟">
       <created>1494558194533</created>
@@ -735,11 +774,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496554591531</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="1.085 分页样例测试">
+      <created>1496558063880</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1496558063880</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="437736000" />
+    <option name="totallyTimeSpent" value="439079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -756,20 +802,20 @@
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2470238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -780,7 +826,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.060 考核评价列表页权限控制" />
     <MESSAGE value="1.061 调整所有表格自适应，并为实习安排模块添加序号列" />
     <MESSAGE value="1.062 实习安排列表下钻详细信息" />
     <MESSAGE value="1.063 实习安排详细信息页完成" />
@@ -805,7 +850,8 @@
     <MESSAGE value="1.082 新增导出功能，修复部分BUG" />
     <MESSAGE value="1.083 增加模板导出功能，修改样式上的BUG" />
     <MESSAGE value="1.084 创建修改的按钮逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.084 创建修改的按钮逻辑" />
+    <MESSAGE value="1.085 分页样例测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.085 分页样例测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -906,14 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="60" column="12" lean-forward="false" selection-start-line="60" selection-start-column="12" selection-end-line="64" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mockDB/informationDB.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -921,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
           <caret line="43" column="23" lean-forward="true" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -929,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,7 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -952,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -988,7 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="222" column="4" lean-forward="false" selection-start-line="222" selection-start-column="4" selection-end-line="224" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -996,7 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="178" column="5" lean-forward="false" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,7 +1036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="241" column="2" lean-forward="false" selection-start-line="241" selection-start-column="2" selection-end-line="241" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,15 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="49" column="94" lean-forward="false" selection-start-line="49" selection-start-column="94" selection-end-line="49" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,7 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="94" lean-forward="false" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,15 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="46" column="94" lean-forward="false" selection-start-line="46" selection-start-column="94" selection-end-line="46" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/studentList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2244">
-          <caret line="47" column="94" lean-forward="false" selection-start-line="47" selection-start-column="94" selection-end-line="47" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,23 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="115" column="27" lean-forward="true" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/information/newsList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-684">
-          <caret line="5" column="156" lean-forward="false" selection-start-line="5" selection-start-column="156" selection-end-line="5" selection-end-column="156" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/information/releaseNews.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="41" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,7 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="103" column="54" lean-forward="false" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="66" column="54" lean-forward="false" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="53" column="54" lean-forward="false" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1110,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,7 +1125,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,18 +1136,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mockDB/internshipDB.json">
+    <entry file="file://$PROJECT_DIR$/src/page/information/releaseNews.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="119" column="19" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="19" />
+        <state relative-caret-position="344">
+          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="41" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="218" column="50" lean-forward="false" selection-start-line="218" selection-start-column="50" selection-end-line="218" selection-end-column="50" />
+        <state relative-caret-position="366">
+          <caret line="217" column="53" lean-forward="false" selection-start-line="217" selection-start-column="53" selection-end-line="217" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mockDB/informationDB.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/information/newsList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/studentList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="238" column="12" lean-forward="true" selection-start-line="238" selection-start-column="12" selection-end-line="238" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mockDB/internshipDB.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="178" column="16" lean-forward="false" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="130" column="14" lean-forward="false" selection-start-line="130" selection-start-column="14" selection-end-line="130" selection-end-column="14" />
           <folding />
         </state>
       </provider>

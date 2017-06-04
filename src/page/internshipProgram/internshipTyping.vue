@@ -215,7 +215,7 @@
           pageSize: this.page.pageSize
         })
           .then((res) => {
-            this.tableData = res.data.form.internListData;
+            this.tableData = res.data.form.internList;
             this.page.total = res.data.form.total;
           }, (err) => {
             this.$message({
