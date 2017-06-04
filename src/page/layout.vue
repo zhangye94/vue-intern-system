@@ -197,21 +197,21 @@
           .then((res) => {
             let indexInformation = [];
             for(let i = 0;i<5;i++){
-              if(res.data.form[i]){
-                indexInformation.push(res.data.form[i]);
+              if(res.data.form.newsList[i]){
+                indexInformation.push(res.data.form.newsList[i]);
               }else{
                 break;
               }
             }
             this.informationList = indexInformation;
 
-            for(let i=0;i<res.data.form.length;i++){
-              if(res.data.form[i].show){
+            for(let i=0;i<res.data.form.newsList.length;i++){
+              if(res.data.form.newsList[i].show){
                 this.informationMark.markFlag = true;
                 this.informationMark.markCount ++;
                 this.$notify.info({
                   title: '最新公告',
-                  message: res.data.form[i].title,
+                  message: res.data.form.newsList[i].title,
                   duration: 5500+500*i,
                   offset: 60+100*i
                 });

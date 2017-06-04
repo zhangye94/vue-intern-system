@@ -1,35 +1,38 @@
 {
-  "guidanceRecord": [{
-    "tearcherName" : "李四",
-    "tearcherType": "校内",
-    "studentName": "张三",
-    "title": "你给我跪下吧",
-    "guideDate": "2017-5-3",
-    "askDate": "",
-    "guideWay": "电话指导",
-    "processingConditions": "已处理",
-    "ID": "001"
-  },{
-    "tearcherName" : "李四",
-    "tearcherType": "校内",
-    "studentName": "张三",
-    "title": "你给我跪下吧",
-    "guideDate": "2017-5-4",
-    "askDate": "2017-3-2",
-    "guideWay": "平台处理板",
-    "processingConditions": "已处理",
-    "ID": "002"
-  },{
-    "tearcherName" : "李四",
-    "tearcherType": "校内",
-    "studentName": "张三",
-    "title": "你给我跪下吧",
-    "guideDate": "2017-5-3",
-    "askDate": "",
-    "guideWay": "电话指导",
-    "processingConditions": "未处理",
-    "ID": "003"
-  }],
+  "guidanceRecord": {
+    "total": 40,
+    "guidanceRecordList": [{
+      "tearcherName" : "李四",
+      "tearcherType": "校内",
+      "studentName": "张三",
+      "title": "你给我跪下吧",
+      "guideDate": "2017-5-3",
+      "askDate": "",
+      "guideWay": "电话指导",
+      "processingConditions": "已处理",
+      "ID": "001"
+    },{
+      "tearcherName" : "李四",
+      "tearcherType": "校内",
+      "studentName": "张三",
+      "title": "你给我跪下吧",
+      "guideDate": "2017-5-4",
+      "askDate": "2017-3-2",
+      "guideWay": "平台处理板",
+      "processingConditions": "已处理",
+      "ID": "002"
+    },{
+      "tearcherName" : "李四",
+      "tearcherType": "校内",
+      "studentName": "张三",
+      "title": "你给我跪下吧",
+      "guideDate": "2017-5-3",
+      "askDate": "",
+      "guideWay": "电话指导",
+      "processingConditions": "未处理",
+      "ID": "003"
+    }]
+  },
   "guidanceRecordEdit": {
     "teacherName": "终极大BOSS",
     "date": "",
@@ -52,51 +55,60 @@
     "guideContent": "",
     "guideSituation": ""
   },
-  "processTracking": [{
-    "studentName": "张三",
-    "code": "001",
-    "internName": "金工实习",
-    "internAssessment": "87",
-    "title": "难忘的金工实习",
-    "condition": "已审阅",
-    "ID": "001"
-  },{
-    "studentName": "张四",
-    "code": "002",
-    "internName": "金工实习",
-    "internAssessment": "87",
-    "title": "难忘的金工实习",
-    "condition": "已审阅",
-    "ID": "002"
-  }],
+  "processTracking": {
+    "total": 40,
+    "processTrackingList": [{
+      "studentName": "张三",
+      "code": "001",
+      "internName": "金工实习",
+      "internAssessment": "87",
+      "title": "难忘的金工实习",
+      "condition": "已审阅",
+      "ID": "001"
+    },{
+      "studentName": "张四",
+      "code": "002",
+      "internName": "金工实习",
+      "internAssessment": "87",
+      "title": "难忘的金工实习",
+      "condition": "已审阅",
+      "ID": "002"
+    }]
+  },
   "processTrackingEdit": {
     "title": "22",
     "content": "2奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多12333333333333333332奥斯丁达到多多多多多多多多多多多多多多多多多多多多多多多多1233333333333333333",
     "internshipList": "选项1"
   },
-  "aidedTracking": [{
-    "studentName": "张三",
-    "code": "00x",
-    "internName": "搬砖",
-    "checkInDate": "2017-5-5",
-    "location": "北京市海淀区北京理工大学计算机中心405",
-    "ID": "002"
-  },{
-    "studentName": "张四",
-    "code": "00x",
-    "internName": "搬砖2",
-    "checkInDate": "2017-5-4",
-    "location": "北京市海淀区北京理工大学计算机中心208",
-    "ID": "003"
-  }],
-  "studentMessage": [{
-    "teacherName": "X主任",
-    "code": "001",
-    "title": "测试一下留言",
-    "date": "2017-5-5",
-    "state": "未处理",
-    "ID" : "002"
-  }],
+  "aidedTracking": {
+    "total": 40,
+    "aidedTrackingList": [{
+      "studentName": "张三",
+      "code": "00x",
+      "internName": "搬砖",
+      "checkInDate": "2017-5-5",
+      "location": "北京市海淀区北京理工大学计算机中心405",
+      "ID": "002"
+    },{
+      "studentName": "张四",
+      "code": "00x",
+      "internName": "搬砖2",
+      "checkInDate": "2017-5-4",
+      "location": "北京市海淀区北京理工大学计算机中心208",
+      "ID": "003"
+    }]
+  },
+  "studentMessage": {
+    "total": 40,
+    "studentMessageList": [{
+      "teacherName": "X主任",
+      "code": "001",
+      "title": "测试一下留言",
+      "date": "2017-5-5",
+      "state": "未处理",
+      "ID" : "002"
+    }]
+  },
   "replyList": [
     {
       "role": "teacher",

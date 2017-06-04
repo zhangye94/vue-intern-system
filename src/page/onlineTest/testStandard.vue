@@ -61,6 +61,17 @@
              min-width="100">
           </el-table-column>
         </el-table>
+        <div class="content-table-paging">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="page.currentPage"
+            :page-sizes="[10, 20, 50, 100]"
+            :page-size="page.pageSize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="page.total">
+          </el-pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -85,7 +96,12 @@
         },
         tableData: [],
         multipleSelection: [],
-        root: localStorage.root
+        root: localStorage.root,
+        page: {
+          currentPage: 1,
+          pageSize: 10,
+          total: 0
+        }
       }
     },
     methods: {
@@ -93,15 +109,27 @@
       handleSelectionChange(val) {
         this.multipleSelection = val;
       },
+      //分页
+      handleSizeChange(val) {
+        this.page.pageSize = val;
+        this.page.currentPage = 1;
+      },
+      handleCurrentChange(val) {
+        this.page.currentPage = val;
+        this.getTableData();
+      },
       //读取表格数据
       getTableData(ev){
         this.$http.post('api/onlineTest/testStandard/tableData',{
           internshipList: this.form.internshipList,
           searchContent: this.form.searchContent,
-          score: this.form.score
+          score: this.form.score,
+          currentPage: this.page.currentPage,
+          pageSize: this.page.pageSize
         })
           .then((res) => {
-            this.tableData = res.data.testStandard;
+            this.tableData = res.data.testStandard.testStandardList;
+            this.page.total = res.data.testStandard.total;
           }, (err) => {
             this.$message({
               message: '读取学生信息失败，请检查网络环境！',

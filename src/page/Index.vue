@@ -248,13 +248,12 @@
       //读取留言表格数据
       getMessageData(ev) {
         this.$http.post('api/internshipProcess/studentMessage/tableData', {
-
         })
           .then((res) => {
             let indexMessage = [];
             for(let i = 0;i<5;i++){
-              if(res.data.studentMessage[i]){
-                indexMessage.push(res.data.studentMessage[i]);
+              if(res.data.studentMessage.studentMessageList[i]){
+                indexMessage.push(res.data.studentMessage.studentMessageList[i]);
               }else{
                 break;
               }

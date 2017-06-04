@@ -134,6 +134,17 @@
             </template>
           </el-table-column>
         </el-table>
+        <div class="content-table-paging">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="page.currentPage"
+            :page-sizes="[10, 20, 50, 100]"
+            :page-size="page.pageSize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="page.total">
+          </el-pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -158,7 +169,12 @@
         tableData: [],
         multipleSelection: [],
         fileList: [],
-        root: localStorage.root
+        root: localStorage.root,
+        page: {
+          currentPage: 1,
+          pageSize: 10,
+          total: 0
+        }
       }
     },
     methods: {
@@ -206,15 +222,27 @@
       handleSelectionChange(val) {
         this.multipleSelection = val;
       },
+      //分页
+      handleSizeChange(val) {
+        this.page.pageSize = val;
+        this.page.currentPage = 1;
+      },
+      handleCurrentChange(val) {
+        this.page.currentPage = val;
+        this.getTableData();
+      },
       //读取表格数据
       getTableData(ev){
         this.$http.post('api/internshipProcess/guidanceRecord/tableData',{
           startDate: this.form.date1,
           endDate: this.form.date2,
-          processingState: this.form.processingState
+          processingState: this.form.processingState,
+          currentPage: this.page.currentPage,
+          pageSize: this.page.pageSize
         })
           .then((res) => {
-            this.tableData = res.data.guidanceRecord;
+            this.tableData = res.data.guidanceRecord.guidanceRecordList;
+            this.page.total = res.data.guidanceRecord.total;
           }, (err) => {
             this.$message({
               message: '读取指导记录失败，请检查网络环境！',

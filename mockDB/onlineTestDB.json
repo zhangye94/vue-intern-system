@@ -1,42 +1,51 @@
 {
-  "testStandard": [{
-    "internName" :"搬砖实习",
-    "score" :"100",
-    "ID" :"001"
-  },{
-    "internName" :"搬砖实习1",
-    "score" :"90",
-    "ID" :"002"
-  },{
-    "internName" :"搬砖实习2",
-    "score" :"80",
-    "ID" :"003"
-  }],
+  "testStandard": {
+    "total": 40,
+    "testStandardList": [{
+      "internName" :"搬砖实习",
+      "score" :"100",
+      "ID" :"001"
+    },{
+      "internName" :"搬砖实习1",
+      "score" :"90",
+      "ID" :"002"
+    },{
+      "internName" :"搬砖实习2",
+      "score" :"80",
+      "ID" :"003"
+    }]
+  },
   "testStandardEdit": {
     "passScore": "70",
     "internshipList": "搬砖实习1"
   },
-  "testCase": [{
-    "studentName": "张三",
-    "code": "001",
-    "grade": "2016级",
-    "jobs": "搬砖民工",
-    "internName": "土木工程实习",
-    "internScore": "86"
-  }],
-  "paperManagement": [{
-    "problemName": "测一测你的智商，看看你的智商有没有250",
-    "problemType": "单选题",
-    "ID": "001"
-  },{
-    "problemName": "测一测你的情商，看看你的情商有没有250",
-    "problemType": "多选题",
-    "ID": "002"
-  },{
-    "problemName": "测一测你的桃花运，看看你的桃花运有没有250",
-    "problemType": "单选题",
-    "ID": "003"
-  }],
+  "testCase": {
+    "total": 40,
+    "testCaseList": [{
+      "studentName": "张三",
+      "code": "001",
+      "grade": "2016级",
+      "jobs": "搬砖民工",
+      "internName": "土木工程实习",
+      "internScore": "86"
+    }]
+  },
+  "paperManagement": {
+    "total": 40,
+    "paperManagementList": [{
+      "problemName": "测一测你的智商，看看你的智商有没有250",
+      "problemType": "单选题",
+      "ID": "001"
+    },{
+      "problemName": "测一测你的情商，看看你的情商有没有250",
+      "problemType": "多选题",
+      "ID": "002"
+    },{
+      "problemName": "测一测你的桃花运，看看你的桃花运有没有250",
+      "problemType": "单选题",
+      "ID": "003"
+    }]
+  },
   "problem": {
     "problemItems": [{
       "name": "各方基本信息",
