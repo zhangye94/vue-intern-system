@@ -47,6 +47,7 @@
             <div slot="tip" class="el-upload__tip">只能上传excel文件</div>
           </el-upload>
           <span slot="footer" class="dialog-footer">
+            <el-button type="text" class="fl"><i class="el-icon-document"></i>导出模板</el-button>
             <el-button @click="dialogVisible = false">取 消</el-button>
             <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
           </span>
