@@ -49,7 +49,10 @@
             <el-input type="textarea" v-model="form.content" class="add-form-textarea" v-if="!$route.query.view"></el-input>
           </el-form-item>
           <el-form-item v-if="!$route.query.view">
-            <el-button type="primary" @click="onSubmit('form')">立即创建</el-button>
+            <el-button type="primary" @click="onSubmit('form')">
+              <span v-if="!$route.query.code">立即创建</span>
+              <span v-if="$route.query.code">修改</span>
+            </el-button>
             <el-button @click="resetForm('form')">重置</el-button>
             <el-button><router-link to="/internshipProgram/teacherArrangement">取消</router-link></el-button>
           </el-form-item>

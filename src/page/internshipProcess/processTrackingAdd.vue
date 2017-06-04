@@ -31,7 +31,10 @@
             <el-input type="textarea" v-model="form.content" class="add-form-textarea internshipSummary" :disabled="root == 10002||root == 10003||root == 10004" v-if="!$route.query.view"></el-input>
           </el-form-item>
           <el-form-item v-if="!$route.query.view">
-            <el-button type="primary" @click="onSubmit('form')" :disabled="root == 10002||root == 10003||root == 10004">立即创建</el-button>
+            <el-button type="primary" @click="onSubmit('form')" :disabled="root == 10002||root == 10003||root == 10004">
+              <span v-if="!$route.query.code">立即创建</span>
+              <span v-if="$route.query.code">修改</span>
+            </el-button>
             <el-button @click="resetForm('form')" :disabled="root == 10002||root == 10003||root == 10004">重置</el-button>
             <el-button><router-link to="/internshipProcess/processTracking">取消</router-link></el-button>
           </el-form-item>
