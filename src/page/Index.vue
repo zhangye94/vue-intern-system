@@ -130,7 +130,7 @@
             </li>
           </ul>
         </div>
-        <router-link :to="{ path: '/control/internshipStatus'}" class="index-contain-link" v-if="root != 10001">控制状态</router-link>
+        <router-link :to="{ path: '/control/internshipStatus'}" class="index-contain-link" v-if="root == 10002||root == 10004||root == 10005">控制状态</router-link>
       </div>
       <div class="index-contain">
         <h2 class="index-contain-title">最新公告<span class="index-contain-subtitle">只显示最近的五条公告</span></h2>
