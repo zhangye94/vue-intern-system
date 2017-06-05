@@ -50,7 +50,7 @@
               发布公告
             </el-menu-item>
           </el-submenu>
-          <el-submenu index="control">
+          <el-submenu index="control" v-if="root == 10002||root == 10004||root == 10005">
             <template slot="title">实习控制</template>
             <el-menu-item index="/control/internshipStatus">实习状态</el-menu-item>
           </el-submenu>

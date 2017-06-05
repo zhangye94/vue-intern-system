@@ -35,17 +35,17 @@
 </template>
 
 <script>
-  import ElForm from "../../../node_modules/element-ui/packages/form/src/form";
   export default {
     components: {
-      ElForm
     },
     created: function () {
+      this.checkRoot();
       this.getInternList();
     },
     data () {
       return {
-        activeIndex: 'index',
+        root: localStorage.root,
+        activeIndex: '/control/internshipStatus',
         form: {
           internshipList: "",
         },
@@ -126,6 +126,19 @@
               showClose: true
             });
           });
+      },
+      //检查权限
+      checkRoot(){
+        if(this.root == 10001||this.root == 10002){
+          this.$router.push('/');
+        }
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        if(to.path === '/control/internshipStatus'){
+          this.checkRoot();
+        }
       }
     }
   }

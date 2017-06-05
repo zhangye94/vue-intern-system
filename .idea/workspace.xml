@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/Index.vue" afterPath="$PROJECT_DIR$/src/page/Index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/control/internshipStatus.vue" afterPath="$PROJECT_DIR$/src/page/control/internshipStatus.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/layout.vue" afterPath="$PROJECT_DIR$/src/page/layout.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,38 +35,48 @@
       <file leaf-file-name="control.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/control.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="96" lean-forward="false" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
+            <state relative-caret-position="360">
+              <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="internshipStatus.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="internshipStatus.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/control/internshipStatus.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="106" column="9" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="106" selection-end-column="9" />
+            <state relative-caret-position="500">
+              <caret line="138" column="49" lean-forward="true" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teacherAdd.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherAdd.vue">
+      <file leaf-file-name="guidanceRecordAdd.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="120" column="27" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="27" />
+            <state relative-caret-position="261">
+              <caret line="71" column="23" lean-forward="true" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/layout.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="52" column="44" lean-forward="false" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="101" column="32" lean-forward="true" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+            <state relative-caret-position="336">
+              <caret line="113" column="38" lean-forward="false" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -161,13 +172,13 @@
         <option value="$PROJECT_DIR$/mockDB/internshipProcessDB.json" />
         <option value="$PROJECT_DIR$/src/less/style.less" />
         <option value="$PROJECT_DIR$/src/page/internshipProgram/internshipTyping.vue" />
-        <option value="$PROJECT_DIR$/src/page/layout.vue" />
         <option value="$PROJECT_DIR$/src/router/index.js" />
         <option value="$PROJECT_DIR$/src/page/control.vue" />
         <option value="$PROJECT_DIR$/build/dev-server.js" />
         <option value="$PROJECT_DIR$/mockDB/controlDB.json" />
-        <option value="$PROJECT_DIR$/src/page/control/internshipStatus.vue" />
         <option value="$PROJECT_DIR$/src/page/Index.vue" />
+        <option value="$PROJECT_DIR$/src/page/layout.vue" />
+        <option value="$PROJECT_DIR$/src/page/control/internshipStatus.vue" />
       </list>
     </option>
   </component>
@@ -401,14 +412,7 @@
       <workItem from="1496485853066" duration="42000" />
       <workItem from="1496552426349" duration="5668000" />
       <workItem from="1496561005454" duration="4130000" />
-      <workItem from="1496631102709" duration="9074000" />
-    </task>
-    <task id="LOCAL-00054" summary="1.044 权限控制">
-      <created>1494653888311</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1494653888311</updated>
+      <workItem from="1496631102709" duration="10036000" />
     </task>
     <task id="LOCAL-00055" summary="1.045 实习安排路由权限跳转强制控制">
       <created>1494665330257</created>
@@ -746,11 +750,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496643654234</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="1.091 完成首页确认信息功能">
+      <created>1496644231304</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1496644231322</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="451010000" />
+    <option name="totallyTimeSpent" value="451972000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -791,7 +802,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.066 学生留言模块查看回复，调整业务逻辑和路由" />
     <MESSAGE value="1.067 指导记录模块查看，调整业务逻辑和路由" />
     <MESSAGE value="1.068 实习过程模块查看，调整业务逻辑和路由" />
     <MESSAGE value="1.069 实习录入模块查看，调整业务逻辑和路由" />
@@ -816,7 +826,8 @@
     <MESSAGE value="1.088 解决header适配不同屏幕的BUG，首页添加实习状态到各模块的链接" />
     <MESSAGE value="1.089 实习控制模块创建，路由配置" />
     <MESSAGE value="1.090 完成实习状态控制功能，修改首页状态控制逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.090 完成实习状态控制功能，修改首页状态控制逻辑" />
+    <MESSAGE value="1.091 完成首页确认信息功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.091 完成首页确认信息功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -928,14 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="55" column="54" lean-forward="false" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,14 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/layout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="54" column="58" lean-forward="false" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/informationAcquisition.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1158,22 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherAdd.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="120" column="27" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/control.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="96" lean-forward="false" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherArrangement.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1965">
@@ -1182,18 +1161,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/control/internshipStatus.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="106" column="9" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="106" selection-end-column="9" />
+        <state relative-caret-position="336">
+          <caret line="113" column="38" lean-forward="false" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Index.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/control.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="101" column="32" lean-forward="true" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+        <state relative-caret-position="360">
+          <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/layout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="52" column="44" lean-forward="false" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProgram/teacherAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="76" column="32" lean-forward="true" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecordAdd.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="71" column="23" lean-forward="true" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/control/internshipStatus.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="138" column="49" lean-forward="true" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="49" />
           <folding />
         </state>
       </provider>
