@@ -85,6 +85,14 @@ apiRouter.post('/common/teacherList',function(req,res){
   });
 });
 
+//实习控制
+var control = require("../mockDB/controlDB.json");
+//实习状态控制
+apiRouter.post('/control/status/read',function(req,res){
+  res.json({
+    internshipControl: control.internshipControl
+  });
+});
 //消息公告
 var information = require("../mockDB/informationDB.json");
 //公告列表

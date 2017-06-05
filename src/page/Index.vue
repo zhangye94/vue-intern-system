@@ -92,7 +92,7 @@
       <div class="index-contain">
         <h2 class="index-contain-title">实习状态</h2>
         <div class="index-contain-content">
-          <el-steps space="20%" :active="2" finish-status="success">
+          <el-steps space="20%" :active="step" finish-status="success">
             <el-step title="状态 1：确认信息中" description="确认实习和个人信息"></el-step>
             <el-step title="状态 2：参加考试" description="参加实习考试"></el-step>
             <el-step title="状态 3：参与实习中" description="请用户持续参与实习工作，学生请及时签到"></el-step>
@@ -272,7 +272,8 @@
         activeIndex: '/index',
         root: localStorage.root,
         messageList: [],
-        internInfo: ""
+        internInfo: "",
+        step: 0
       }
     },
     methods: {
@@ -306,9 +307,26 @@
         })
           .then((res) => {
             this.internInfo = res.data.form;
+            this.getStatus();
           }, (err) => {
             this.$message({
               message: '读取实习信息失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //读取表格数据
+      getStatus(ev){
+        this.$http.post('api/control/status/read',{
+          internship: this.internInfo.code
+        })
+          .then((res) => {
+            this.step = res.data.internshipControl.step;
+          }, (err) => {
+            this.$message({
+              message: '读取实习状态失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true
