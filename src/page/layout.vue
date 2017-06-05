@@ -50,6 +50,10 @@
               发布公告
             </el-menu-item>
           </el-submenu>
+          <el-submenu index="control">
+            <template slot="title">实习控制</template>
+            <el-menu-item index="/control/internshipStatus">实习状态</el-menu-item>
+          </el-submenu>
         </el-menu>
       </div>
       <div class="app-head-right">

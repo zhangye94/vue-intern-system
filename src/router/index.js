@@ -53,6 +53,9 @@ import modifiedPasswordPage from '@/page/accountManagement/modifiedPassword'
 import informationPage from '@/page/information'
 import newsListPage from '@/page/information/newsList'
 import releaseNewsPage from '@/page/information/releaseNews'
+//实习控制
+import controlPage from '@/page/control'
+import internshipStatusPage from '@/page/control/internshipStatus'
 
 Vue.use(Router)
 
@@ -229,6 +232,17 @@ export default new Router({
             {
               path: 'releaseNews',
               component: releaseNewsPage
+            }
+          ]
+        },
+        {
+          path: '/control',
+          component: controlPage,
+          redirect: '/control/internshipStatus',
+          children: [
+            {
+              path: 'internshipStatus',
+              component: internshipStatusPage
             }
           ]
         },
