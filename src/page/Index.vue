@@ -101,9 +101,9 @@
           </el-steps>
           <ul class="step-link">
             <li>
-              <router-link :to="{ path: 'internshipAdd'}">
+              <a href="javascript:void(0);" @click="confirmMessageBox">
                 <span class="content-table-link">确认信息</span>
-              </router-link>
+              </a>
             </li>
             <li>
               <router-link :to="{ path: 'internshipAdd'}">
@@ -317,7 +317,7 @@
             });
           });
       },
-      //读取表格数据
+      //读取实习状态
       getStatus(ev){
         this.$http.post('api/control/status/read',{
           internship: this.internInfo.code
@@ -327,6 +327,38 @@
           }, (err) => {
             this.$message({
               message: '读取实习状态失败，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+          });
+      },
+      //确认实习信息
+      confirmMessageBox(){
+        this.$alert('确认实习信息和个人信息么？', '提示', {
+          confirmButtonText: '确定',
+          callback: action => {
+            if(`${ action }` == 'confirm'){
+              this.confirmInfo();
+            }
+          }
+        });
+      },
+      confirmInfo(){
+        this.$http.post('api/control/confirmInfo',{
+          code: this.user.code
+        })
+          .then((res) => {
+            this.$message({
+              message: '确认信息成功，请检查网络环境！',
+              type: 'error',
+              duration: 1500,
+              showClose: true
+            });
+            this.getStatus();
+          }, (err) => {
+            this.$message({
+              message: '确认信息失败，请检查网络环境！',
               type: 'error',
               duration: 1500,
               showClose: true
