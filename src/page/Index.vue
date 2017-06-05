@@ -92,12 +92,43 @@
       <div class="index-contain">
         <h2 class="index-contain-title">实习状态</h2>
         <div class="index-contain-content">
-          <el-steps :space="285" :active="2" finish-status="success">
+          <el-steps space="20%" :active="2" finish-status="success">
             <el-step title="状态 1：确认信息中" description="确认实习和个人信息"></el-step>
-            <el-step title="状态 2：参与实习中" description="请用户持续参与实习工作，学生请及时签到"></el-step>
-            <el-step title="状态 3：实习评价中" description="填写个人总结和评价"></el-step>
-            <el-step title="状态 4：结束实习" description="结束实习"></el-step>
+            <el-step title="状态 2：参加考试" description="参加实习考试"></el-step>
+            <el-step title="状态 3：参与实习中" description="请用户持续参与实习工作，学生请及时签到"></el-step>
+            <el-step title="状态 4：实习评价中" description="填写个人总结和评价"></el-step>
+            <el-step title="状态 5：结束实习" description="结束实习"></el-step>
           </el-steps>
+          <ul class="step-link">
+            <li>
+              <router-link :to="{ path: 'internshipAdd'}">
+                <span class="content-table-link">确认信息</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="{ path: 'internshipAdd'}">
+                <span class="content-table-link">开始考试</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="{ path: '/internshipProgram/internshipAdd', query: { code: internInfo.code ,view: true}}">
+                <span class="content-table-link">实习详情</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="{ path: '/internshipProcess/processTracking'}">
+                <span class="content-table-link">实习总结</span>
+              </router-link>
+              <router-link :to="{ path: '/assessment/internalTeacherAssessment'}">
+                <span class="content-table-link">实习评教</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="{ path: '/assessment/studentAssessment'}">
+                <span class="content-table-link">查看成绩</span>
+              </router-link>
+            </li>
+          </ul>
         </div>
         <router-link :to="{ path: 'processTrackingAdd'}" class="index-contain-link" v-if="root != 10001">控制状态</router-link>
       </div>
@@ -319,6 +350,13 @@
           margin-bottom: 25px;
           padding: 20px;
           overflow: hidden;
+          .step-link{
+            margin-top: 20px;
+            li{
+              float: left;
+              width: 20%;
+            }
+          }
           .index-contain-content-column{
             width: 30%;
             min-height: 30px;
