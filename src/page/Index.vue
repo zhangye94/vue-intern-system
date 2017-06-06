@@ -101,7 +101,8 @@
           </el-steps>
           <ul class="step-link">
             <li>
-              <a href="javascript:void(0);" @click="confirmMessageBox">
+              <span v-if="root == 10004||root == 10005">确认信息</span>
+              <a href="javascript:void(0);" @click="confirmMessageBox" v-if="root == 10001||root == 10002||root == 10003">
                 <span class="content-table-link">确认信息</span>
               </a>
             </li>
