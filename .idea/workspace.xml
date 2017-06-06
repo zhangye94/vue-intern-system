@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8bba28f5-dd22-4b6b-9ee9-73908ee47066" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/Index.vue" afterPath="$PROJECT_DIR$/src/page/Index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/page/assessment/indexSetting.vue" afterPath="$PROJECT_DIR$/src/page/assessment/indexSetting.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,14 +31,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/page/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+            <state relative-caret-position="291">
+              <caret line="98" column="33" lean-forward="false" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#el-table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paperManagementAdd.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="66" column="9" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="66" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexSetting.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/page/assessment/indexSetting.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,7 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mockDB/commonDB.json" />
         <option value="$PROJECT_DIR$/src/page/login.vue" />
         <option value="$PROJECT_DIR$/src/page/notFound.vue" />
         <option value="$PROJECT_DIR$/src/page/accountManagement/modifiedData.vue" />
@@ -140,6 +159,7 @@
         <option value="$PROJECT_DIR$/src/page/layout.vue" />
         <option value="$PROJECT_DIR$/src/page/control/internshipStatus.vue" />
         <option value="$PROJECT_DIR$/src/page/Index.vue" />
+        <option value="$PROJECT_DIR$/src/page/assessment/indexSetting.vue" />
       </list>
     </option>
   </component>
@@ -218,6 +238,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue-intern-system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vue-intern-system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assessment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -356,14 +398,7 @@
       <workItem from="1496552426349" duration="5668000" />
       <workItem from="1496561005454" duration="4130000" />
       <workItem from="1496631102709" duration="10259000" />
-      <workItem from="1496717222078" duration="1472000" />
-    </task>
-    <task id="LOCAL-00057" summary="1.047 实习过程路由权限跳转强制控制">
-      <created>1494669269965</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1494669269965</updated>
+      <workItem from="1496717222078" duration="6381000" />
     </task>
     <task id="LOCAL-00058" summary="1.048 增加404 Not Found页">
       <created>1494679846251</created>
@@ -701,11 +736,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496645382228</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="1.094 首页修改">
+      <created>1496719283456</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1496719283456</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="453667000" />
+    <option name="totallyTimeSpent" value="458576000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -746,8 +788,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.069 实习录入模块查看，调整业务逻辑和路由" />
-    <MESSAGE value="1.070 学生模块查看，调整业务逻辑和路由" />
     <MESSAGE value="1.071 教师模块查看，调整业务逻辑和路由" />
     <MESSAGE value="1.072 创建消息公告模块，路由配置" />
     <MESSAGE value="1.073 完成公告列表模块" />
@@ -771,21 +811,15 @@
     <MESSAGE value="1.091 完成首页确认信息功能" />
     <MESSAGE value="1.092 实习状态控制权限" />
     <MESSAGE value="1.093 统一实习控制在首页和模块页的权限" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.093 统一实习控制在首页和模块页的权限" />
+    <MESSAGE value="1.094 首页修改" />
+    <MESSAGE value="1.095 评价指标页添加标签页" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.095 评价指标页添加标签页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="79" column="33" lean-forward="false" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/processTrackingView.vue" />
     <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/studentMessageReply.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1113,21 +1147,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="98" column="33" lean-forward="false" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/internshipProcess/guidanceRecord.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="244" column="60" lean-forward="true" selection-start-line="244" selection-start-column="12" selection-end-line="244" selection-end-column="60" />
+        <state relative-caret-position="0">
+          <caret line="171" column="32" lean-forward="true" selection-start-line="171" selection-start-column="8" selection-end-line="171" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Index.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/onlineTest/paperManagementAdd.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#3;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="360">
+          <caret line="66" column="9" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="66" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/assessment/indexSetting.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
