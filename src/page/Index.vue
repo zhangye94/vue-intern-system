@@ -267,10 +267,11 @@
     created: function () {
       this.getMessageData();
       this.getInternInfo();
+      this.$store.state.adminleftnavnum="/";
     },
     data () {
       return {
-        activeIndex: '/index',
+        activeIndex: '/',
         root: localStorage.root,
         messageList: [],
         internInfo: "",
